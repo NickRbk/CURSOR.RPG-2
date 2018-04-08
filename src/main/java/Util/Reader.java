@@ -1,37 +1,44 @@
 package Util;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Reader {
-    private static FileReader fin;
+    private static FileReader fr;
     private static Scanner sc;
+    private static Scanner fsc;
 
     private Reader() throws IllegalStateException {
         throw new IllegalStateException("Can't create instance of util.ScannerUtil");
     }
 
-    public static FileReader getFileReader(String s) throws FileNotFoundException {
-        if (fin == null) {
-            return new FileReader("/main/resources/" + s + ".txt");
+    public static List<String> readFile(String s) throws IOException {
+        fr = new FileReader("src/main/resources/" + s + ".txt");
+        fsc = new Scanner(fr);
+        List<String> list = new LinkedList<>();
+        while (fsc.hasNextLine()) {
+            list.add(fsc.nextLine());
         }
-        return fin;
+        fr.close();
+        return list;
     }
 
-    public static Scanner getScanner(){
-        if(sc==null){
-            return new Scanner(System.in);
+    private static Scanner getScanner() {
+        if (sc == null) {
+            sc = new Scanner(System.in);
         }
         return sc;
     }
 
-    public static String getString(){
-        return  getScanner().nextLine();
+    static String getString() {
+        return getScanner().nextLine();
     }
 
-    public static int getInt(){
-        return  getScanner().nextInt();
-    }
+    /*public static int getInt() {
+        return getScanner().nextInt();
+    }*/
 
 }

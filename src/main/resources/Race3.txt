@@ -1,0 +1,5 @@
+Warrior
+Attack with axe, 2d10, regular
+Mechanist:
+Attack with gun, 2d6, regular
+

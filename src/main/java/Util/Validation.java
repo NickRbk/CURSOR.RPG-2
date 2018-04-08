@@ -6,7 +6,7 @@ public class Validation {
         throw new IllegalStateException("Can't create instance of util.ScannerUtil");
     }
 
-    public static boolean checkStartApp() {
+    /*public static boolean checkStartApp() {
         String s;
         System.out.println("\none more time?\ny- yes\tn-no\n");
         do {
@@ -15,20 +15,20 @@ public class Validation {
                 System.out.println("invalid answer try y or n");
             }
         } while (!("y".equalsIgnoreCase(s) || "n".equalsIgnoreCase(s)));
-        return ("y".equalsIgnoreCase(s)) ? true : false;
-    }
+        return "y".equalsIgnoreCase(s);
+    }*/
 
-    public static int checkNumber(int min, int max){
+    public static int checkNumber(int min, int max) {
         String input;
         System.out.print("\nchose your option: ");
-        while(true){
-            input=Reader.getString();
-            if(input.matches("\\d+")) {
+        while (true) {
+            input = Reader.getString();
+            if (input.matches("\\d+")) {
                 if (Integer.parseInt(input) >= min && Integer.parseInt(input) <= max) {
                     return Integer.parseInt(input);
                 }
             }
-            System.out.println("invalid input , try again :\nchose your option: "+min+"-"+max);
+            System.out.println("invalid input , try again :\nchose your option: " + min + "-" + max);
         }
     }
 }

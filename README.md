@@ -16,3 +16,8 @@ The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 └────────┴──────────┴─────────┴───────────┴─────────┴───────────────┘
 ```
 
+####how to start
+ - download or git clone
+ - in directory with pom file: mvn package
+ - java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar Main
+

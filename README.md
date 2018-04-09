@@ -20,6 +20,13 @@ Each race have a specialities whitch have treir own advantages.
 │ Dwarf  │     5    │    45   │    15     │   20    │       5       │
 └────────┴──────────┴─────────┴───────────┴─────────┴───────────────┘
 ```
+
+
+  Race  |  Charisma | Stamina | Intellect | Agility | Concentration  
+------- | --------- | ------- | --------- | ------- | -------------   
+ Elf | 15 | 10 | 25 | 22 | 18
+ Human | 10 | 30 | 20 | 15 | 15
+Dwarf | 5 | 45 | 15 | 20 | 5 
 __algorythm of actions:__
  - greetings
  - repeat 3 times:

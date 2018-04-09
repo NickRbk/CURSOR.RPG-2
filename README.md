@@ -23,8 +23,8 @@ Each race have a specialities whitch have treir own advantages.
 __algorythm of actions:__
  - greetings
  - repeat 3 times:
- - - a)choose race
- - - b)choose speciality
+ -- a)choose race
+ -- b)choose speciality
  - choose leader
  - display info of choosen characters
 #### how to start

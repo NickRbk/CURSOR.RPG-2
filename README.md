@@ -1,12 +1,21 @@
-I tried to make it so that it was easy to add a new race and new paramete.
-at this moment there are 3 races and 2 specialities.
+I tried to make it so that it was easy to add a new race and a parameter.
+Now there are 3 races and 2 specialities.
+```java
+algorythm of actions:
+```
+ - greetings
+ - repeat 3 times:
+ - a)choose race
+ - b)choose speciality
+ - choose leader
+ - display info of choosen characters
 ________________________________________________________________________
 ### Good ‘ol RPG
-We must fighting against monsters in Labyrint.
-For do this we have to take a team of three characters, one of them is a leader.
-In the event of a leader's death or if we find item the Great Crystall  - the game will end.
+We must fight against monsters in the Labyrinth.
+For doing this we need a team of three characters, one of them is a leader.
+In case of a leader's death or if we find special item "the Great Crystall", the game will end.
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
-each race have a speciality each of which has its own advantages.
+Each race have a specialities whitch have treir own advantages.
 #### Start stats for each race:
 ```java
 ┌────────┬──────────┬─────────┬───────────┬─────────┬───────────────┐

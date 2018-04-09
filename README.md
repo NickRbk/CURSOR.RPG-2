@@ -1,14 +1,6 @@
 I tried to make it so that it was easy to add a new race and a parameter.
 Now there are 3 races and 2 specialities.
-```java
-algorythm of actions:
-```
- - greetings
- - repeat 3 times:
- - a)choose race
- - b)choose speciality
- - choose leader
- - display info of choosen characters
+
 ________________________________________________________________________
 ### Good ‘ol RPG
 We must fight against monsters in the Labyrinth.
@@ -28,7 +20,13 @@ Each race have a specialities whitch have treir own advantages.
 │ Dwarf  │     5    │    45   │    15     │   20    │       5       │
 └────────┴──────────┴─────────┴───────────┴─────────┴───────────────┘
 ```
-
+__algorythm of actions:__
+ - greetings
+ - repeat 3 times:
+ - a)choose race
+ - b)choose speciality
+ - choose leader
+ - display info of choosen characters
 #### how to start
  - download or git clone
  - in directory with pom file: mvn package

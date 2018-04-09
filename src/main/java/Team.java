@@ -15,9 +15,8 @@ class Team {
     }
 
     void printTeam() {
-        for (int i=0;i<heroes.size();i++) {
-            System.out.print(i+1+")");
-            heroes.get(i).printHeroInfo();
+        for (Hero h : heroes) {
+            h.printHeroInfo();
         }
     }
 
@@ -26,6 +25,6 @@ class Team {
     }
 
     void setLeader(int i) {
-        heroes.get(i-1).setLeader(true);
+        heroes.get(i - 1).setLeader(true);
     }
 }

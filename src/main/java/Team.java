@@ -10,8 +10,8 @@ class Team {
         heroes = new ArrayList<>();
     }
 
-    void addHero(String race, String speciality, int id, int s) throws IOException {
-        heroes.add(new Hero(race, speciality, id, s));
+    void addHero(String race, String speciality, int id, int spec) throws IOException {
+        heroes.add(new Hero(race, speciality, id, spec));
     }
 
     void printTeam() {

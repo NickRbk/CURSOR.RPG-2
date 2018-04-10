@@ -5,7 +5,7 @@ import Util.Validation;
 import java.io.IOException;
 import java.util.List;
 
-import static Util.Validation.checkNumber;
+import static Util.Validation.getNumber;
 
 class Game {
     private static int raceCount;
@@ -18,7 +18,7 @@ class Game {
 
     void start() throws IOException {
         System.out.println("-----game name-----");
-        System.out.println("trere will be an introduction....\ncomming soon");
+        System.out.println("there will be an introduction....\ncoming soon");
         for (int i = 0; i < 3; i++) {
             chooseHero();
         }
@@ -29,8 +29,8 @@ class Game {
         raceCount = info.size() / 2;
         int id = getRaceInt(info);
         List<String> info2 = Reader.readFile("Race" + id);
-        int s = getSpecialityInt(info2);
-        team.addHero(info.get((id - 1) * 2), info2.get((s - 1) * 2), id, s);
+        int spec = getSpecialityInt(info2);
+        team.addHero(info.get((id - 1) * 2), info2.get((spec - 1) * 2), id, spec);
     }
 
     private int getSpecialityInt(List<String> info) {
@@ -41,7 +41,7 @@ class Game {
             Console.fillSpace(12, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
-        return checkNumber(1, info.size() / 2);
+        return getNumber(1, info.size() / 2);
     }
 
     private int getRaceInt(List<String> info) {
@@ -52,7 +52,7 @@ class Game {
             Console.fillSpace(12, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
-        return checkNumber(1, raceCount);
+        return getNumber(1, raceCount);
     }
 
     void displayTeamInfo() {
@@ -66,7 +66,7 @@ class Game {
             System.out.print(i + 1 + ") ");
             team.getHeroes().get(i).printMainInfo();
         }
-        team.setLeader(Validation.checkNumber(1, team.getHeroes().size()));
+        team.setLeader(Validation.getNumber(1, team.getHeroes().size()));
     }
 
 

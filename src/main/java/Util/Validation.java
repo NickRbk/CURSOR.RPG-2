@@ -18,7 +18,7 @@ public class Validation {
         return "y".equalsIgnoreCase(s);
     }*/
 
-    public static int checkNumber(int min, int max) {
+    public static int getNumber(int min, int max) {
         String input;
         System.out.print("\nchose your option: ");
         while (true) {

@@ -7,17 +7,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Reader {
-    private static FileReader fr;
     private static Scanner sc;
-    private static Scanner fsc;
 
     private Reader() throws IllegalStateException {
         throw new IllegalStateException("Can't create instance of util.ScannerUtil");
     }
 
     public static List<String> readFile(String s) throws IOException {
-        fr = new FileReader("src/main/resources/" + s + ".txt");
-        fsc = new Scanner(fr);
+        FileReader fr = new FileReader("src/main/resources/" + s + ".txt");
+        Scanner fsc = new Scanner(fr);
         List<String> list = new LinkedList<>();
         while (fsc.hasNextLine()) {
             list.add(fsc.nextLine());

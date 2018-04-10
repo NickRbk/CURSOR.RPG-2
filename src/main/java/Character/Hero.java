@@ -16,7 +16,7 @@ public class Hero {
     private float rage;
     private int raceId;
     private String race;
-    private String specialitie;
+    private String speciality;
     private int lvl;
     private Map<String, Integer> parameters;
     private Map<String, String> specialities;
@@ -27,7 +27,7 @@ public class Hero {
         raceId = param;
         isLeader = false;
         this.race = race;
-        this.specialitie = specialitie;
+        this.speciality = specialitie;
         lvl = 1;
         setParameters(param);
         setSpecialty(spec);
@@ -49,7 +49,7 @@ public class Hero {
         System.out.println("----------------------------------------");
         System.out.print("Race");
         Console.fillSpace(15, 4);
-        System.out.println(race + "\nparametres:");
+        System.out.println(race + "\nparameters:");
         printParametres();
         printSpecialities();
         System.out.println(isLeader ? "Leader!!" : "");
@@ -73,7 +73,7 @@ public class Hero {
     }
 
     public void printMainInfo() {
-        System.out.println(race + " " + specialitie);
+        System.out.println(race + " " + speciality);
     }
 
     public void setLeader(boolean leader) {

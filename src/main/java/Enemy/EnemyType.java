@@ -1,6 +1,6 @@
-package Enemie;
+package Enemy;
 
-public enum EnemieType {
+public enum EnemyType {
     T11("UNDEAD", "Skeleton", 10, 40, 6, 5),
     T12("UNDEAD", "Sceleton Chief", 15, 60, 6, 10),
     T13("UNDEAD", "Zombie", 5, 80, 6, 15),
@@ -26,7 +26,7 @@ public enum EnemieType {
     private int damage;
     private int cost;
 
-    EnemieType(String race, String type, int initiative, float hp, int damage, int cost) {
+    EnemyType(String race, String type, int initiative, float hp, int damage, int cost) {
         this.race = race;
         this.type = type;
         this.initiative = initiative;

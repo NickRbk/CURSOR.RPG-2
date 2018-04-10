@@ -14,6 +14,7 @@ public class Hero {
     private float hp;
     private float mp;
     private float rage;
+    private String name;
     private int raceId;
     private String race;
     private String speciality;
@@ -31,6 +32,7 @@ public class Hero {
         lvl = 1;
         setParameters(param);
         setSpecialty(spec);
+        setName();
     }
 
     private void setParameters(int param) throws IOException {
@@ -47,6 +49,9 @@ public class Hero {
 
     public void printHeroInfo() {
         System.out.println("----------------------------------------");
+        System.out.print("Name");
+        Console.fillSpace(15, 4);
+        System.out.println(name);
         System.out.print("Race");
         Console.fillSpace(15, 4);
         System.out.println(race + "\nparameters:");
@@ -70,6 +75,11 @@ public class Hero {
             Console.fillSpace(15, entry.getKey().length());
             System.out.println(entry.getValue());
         }
+    }
+
+    private void setName() throws IOException {
+        List<String> info = Reader.readFile("names");
+        name = info.get((int) (Math.random() * 10 + 10 * raceId - 9));
     }
 
     public void printMainInfo() {

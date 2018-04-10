@@ -21,7 +21,7 @@ __algorithm of actions:__
    - a)choose race
    - b)choose speciality
  - choose leader
- - display info of choosen characters
+ - display info of chosen characters
 #### how to start
  - download or git clone
  - in directory with pom file: mvn package

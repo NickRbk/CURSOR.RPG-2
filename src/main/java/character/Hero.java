@@ -36,9 +36,9 @@ public class Hero {
         }
     }
 
-    private void setSpecialty(int s) throws IOException {
+    private void setSpecialty(int spec) throws IOException {
         List<String> p = Reader.readFile("Race" + raceId);
-        specialities.put(p.get((s - 1) * 2), p.get((s - 1) * 2 + 1));
+        specialities.put(p.get((spec - 1) * 2), p.get((spec - 1) * 2 + 1));
     }
 
     public void printHeroInfo() {

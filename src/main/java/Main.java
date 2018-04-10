@@ -1,7 +1,7 @@
 
 import java.io.IOException;
 
-public class Main {
+class Main {
     public static void main(String[] args) throws IOException {
         Game newRpg = new Game();
         newRpg.start();

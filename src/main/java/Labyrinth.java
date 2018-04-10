@@ -1,2 +1,2 @@
-public class Labyrinth {
+class Labyrinth {
 }

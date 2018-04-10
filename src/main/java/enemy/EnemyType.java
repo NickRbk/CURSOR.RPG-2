@@ -1,6 +1,6 @@
 package enemy;
 
-public enum EnemyType {
+enum EnemyType {
     /*T11("UNDEAD", "Skeleton", 10, 40, 6, 5),
     T12("UNDEAD", "Sceleton Chief", 15, 60, 6, 10),
     T13("UNDEAD", "Zombie", 5, 80, 6, 15),

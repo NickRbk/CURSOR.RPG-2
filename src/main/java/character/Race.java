@@ -1,4 +1,4 @@
 package character;
 
-public class Race {
+class Race {
 }

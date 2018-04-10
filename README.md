@@ -5,7 +5,7 @@ ________________________________________________________________________
 ### Good ‘ol RPG
 We must fight against monsters in the Labyrinth.
 For doing this we need a team of three characters, one of them is a leader.
-In case of a leader's death or if we find special item "the Great Crystall", the game will end.
+In case of a leader's death or if we find special item "the Great Crystal", the game will end.
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 Each race have a specialities whitch have treir own advantages.
 #### Start stats for each race:
@@ -15,7 +15,7 @@ Each race have a specialities whitch have treir own advantages.
   Human | 10 | 30 | 20 | 15 | 15
   Dwarf | 5 | 45 | 15 | 20 | 5 
 
-__algorythm of actions:__
+__algorithm of actions:__
  - greetings
  - repeat 3 times:
    - a)choose race

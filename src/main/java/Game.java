@@ -1,11 +1,11 @@
-import Util.Console;
-import Util.Reader;
-import Util.Validation;
+import util.Console;
+import util.Reader;
+import util.Validation;
 
 import java.io.IOException;
 import java.util.List;
 
-import static Util.Validation.getNumber;
+import static util.Validation.getNumber;
 
 class Game {
     private static int raceCount;

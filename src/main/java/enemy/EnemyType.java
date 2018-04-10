@@ -1,4 +1,4 @@
-package Enemy;
+package enemy;
 
 public enum EnemyType {
     T11("UNDEAD", "Skeleton", 10, 40, 6, 5),

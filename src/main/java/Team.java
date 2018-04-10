@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Character.Hero;
+import character.Hero;
 
 class Team {
     private ArrayList<Hero> heroes;

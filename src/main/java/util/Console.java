@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 public class Console {
     public static void fillSpace(int maxLength,int length){

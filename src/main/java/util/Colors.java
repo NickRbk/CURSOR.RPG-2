@@ -1,6 +1,6 @@
 
 
-package Util;
+package util;
 
 public interface Colors {
     String DARKGREY_ON_WHITE = "\u001B[7m";

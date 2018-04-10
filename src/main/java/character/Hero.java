@@ -1,7 +1,7 @@
-package Character;
+package character;
 
-import Util.Console;
-import Util.Reader;
+import util.Console;
+import util.Reader;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -7,7 +7,7 @@ We must fight against monsters in the Labyrinth.
 For doing this we need a team of three characters, one of them is a leader.
 In case of a leader's death or if we find special item "the Great Crystal", the game will end.
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
-Each race have a specialities whitch have treir own advantages.
+Each race have a specialities which have treir own advantages.
 #### Start stats for each race:
   Race  |  Charisma | Stamina | Intellect | Agility | Concentration  
 ------- | --------- | ------- | --------- | ------- | -------------   

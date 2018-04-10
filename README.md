@@ -26,4 +26,8 @@ __algorythm of actions:__
  - download or git clone
  - in directory with pom file: mvn package
  - java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar Main
-
+#### \*.txt files
+ - __names__ list with 10 names for each race.
+ - __Race__ list with race names.
+ - __Race1__ List with first race specialities.
+ - __Race1p__ List with first race parameters.

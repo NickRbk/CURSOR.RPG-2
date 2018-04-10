@@ -17,13 +17,13 @@ public class Hero {
     private Map<String, Integer> parameters;
     private Map<String, String> specialities;
 
-    public Hero(String race, String specialitie, int param, int spec) throws IOException {
+    public Hero(String race, String speciality, int param, int spec) throws IOException {
         parameters = new LinkedHashMap<>();
         specialities = new LinkedHashMap<>();
         raceId = param;
         isLeader = false;
         this.race = race;
-        this.speciality = specialitie;
+        this.speciality = speciality;
         setParameters(param);
         setSpecialty(spec);
         setName();
@@ -50,12 +50,12 @@ public class Hero {
         Console.fillSpace(15, 4);
         System.out.println(race);
         System.out.println("parameters:");
-        printParametres();
+        printParameters();
         printSpecialities();
         System.out.println(isLeader ? "Leader!!" : "");
     }
 
-    private void printParametres() {
+    private void printParameters() {
         for (Map.Entry<String, Integer> entry : parameters.entrySet()) {
             System.out.print(entry.getKey());
             Console.fillSpace(15, entry.getKey().length());

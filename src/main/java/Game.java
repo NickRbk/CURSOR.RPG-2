@@ -64,7 +64,7 @@ class Game {
         System.out.println("Choose your leader:");
         for (int i = 0; i < team.getHeroes().size(); i++) {
             System.out.print(i + 1 + ") ");
-            team.getHeroes().get(i).printMainInfo();
+            team.getHeroes().get(i).printInfo();
         }
         team.setLeader(Validation.getNumber(1, team.getHeroes().size()));
     }

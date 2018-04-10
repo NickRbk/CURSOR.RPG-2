@@ -4,32 +4,26 @@ import util.Console;
 import util.Reader;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Hero {
     private boolean isLeader;
-    private int kDamage;
-    private float hp;
-    private float mp;
-    private float rage;
     private String name;
     private int raceId;
     private String race;
     private String speciality;
-    private int lvl;
     private Map<String, Integer> parameters;
     private Map<String, String> specialities;
 
     public Hero(String race, String specialitie, int param, int spec) throws IOException {
-        parameters = new HashMap<>();
-        specialities = new HashMap<>();
+        parameters = new LinkedHashMap<>();
+        specialities = new LinkedHashMap<>();
         raceId = param;
         isLeader = false;
         this.race = race;
         this.speciality = specialitie;
-        lvl = 1;
         setParameters(param);
         setSpecialty(spec);
         setName();
@@ -54,7 +48,8 @@ public class Hero {
         System.out.println(name);
         System.out.print("Race");
         Console.fillSpace(15, 4);
-        System.out.println(race + "\nparameters:");
+        System.out.println(race);
+        System.out.println("parameters:");
         printParametres();
         printSpecialities();
         System.out.println(isLeader ? "Leader!!" : "");
@@ -82,7 +77,7 @@ public class Hero {
         name = info.get((int) (Math.random() * 10 + 10 * raceId - 9));
     }
 
-    public void printMainInfo() {
+    public void printInfo() {
         System.out.println(race + " " + speciality);
     }
 

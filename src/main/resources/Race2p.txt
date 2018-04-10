@@ -1,3 +1,11 @@
+Level
+1
+Helth
+100
+Mana
+0
+Rage
+100
 Charisma
 10
 Stamina

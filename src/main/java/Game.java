@@ -38,7 +38,7 @@ class Game {
         System.out.println("choose hero speciality: ");
         for (int i = 0; i < info.size() / 2; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(12, info.get(i * 2).length() + 3);
+            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
         return getNumber(1, info.size() / 2);
@@ -46,10 +46,10 @@ class Game {
 
     private int getRaceInt(List<String> info) {
         System.out.println("########################################");
-        System.out.println("choose your race:");
+        System.out.println("choose race:");
         for (int i = 0; i < raceCount; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(12, info.get(i * 2).length() + 3);
+            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
         return getNumber(1, raceCount);

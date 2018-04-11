@@ -36,6 +36,10 @@ public class Hero {
         }
     }
 
+    public Map<String, Integer> getParameters() {
+        return parameters;
+    }
+
     private void setSpecialty(int spec) throws IOException {
         List<String> p = Reader.readFile("Race" + raceId);
         specialities.put(p.get((spec - 1) * 2), p.get((spec - 1) * 2 + 1));
@@ -44,10 +48,10 @@ public class Hero {
     public void printHeroInfo() {
         System.out.println("----------------------------------------");
         System.out.print("Name");
-        Console.fillSpace(15, 4);
+        Console.fillSpace(2 * Console.TAB, 4);
         System.out.println(name);
         System.out.print("Race");
-        Console.fillSpace(15, 4);
+        Console.fillSpace(2 * Console.TAB, 4);
         System.out.println(race);
         System.out.println("parameters:");
         printParameters();
@@ -58,7 +62,7 @@ public class Hero {
     private void printParameters() {
         for (Map.Entry<String, Integer> entry : parameters.entrySet()) {
             System.out.print(entry.getKey());
-            Console.fillSpace(15, entry.getKey().length());
+            Console.fillSpace(2 * Console.TAB, entry.getKey().length());
             System.out.println(entry.getValue());
         }
     }
@@ -67,7 +71,7 @@ public class Hero {
         System.out.println("specialities:");
         for (Map.Entry<String, String> entry : specialities.entrySet()) {
             System.out.print(entry.getKey());
-            Console.fillSpace(15, entry.getKey().length());
+            Console.fillSpace(2 * Console.TAB, entry.getKey().length());
             System.out.println(entry.getValue());
         }
     }

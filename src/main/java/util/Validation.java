@@ -1,6 +1,6 @@
 package util;
 
-public class Validation {
+public final class Validation {
 
     private Validation() throws IllegalStateException {
         throw new IllegalStateException("Can't create instance of util.ScannerUtil");

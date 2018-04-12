@@ -16,19 +16,19 @@ Each race have a specialities which have treir own advantages.
   Dwarf | 5 | 45 | 15 | 20 | 5 
 ### Hero parameters
 #### Main
+ - __Race__
+ - __Name__
  - __Health__
  - __Manna__
  - __Level__ min -1, max -10.
  - __isLeader__ 
  - __Health__
  #### Regular
- - __Race__
  - __Charisma__
- - __Stamina__
- - __isLeader__
- - __Intellect__
- - __Agility__
- - __Concentration__
+ - __Stamina__ 2 hp per 1 stamina point, 0,25 hp regen per 1 stamina point
+ - __Intellect__ 2 mp – per 1 intelect point, 0,25 mp regen per 1 intelect point
+ - __Agility__  4 rp per 1 agility point, chance to avoid hit 1% per 2 points
+ - __Concentration__ 1 hp, 1,5 mp/1 rp regen per turn for 1 consentartion point, 1 turn cd decresion per 25 points
 ### algorithm of actions:
  - greetings
  - repeat 3 times:

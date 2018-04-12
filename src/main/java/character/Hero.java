@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Hero {
     private boolean isLeader;
@@ -34,6 +35,7 @@ public class Hero {
         for (int i = 0; i < p.size() / 2; i++) {
             parameters.put(p.get(i * 2), Integer.parseInt(p.get(i * 2 + 1)));
         }
+
     }
 
     public Map<String, Integer> getParameters() {
@@ -60,7 +62,7 @@ public class Hero {
     }
 
     private void printParameters() {
-        for (Map.Entry<String, Integer> entry : parameters.entrySet()) {
+        for (Entry<String, Integer> entry : parameters.entrySet()) {
             System.out.print(entry.getKey());
             Console.fillSpace(2 * Console.TAB, entry.getKey().length());
             System.out.println(entry.getValue());
@@ -69,7 +71,7 @@ public class Hero {
 
     private void printSpecialities() {
         System.out.println("specialities:");
-        for (Map.Entry<String, String> entry : specialities.entrySet()) {
+        for (Entry<String, String> entry : specialities.entrySet()) {
             System.out.print(entry.getKey());
             Console.fillSpace(2 * Console.TAB, entry.getKey().length());
             System.out.println(entry.getValue());

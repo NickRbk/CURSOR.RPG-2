@@ -5,15 +5,15 @@ import util.Validation;
 import java.io.IOException;
 import java.util.List;
 
-import static util.Validation.getNumber;
-
 class Game {
     private static int raceCount;
     private Team team;
+    // private Labyrinth labyrinth;
 
-    Game() {
+    Game() throws IOException {
         team = new Team();
         raceCount = 0;
+        //    labyrinth=new Labyrinth();
     }
 
     void start() throws IOException {
@@ -41,7 +41,7 @@ class Game {
             Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
-        return getNumber(1, info.size() / 2);
+        return Validation.getNumber(1, info.size() / 2);
     }
 
     private int getRaceInt(List<String> info) {
@@ -52,7 +52,7 @@ class Game {
             Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
             System.out.println(info.get(i * 2 + 1));
         }
-        return getNumber(1, raceCount);
+        return Validation.getNumber(1, raceCount);
     }
 
     void displayTeamInfo() {
@@ -69,5 +69,11 @@ class Game {
         team.setLeader(Validation.getNumber(1, team.getHeroes().size()));
     }
 
+    void inRoom() {
 
+    }
+
+    /*public Labyrinth getLabyrinth() {
+        return labyrinth;
+    }*/
 }

@@ -1,0 +1,29 @@
+Start
+some start info
+exit
+some exit info
+regular room 1
+some regular room 1 info
+regular room 2
+some regular room 2 info
+regular room 3
+some regular room 3 info
+regular room 4
+some regular room 4 info
+regular room 5
+some regular room 5 info
+regular room 6
+some regular room 6 info
+regular room 7
+some regular room 7 info
+regular room 8
+some regular room 8 info
+specific room1
+some specific room1 info
+specific room2
+some specific room2 info
+specific room3
+some specific room3 info
+specific room4
+some specific room4 info
+

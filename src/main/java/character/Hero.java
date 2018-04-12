@@ -1,25 +1,38 @@
 package character;
 
+import lombok.Getter;
+import lombok.Setter;
 import util.Console;
 import util.Reader;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class Hero {
+    @Getter
     private boolean isLeader;
+    @Getter
+    @Setter
+    private int points;
+    @Getter
     private String name;
     private int raceId;
+    @Getter
     private String race;
     private String speciality;
-    private Map<String, Integer> parameters;
+    @Getter
+    private ArrayList<String> parametersNames;
+    @Getter
+    private ArrayList<String> parametersNumbers;
     private Map<String, String> specialities;
 
     public Hero(String race, String speciality, int param, int spec) throws IOException {
-        parameters = new LinkedHashMap<>();
+        parametersNames = new ArrayList<>();
+        parametersNumbers= new ArrayList<>();
         specialities = new LinkedHashMap<>();
         raceId = param;
         isLeader = false;
@@ -28,18 +41,16 @@ public class Hero {
         setParameters(param);
         setSpecialty(spec);
         setName();
+        points = 10;
     }
 
     private void setParameters(int param) throws IOException {
         List<String> p = Reader.readFile("Race" + param + "p");
         for (int i = 0; i < p.size() / 2; i++) {
-            parameters.put(p.get(i * 2), Integer.parseInt(p.get(i * 2 + 1)));
+            parametersNames.add(p.get(i * 2));
+            parametersNumbers.add(p.get(i * 2 + 1));
         }
 
-    }
-
-    public Map<String, Integer> getParameters() {
-        return parameters;
     }
 
     private void setSpecialty(int spec) throws IOException {
@@ -50,10 +61,10 @@ public class Hero {
     public void printHeroInfo() {
         System.out.println("----------------------------------------");
         System.out.print("Name");
-        Console.fillSpace(2 * Console.TAB, 4);
+        Console.fillSpace(2 * Console.TAB, 4,".");
         System.out.println(name);
         System.out.print("Race");
-        Console.fillSpace(2 * Console.TAB, 4);
+        Console.fillSpace(2 * Console.TAB, 4,".");
         System.out.println(race);
         System.out.println("parameters:");
         printParameters();
@@ -62,10 +73,10 @@ public class Hero {
     }
 
     private void printParameters() {
-        for (Entry<String, Integer> entry : parameters.entrySet()) {
-            System.out.print(entry.getKey());
-            Console.fillSpace(2 * Console.TAB, entry.getKey().length());
-            System.out.println(entry.getValue());
+        for (int i=0;i<parametersNumbers.size();i++) {
+            System.out.print(parametersNames.get(i));
+            Console.fillSpace(2 * Console.TAB, parametersNames.get(i).length(),".");
+            System.out.println(parametersNumbers.get(i));
         }
     }
 
@@ -73,7 +84,7 @@ public class Hero {
         System.out.println("specialities:");
         for (Entry<String, String> entry : specialities.entrySet()) {
             System.out.print(entry.getKey());
-            Console.fillSpace(2 * Console.TAB, entry.getKey().length());
+            Console.fillSpace(2 * Console.TAB, entry.getKey().length(),".");
             System.out.println(entry.getValue());
         }
     }

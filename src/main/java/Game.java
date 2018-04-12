@@ -8,12 +8,12 @@ import java.util.List;
 class Game {
     private static int raceCount;
     private Team team;
-    // private Labyrinth labyrinth;
+    private Labyrinth labyrinth;
 
     Game() throws IOException {
         team = new Team();
         raceCount = 0;
-        //    labyrinth=new Labyrinth();
+        labyrinth = new Labyrinth();
     }
 
     void start() throws IOException {
@@ -38,7 +38,7 @@ class Game {
         System.out.println("choose hero speciality: ");
         for (int i = 0; i < info.size() / 2; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
+            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3,".");
             System.out.println(info.get(i * 2 + 1));
         }
         return Validation.getNumber(1, info.size() / 2);
@@ -49,14 +49,14 @@ class Game {
         System.out.println("choose race:");
         for (int i = 0; i < raceCount; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3);
+            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3, ".");
             System.out.println(info.get(i * 2 + 1));
         }
         return Validation.getNumber(1, raceCount);
     }
 
     void displayTeamInfo() {
-        team.printTeam();
+        team.printTeam2();
     }
 
     void chooseLeader() {
@@ -69,11 +69,26 @@ class Game {
         team.setLeader(Validation.getNumber(1, team.getHeroes().size()));
     }
 
-    void inRoom() {
-
+    public Labyrinth getLabyrinth() {
+        return labyrinth;
     }
 
-    /*public Labyrinth getLabyrinth() {
-        return labyrinth;
-    }*/
+    public void turn() {
+        String s = labyrinth.getRooms().get(team.getPosition()).getName();
+        while (!s.equals("exit")){
+            s = labyrinth.getRooms().get(team.getPosition()).getName();
+            chooseNextRoom();
+        }
+    }
+
+    public void chooseNextRoom() {
+        Room r = labyrinth.getRooms().get(team.getPosition());
+        System.out.println("\\//\\\\//\\/*//*/\\*/" + r.getName() + "*\\///\\*/\\*/*/\\*\\*/\\*/\\");
+        System.out.println(r.getInfo());
+        System.out.println();
+        System.out.println("move to: ");
+        r.printExits(labyrinth.getRooms());
+        int next = Validation.getNumber(1, r.getExits().size());
+        team.setPosition(r.getExits().get(next - 1));
+    }
 }

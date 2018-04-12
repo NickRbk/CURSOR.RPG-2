@@ -1,35 +1,41 @@
+import lombok.Getter;
+
 import java.util.ArrayList;
 
 public class Room {
     private int minEnemyHp;
+    @Getter
     private int id;
+    @Getter
     private String name;
-    private boolean isExitsAreOpen;
-    private ArrayList<Integer>exits;
+    @Getter
+    private String info;
+    //private boolean isExitsAreOpen;
+    @Getter
+    private ArrayList<Integer> exits;
 
-    Room(String name,int id){
-        this.id=id;
-        exits=new ArrayList<>();
-        this.name=name;
-        isExitsAreOpen=true;
+    Room(String name, String info, int id) {
+        this.id = id;
+        this.info = info;
+        exits = new ArrayList<>();
+        this.name = name;
+        //isExitsAreOpen=true;
     }
 
-    public void addExit(Integer i){
+    public void addExit(Integer i) {
         exits.add(i);
     }
 
-    public String getName() {
-        return name;
-    }
-    public  void printExits(){
-        System.out.print("[");
-        for(Integer i: exits){
-            System.out.print(i+", ");
+    public void printExits(ArrayList<Room> rooms) {
+        int n = 1;
+        for (Integer i : exits) {
+            for (Room r : rooms) {
+                if (r.getId() == i) {
+                    System.out.println(n + ")" + r.getName());
+                    n++;
+                }
+            }
         }
-        System.out.println("]");
     }
 
-    public int getId() {
-        return id;
-    }
 }

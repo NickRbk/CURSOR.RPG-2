@@ -1,4 +1,4 @@
-/*import util.Console;
+import util.Console;
 import util.Reader;
 
 import java.io.IOException;
@@ -69,4 +69,3 @@ class Labyrinth {
         return labyrinth;
     }
 }
-*/

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Room {
-    /*private int minEnemyHp;
+    private int minEnemyHp;
     private int id;
     private String name;
     private boolean isExitsAreOpen;
@@ -31,5 +31,5 @@ public class Room {
 
     public int getId() {
         return id;
-    }*/
+    }
 }

@@ -47,4 +47,4 @@ Each race have a specialities which have treir own advantages.
  - __Race1p__ List with first race parameters.
  
 #### __stuff__
- - [unicod symbols] (https://unicode-table.com/ru/#box-drawing)
+ - [unicod symbols](https://unicode-table.com/ru/#box-drawing)

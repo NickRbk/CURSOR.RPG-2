@@ -14,7 +14,21 @@ Each race have a specialities which have treir own advantages.
   Elf | 15 | 10 | 25 | 22 | 18
   Human | 10 | 30 | 20 | 15 | 15
   Dwarf | 5 | 45 | 15 | 20 | 5 
-
+#### Hero parameters
+##### Main
+ - __Health__
+ - __Manna__
+ - __Level__
+ - __isLeader__
+ - __Health__
+ ##### Regular
+ - __Race__
+ - __Charisma__
+ - __Stamina__
+ - __isLeader__
+ - __Intellect__
+ - __Agility__
+ - __Concentration__
 __algorithm of actions:__
  - greetings
  - repeat 3 times:

@@ -1,21 +1,21 @@
-Старт.
-Може повернутись поки не пізно?
-Кумната у якій усі стіни покриті кристалами. У поселенні неподалік місцеві жителі називають їх "Амеліт", звідки вони взялись і як виростіють невідомо. Вони трохи світяться. так як у кімнаті їх доволі багато ми можемо її повністю оглянути. На протилежному кінці кімнати є двері. що будемо робити?
-Exit.
-схоже тут вихід.
-О! ми пройшли підземелля.Ви стоїте перед виходом з цього неприємного місця. Може одумаєтись і повернути назад?
+Start
+Maybe it`s better to go back until it`s too late ?
+The room whose walls are coated with the crystals. In a settlement nearby residents call them "Amelit". It`s unknown how they have appeared and how they grow. They are glowing a bit. As there are lots of crystals in the room, we can inspect it. On the opposite side of the room there is a door. What are you going to do?
+Exit
+it looks like an exit is here.
+Oh, we have passed the dungeon. You are standing in front of the exit from this unpleasant place. Maybe you will change your mind and go back?
 DarkRoom.
-Підійти і відчинити темні двері.
-У кімнаті доволі мало "Амеліту" але всетаки досить щоб її оглянути. По кількості павутиння можна сказати що тут давно нікого не було...
+Сome up and open the dark door
+There are few Amelit in the room , but it`s still enough to look around. According to the web, nobody has been here for a long time...
 Skeleton room.
-Підійти до окровавленихих дверей.
-Кімната буквально засипана кістками. Складається враження що їх сюди навмисно скидують. Ними навіть засипаний прохід. всетаки нам вдалось добратись до кінця кімнати. куди далі?
+Come up to the bloody door.
+The room is full of bones. It seems like somebody intentionally throws off them here. They even cut off the passage. Yet we have managed to get to the end of the room. Where to go now?
 Regular room.
-Відкрити звичайні двері.
-ми зайшли до самої звичайної кімнати. Навдміну від інших у най навіть не смердить (орочью мочою). але що тут можна робити невідомо. 
-Задимлена кімната.
-підійти до дверей що димлять.
-Тут пожежа! Усе в диму, нічого не видно і складно дихати. наша команда починає втрачати своє здоров'я! потрібно вибиратись звідси пошвидше.
+Open the ordinary door.
+We have entered the ordinary room. Unlike the others there is no terrible smell here. But heaven knows what we can do here. 
+room in smoke
+Smoke comes from behind the door.
+There is a fire here ! Everything in  smoke, nothing is visible and it`s difficult to breathe. Our team is losing the health! We must get out of here immediately.
 Broken door.
 пролізти крізь зламані двері.
 На всю ширину проходу знаходиться пропасть. ви кинули туди камінь але так і не почули чи він упав. ви пройшли через міст. куди далі?
@@ -38,5 +38,5 @@ Crystal room.
 Піти у прохід біля tombstone.
 багато трупів, дуже багато, мені туд не подобається. здається он той ворухнівся. чи той. мерщій звідси
 Озеро
-піти у прохід у стіні. 
-величезна пещера повністю занята озером. Щось світиться у глибину. ви подумали - полюбому амеліт. Що ж він таке?
+Піти у прохід у стіні. 
+Величезна пещера повністю занята озером. Щось світиться у глибину. ви подумали - полюбому амеліт. Що ж він таке?

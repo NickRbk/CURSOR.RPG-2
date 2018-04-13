@@ -80,7 +80,7 @@ class Game {
 
     public void turn() {
         String s = dungeon.getRooms().get(team.getPosition()).getName();
-        while (!s.equals("exit")) {
+        while (!s.equals("Exit")) {
             s = dungeon.getRooms().get(team.getPosition()).getName();
             chooseNextRoom();
         }
@@ -88,7 +88,7 @@ class Game {
 
     public void chooseNextRoom() {
         Room r = dungeon.getRooms().get(team.getPosition());
-        roomSignboard("\u274C", "\u25C6", r.getName());
+        roomSignboard("\u2440", "\u2441", r.getName());
         Console.printParagraph(r.getInfo());
         r.printExits(dungeon.getRooms());
         int next = Validation.getNumber("move to: ", 1, r.getExits().size());
@@ -97,15 +97,15 @@ class Game {
 
     private void roomSignboard(String s1, String s2, String name) {
         String line = new String(Colors.BLUE);
-        line=randomLine(s1,s2,line,TAB*9+4 );
+        line=randomLine(s1,s2,line,TAB*9+9 );
         System.out.println(line);
         line=new String(Colors.BLUE);
         line=randomLine(s1,s2,line,38 - name.length() / 2 );
         line += " "+Colors.RESET + name + Colors.BLUE+" ";
-        line=randomLine(s1,s2,line,TAB*9+4 );
+        line=randomLine(s1,s2,line,TAB*9+18);
         System.out.println(line);
         line=new String(Colors.BLUE);
-        line=randomLine(s1,s2,line,TAB*9+4 );
+        line=randomLine(s1,s2,line,TAB*9+9 );
         System.out.println(line+Colors.RESET);
     }
 

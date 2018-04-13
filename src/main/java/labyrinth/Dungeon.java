@@ -14,10 +14,10 @@ public class Dungeon{
     public Dungeon() throws IOException {
         rooms = new ArrayList<>();
         maxLength = 7 + (int) (Math.random() * 2 + 0.1);
-        labyrinthGenerator();
+        dungeonGenerator();
     }
 
-    private void labyrinthGenerator() throws IOException {
+    private void dungeonGenerator() throws IOException {
         List<String> list = Reader.readFile("roomsTMP");   //get list with all possible rooms
         Room r1 = new Room(list.get(0), list.get(1), list.get(2), 0);
         Room r2 = new Room(list.get(0), list.get(1), list.get(2), 0);
@@ -42,7 +42,7 @@ public class Dungeon{
     }
 
     private void createSideline(List<String> list, Room r1, Room r2) {
-        int j = (int) (Math.random() * (rooms.size() - 2) + 0.01);
+        int j = (int) (Math.random() * (rooms.size() - 2) + 0.01)+1;
         r1 = rooms.get(j);
         for (int i = 0; i < Math.random() * 3; i++) {
             int number1 = (int) (Math.random() * 12 + 0.01) * 2 + 4;

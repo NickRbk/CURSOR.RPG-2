@@ -1,3 +1,5 @@
+import labyrinth.Dungeon;
+import labyrinth.Room;
 import util.Console;
 import util.Reader;
 import util.Validation;
@@ -5,15 +7,19 @@ import util.Validation;
 import java.io.IOException;
 import java.util.List;
 
+import util.Colors;
+
+import static util.Console.TAB;
+
 class Game {
     private static int raceCount;
     private Team team;
-    private Labyrinth labyrinth;
+    private Dungeon dungeon;
 
     Game() throws IOException {
         team = new Team();
         raceCount = 0;
-        labyrinth = new Labyrinth();
+        dungeon = new Dungeon();
     }
 
     void start() throws IOException {
@@ -38,10 +44,10 @@ class Game {
         System.out.println("choose hero speciality: ");
         for (int i = 0; i < info.size() / 2; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3,".");
+            Console.fillSpace(2 * TAB, info.get(i * 2).length() + 3, ".");
             System.out.println(info.get(i * 2 + 1));
         }
-        return Validation.getNumber(1, info.size() / 2);
+        return Validation.getNumber("answer: ", 1, info.size() / 2);
     }
 
     private int getRaceInt(List<String> info) {
@@ -49,46 +55,72 @@ class Game {
         System.out.println("choose race:");
         for (int i = 0; i < raceCount; i++) {
             System.out.print(i + 1 + ") " + info.get(i * 2));
-            Console.fillSpace(2 * Console.TAB, info.get(i * 2).length() + 3, ".");
+            Console.fillSpace(2 * TAB, info.get(i * 2).length() + 3, ".");
             System.out.println(info.get(i * 2 + 1));
         }
-        return Validation.getNumber(1, raceCount);
+        return Validation.getNumber("answer: ", 1, raceCount);
     }
 
     void displayTeamInfo() {
-        team.printTeam2();
+        team.printTeam(Colors.CYAN, Colors.RESET);
     }
 
     void chooseLeader() {
         System.out.println("________________________________________");
-        System.out.println("Choose your leader:");
         for (int i = 0; i < team.getHeroes().size(); i++) {
             System.out.print(i + 1 + ") ");
             team.getHeroes().get(i).printInfo();
         }
-        team.setLeader(Validation.getNumber(1, team.getHeroes().size()));
+        team.setLeader(Validation.getNumber("Choose your leader:", 1, team.getHeroes().size()));
     }
 
-    public Labyrinth getLabyrinth() {
-        return labyrinth;
+    public Dungeon getLabyrinth() {
+        return dungeon;
     }
 
     public void turn() {
-        String s = labyrinth.getRooms().get(team.getPosition()).getName();
-        while (!s.equals("exit")){
-            s = labyrinth.getRooms().get(team.getPosition()).getName();
+        String s = dungeon.getRooms().get(team.getPosition()).getName();
+        while (!s.equals("exit")) {
+            s = dungeon.getRooms().get(team.getPosition()).getName();
             chooseNextRoom();
         }
     }
 
     public void chooseNextRoom() {
-        Room r = labyrinth.getRooms().get(team.getPosition());
-        System.out.println("\\//\\\\//\\/*//*/\\*/" + r.getName() + "*\\///\\*/\\*/*/\\*\\*/\\*/\\");
-        System.out.println(r.getInfo());
-        System.out.println();
-        System.out.println("move to: ");
-        r.printExits(labyrinth.getRooms());
-        int next = Validation.getNumber(1, r.getExits().size());
+        Room r = dungeon.getRooms().get(team.getPosition());
+        roomSignboard("\u274C", "\u25C6", r.getName());
+        Console.printParagraph(r.getInfo());
+        r.printExits(dungeon.getRooms());
+        int next = Validation.getNumber("move to: ", 1, r.getExits().size());
         team.setPosition(r.getExits().get(next - 1));
+    }
+
+    private void roomSignboard(String s1, String s2, String name) {
+        String line = new String(Colors.BLUE);
+        line=randomLine(s1,s2,line,TAB*9+4 );
+        System.out.println(line);
+        line=new String(Colors.BLUE);
+        line=randomLine(s1,s2,line,38 - name.length() / 2 );
+        line += " "+Colors.RESET + name + Colors.BLUE+" ";
+        line=randomLine(s1,s2,line,TAB*9+4 );
+        System.out.println(line);
+        line=new String(Colors.BLUE);
+        line=randomLine(s1,s2,line,TAB*9+4 );
+        System.out.println(line+Colors.RESET);
+    }
+
+    private String randomLine(String s1, String s2,String line,int n) {
+        while (line.length() < n) {
+            if (Math.random() > 0.5) {
+                line += s1;
+            } else {
+                line += s2;
+            }
+        }
+        return line;
+    }
+
+    public void upgrade() {
+        team.upgradeHeroes();
     }
 }

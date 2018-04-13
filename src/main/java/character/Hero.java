@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import util.Colors;
 
 public class Hero {
     @Getter
@@ -100,5 +101,14 @@ public class Hero {
 
     public void setLeader(boolean leader) {
         isLeader = leader;
+    }
+    public void incPoints(int i){
+        points+=i;
+    }
+    public void printMainParameters(){
+        for(int i=4;i<parametersNames.size();i++){
+            System.out.print(Colors.GREEN+"["+(i-3)+": "+parametersNames.get(i)+" "+parametersNumbers.get(i)+"] "+Colors.RESET);
+        }
+        System.out.println();
     }
 }

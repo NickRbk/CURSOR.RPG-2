@@ -1,4 +1,7 @@
+package labyrinth;
+
 import lombok.Getter;
+import util.Colors;
 
 import java.util.ArrayList;
 
@@ -10,12 +13,15 @@ public class Room {
     private String name;
     @Getter
     private String info;
+    @Getter
+    private String message;
     //private boolean isExitsAreOpen;
     @Getter
     private ArrayList<Integer> exits;
 
-    Room(String name, String info, int id) {
+    Room(String name, String message, String info, int id) {
         this.id = id;
+        this.message = message;
         this.info = info;
         exits = new ArrayList<>();
         this.name = name;
@@ -31,7 +37,7 @@ public class Room {
         for (Integer i : exits) {
             for (Room r : rooms) {
                 if (r.getId() == i) {
-                    System.out.println(n + ")" + r.getName());
+                    System.out.println(Colors.GREEN+"\u2B9A"+Colors.RESET+"["+n + "] " + r.getMessage());
                     n++;
                 }
             }

@@ -18,9 +18,9 @@ public final class Validation {
         return "y".equalsIgnoreCase(s);
     }*/
 
-    public static int getNumber(int min, int max) {
+    public static int getNumber(String s, int min, int max) {
         String input;
-        System.out.print("\nchose your option: ");
+        System.out.print(s);
         while (true) {
             input = Reader.getString();
             if (input.matches("\\d+")) {
@@ -28,7 +28,7 @@ public final class Validation {
                     return Integer.parseInt(input);
                 }
             }
-            System.out.println("invalid input , try again :\nchose your option: " + min + "-" + max);
+            System.out.println("invalid input , try again. Only numbers: " + min + "-" + max);
         }
     }
 }

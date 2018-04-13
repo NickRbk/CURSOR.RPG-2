@@ -7,6 +7,7 @@ class Main {
         newRpg.start();
         newRpg.chooseLeader();
         newRpg.displayTeamInfo();
+        newRpg.upgrade();
         newRpg.turn();
     }
 }

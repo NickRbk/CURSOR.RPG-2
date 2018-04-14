@@ -40,11 +40,6 @@ Each race have a specialities which have treir own advantages.
  - download or git clone
  - in directory with pom file: mvn package
  - java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar Main
-#### \*.txt files
- - __names__ list with 10 names for each race.
- - __Race__ list with race names.
- - __Race1__ List with first race specialities.
- - __Race1p__ List with first race parameters.
  
 #### __stuff__
- - [unicod symbols](https://unicode-table.com/ru/#box-drawing)
+ - [unicode symbols](https://unicode-table.com/ru/#box-drawing)

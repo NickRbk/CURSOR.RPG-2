@@ -5,42 +5,33 @@ import util.Colors;
 
 import java.util.ArrayList;
 
-public class Room {
-    private int minEnemyHp;
-    @Getter
-    private int id;
+public class Room implements Colors {
     @Getter
     private String name;
     @Getter
-    private String info;
+    public String description;
     @Getter
-    private String message;
+    public String doorSignboard;
     //private boolean isExitsAreOpen;
     @Getter
-    private ArrayList<Integer> exits;
+    private ArrayList<Room> exits = new ArrayList<>();
 
-    Room(String name, String message, String info, int id) {
-        this.id = id;
-        this.message = message;
-        this.info = info;
-        exits = new ArrayList<>();
-        this.name = name;
-        //isExitsAreOpen=true;
+    Room(RoomDescription rd) {
+        this.name = rd.name;
+        this.doorSignboard = rd.doorSignboard;
+        this.description = rd.description;
     }
 
-    public void addExit(Integer i) {
-        exits.add(i);
+
+    void addExit(Room r) {
+        exits.add(r);
     }
 
-    public void printExits(ArrayList<Room> rooms) {
+    public void printExits() {
         int n = 1;
-        for (Integer i : exits) {
-            for (Room r : rooms) {
-                if (r.getId() == i) {
-                    System.out.println(Colors.GREEN+"\u2B9A"+Colors.RESET+"["+n + "] " + r.getMessage());
-                    n++;
-                }
-            }
+        for (Room r : exits) {
+            System.out.println(GREEN + "\u2B9A" + RESET + "[" + n + "] "+((n==1 && !"Start".equals(name))?"(back) ":"") + r.getDoorSignboard());
+            n++;
         }
     }
 

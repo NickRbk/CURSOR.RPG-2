@@ -1,7 +1,0 @@
-Elf
-Here will be the description of the race 1
-Human
-Here will be the description of the race 2
-Dwarf
-Here will be the description of the race 3
-

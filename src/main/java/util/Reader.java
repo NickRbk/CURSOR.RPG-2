@@ -35,8 +35,4 @@ public final class Reader {
         return getScanner().nextLine();
     }
 
-    /*public static int getInt() {
-        return getScanner().nextInt();
-    }*/
-
 }

@@ -1,92 +1,148 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import character.Hero;
+import character.RacesVariants;
+import character.Specialities;
+import labyrinth.Room;
 import lombok.Getter;
 import lombok.Setter;
 import util.Colors;
-import util.Validation;
+import util.GameConstants;
+import util.Validator;
 
 
 import static util.Console.fillSpace;
 import static util.Console.TAB;
 
-class Team {
+class Team implements Colors {
     @Setter
     @Getter
-    private int position;
+    private Room position;
     @Getter
-    private ArrayList<Hero> heroes;
+    private ArrayList<Hero> heroes = new ArrayList<>();
 
     Team() {
-        heroes = new ArrayList<>();
-        position = 0;
     }
 
-    void addHero(String race, String speciality, int id, int spec) throws IOException {
-        heroes.add(new Hero(race, speciality, id, spec));
+    void createTeam() {
+        for (int i = 0; i < 3; i++) {
+            chooseHero();
+        }
+        chooseLeader();
+        printTeam(CYAN);
+        upgradeHeroes();
     }
 
+    ///////////////////////////////////////////////createTeam///////////////////////////////////////////////////////////////
+    private void chooseHero() {
+        RacesVariants rv = getRace();
+        Specialities spec=getSpeciality(rv);
+        heroes.add(new Hero(rv, spec));
+    }
+
+    private Specialities getSpeciality(RacesVariants rv) {
+        System.out.println("choose hero speciality: ");
+        System.out.print("[0 info] ");
+        int answer;
+        do {
+            for (int i = 0; i < Specialities.values().length / 3; i++) {
+                System.out.print("[" + (i + 1) + " " + Specialities.valueOf(rv.name() + "S" + (i + 1)).name + "] ");
+            }
+            System.out.print(": ");
+            answer= Validator.getNumber("answer: ", 0, Specialities.values().length / 3);
+        }while(answer==0);
+        return Specialities.valueOf(rv.name() + "S" + answer);
+    }
+
+    private RacesVariants getRace() {
+        int answer;
+        do {
+            System.out.println("########################################");
+            System.out.println("choose race:");
+            System.out.print("[0 info] ");
+            for (int i = 1; i <= RacesVariants.values().length; i++) {
+                System.out.print("[" + i + " " + RacesVariants.valueOf("R" + i).name + "] ");
+            }
+            System.out.print(": ");
+            answer = Validator.getNumber("answer: ", 0, RacesVariants.values().length);
+            if (answer == 0) {/*print race info*/}
+        } while (answer == 0);
+        return RacesVariants.valueOf("R" + answer);
+    }
+
+    private void chooseLeader() {
+        System.out.println(" Choose who will be the leader: ");
+        for (int i = 0; i < heroes.size(); i++) {
+            System.out.print("[" + (i + 1) + " ");
+            heroes.get(i).printInfo();
+            System.out.print("] ");
+        }
+        setLeader(Validator.getNumber("", 1, heroes.size()));
+    }
+
+    //////////////////////////////////////endCreateTeam/////////////////////////////////////////////////////////////////////
     //////////////////  print heroes table /////////////////////////////////////////////////////////////////////////////
-    void printTeam(String c, String r) {
-        printLine(c+"\u250F", "\u2533", "\u2513"+r);
-        printHeroesNames(c, r);
-        printHeroesRace(c, r);
-        printLine(c+"\u2523", "\u254B", "\u252B"+r);
-        printHeroesParameters(c, r);
-        printLeader(c, r);
-        printLine(c+"\u2517", "\u253B", "\u251B"+r);
+    void printTeam(String s) {
+        printLine(s + "\u250F", "\u2533", "\u2513" + RESET);
+        printHeroesNames(s);
+        printHeroesRace(s);
+        printLine(s + "\u2523", "\u254B", "\u252B" + RESET);
+        printHeroesParameters(s);
+        printLeader(s);
+        printLine(s + "\u2517", "\u253B", "\u251B" + RESET);
     }
 
-    private void printHeroesParameters(String c, String r) {
-        for (int j = 0; j < heroes.get(0).getParametersNames().size(); j++) {
-            for (int i = 0; i < heroes.size(); i++) {
-                System.out.print(c+"\u2503"+r);
-                String name = heroes.get(i).getParametersNames().get(j);
-                String number = heroes.get(i).getParametersNumbers().get(j);
+    private void printHeroesParameters(String s) {
+        for (int j = 0; j < GameConstants.parametersNames.length; j++) {
+            for (Hero h : heroes) {
+                System.out.print(s + "\u2503" + RESET);
+                String name = GameConstants.parametersNames[j];
+                String number = Double.toString(h.getParametersNumbers().get(j));
                 System.out.print(name);
                 fillSpace(2 * TAB, name.length(), ".");
                 System.out.print(number);
                 fillSpace(TAB, number.length(), ".");
             }
-            System.out.println(c+"\u2503"+r);
+            System.out.println(s + "\u2503" + RESET);
         }
     }
 
-    private void printHeroesNames(String c, String r) {
-        for (int i = 0; i < heroes.size(); i++) {
-            System.out.print(c+"\u2503"+r);
-            String name = heroes.get(i).getName();
+    private void printHeroesNames(String s) {
+        for (Hero h : heroes) {
+            System.out.print(s + "\u2503" + RESET);
+            String name = h.getName();
             System.out.print("Name");
             fillSpace(2 * TAB, 4, ".");
             System.out.print(name);
             fillSpace(TAB, name.length(), ".");
         }
-        System.out.println(c+"\u2503"+r);// ┃
+        System.out.println(s + "\u2503" + RESET);// ┃
     }
 
-    private void printHeroesRace(String c, String r) {
-        for (int i = 0; i < heroes.size(); i++) {
-            System.out.print(c+"\u2503"+r);
-            String race = heroes.get(i).getRace();
+    private void printHeroesRace(String s) {
+        for (Hero h : heroes) {
+            System.out.print(s + "\u2503" + RESET);
+            String race = h.getRace();
             System.out.print("Race");
             fillSpace(2 * TAB, 4, ".");
             System.out.print(race);
             fillSpace(TAB, race.length(), ".");
         }
-        System.out.println(c+"\u2503"+r);
+        System.out.println(s + "\u2503" + RESET);
     }
 
-    private void printLeader(String c, String r) {
-        for (int i = 0; i < heroes.size(); i++) {
-            System.out.print(c+"\u2503"+r);
-            boolean leader = heroes.get(i).isLeader();
+    private void printLeader(String s) {
+        for (Hero h : heroes) {
+            System.out.print(s + "\u2503" + RESET);
+            boolean leader = h.isLeader();
             System.out.print(leader ? "Leader!!" : "");
             fillSpace(2 * TAB, leader ? 8 : 0, ".");
             fillSpace(TAB, 0, ".");
         }
-        System.out.println(c+"\u2503"+r);
+        System.out.println(s + "\u2503" + RESET);
     }
 
     private void printLine(String start, String middle, String end) {
@@ -98,19 +154,20 @@ class Team {
         fillSpace(3 * TAB, 0, "\u2501");
         System.out.println(end);
     }
+
     /////////////////////////////////end print heroes table/////////////////////////////////////////////////////////////
-    public void upgradeHeroes(){
-        for(Hero h:heroes){
-            while(h.getPoints()>0){
-                System.out.print(Colors.BLUE+"upgrade hero:"+Colors.YELLOW+h.getName()+" "+h.getRace()+Colors.BLUE);
-                System.out.println(" you have "+Colors.PURPLE+h.getPoints()+Colors.BLUE+" points"+Colors.RESET);
+    void upgradeHeroes() {
+        for (Hero h : heroes) {
+            while (h.getPoints() > 0) {
+                System.out.print(BLUE + "upgrade hero:" + YELLOW + h.getName() + " " + h.getRace() + BLUE);
+                System.out.println(" you have " + PURPLE + h.getPoints() + BLUE + " points" + RESET);
                 h.printMainParameters();
-                int i=Validation.getNumber("enter your variant",1,h.getParametersNames().size()-4);
-                int a=Validation.getNumber("enter quantity",1,h.getPoints());
-                h.incPoints(-1*a);
-                i+=3;
-                int i2=a+Integer.parseInt(h.getParametersNumbers().get(i));
-                h.getParametersNumbers().set(i,Integer.toString(i2));
+                int i = Validator.getNumber("enter your variant", 1, GameConstants.parametersNames.length);
+                int a = Validator.getNumber("enter quantity", 1, h.getPoints());
+                h.incPoints(-1 * a);
+                i += 3;
+                int i2 = a +h.getParametersNumbers().get(i);
+                h.getParametersNumbers().set(i, i2);
             }
         }
     }

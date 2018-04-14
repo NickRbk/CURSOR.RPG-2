@@ -2,18 +2,12 @@ package character;
 
 import lombok.Getter;
 import lombok.Setter;
-import util.Console;
-import util.Reader;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import util.Colors;
+import util.Console;
+import util.GameConstants;
+import java.util.ArrayList;
 
-public class Hero {
+public class Hero implements Colors {
     @Getter
     private boolean isLeader;
     @Getter
@@ -21,42 +15,31 @@ public class Hero {
     private int points;
     @Getter
     private String name;
-    private int raceId;
     @Getter
     private String race;
     private String speciality;
+    RacesVariants rv;
     @Getter
-    private ArrayList<String> parametersNames;
-    @Getter
-    private ArrayList<String> parametersNumbers;
-    private Map<String, String> specialities;
+    ArrayList <Integer>parametersNumbers=new ArrayList<>();
+    Specialities spec;
 
-    public Hero(String race, String speciality, int param, int spec) throws IOException {
-        parametersNames = new ArrayList<>();
-        parametersNumbers= new ArrayList<>();
-        specialities = new LinkedHashMap<>();
-        raceId = param;
+
+    public Hero(RacesVariants rv, Specialities spec) {
         isLeader = false;
-        this.race = race;
-        this.speciality = speciality;
-        setParameters(param);
-        setSpecialty(spec);
+        this.spec = spec;
+        setParameters(rv);
+        this.rv=rv;
         setName();
         points = 10;
     }
 
-    private void setParameters(int param) throws IOException {
-        List<String> p = Reader.readFile("Race" + param + "p");
-        for (int i = 0; i < p.size() / 2; i++) {
-            parametersNames.add(p.get(i * 2));
-            parametersNumbers.add(p.get(i * 2 + 1));
-        }
-
-    }
-
-    private void setSpecialty(int spec) throws IOException {
-        List<String> p = Reader.readFile("Race" + raceId);
-        specialities.put(p.get((spec - 1) * 2), p.get((spec - 1) * 2 + 1));
+    private void setParameters(RacesVariants rv) {
+        this.race = rv.name;
+        parametersNumbers.add(rv.charisma);
+        parametersNumbers.add(rv.stamina);
+        parametersNumbers.add(rv.intellect);
+        parametersNumbers.add(rv.agility);
+        parametersNumbers.add(rv.concentration);
     }
 
     public void printHeroInfo() {
@@ -75,28 +58,25 @@ public class Hero {
 
     private void printParameters() {
         for (int i=0;i<parametersNumbers.size();i++) {
-            System.out.print(parametersNames.get(i));
-            Console.fillSpace(2 * Console.TAB, parametersNames.get(i).length(),".");
+            System.out.print(GameConstants.parametersNames[i]);
+            Console.fillSpace(2 * Console.TAB, GameConstants.parametersNames[i].length(),".");
             System.out.println(parametersNumbers.get(i));
         }
     }
 
     private void printSpecialities() {
-        System.out.println("specialities:");
-        for (Entry<String, String> entry : specialities.entrySet()) {
-            System.out.print(entry.getKey());
-            Console.fillSpace(2 * Console.TAB, entry.getKey().length(),".");
-            System.out.println(entry.getValue());
-        }
+        System.out.println("speciality:");
+            System.out.print(spec.name);
+            Console.fillSpace(2 * Console.TAB, spec.name.length(),".");
+            System.out.println(spec.description);
     }
 
-    private void setName() throws IOException {
-        List<String> info = Reader.readFile("names");
-        name = info.get((int) (Math.random() * 10 + 10 * raceId - 9));
+    private void setName(){
+        name = HeroNames.valueOf(rv.name()+"NAME"+(int) (Math.random() * 10)).name;
     }
 
     public void printInfo() {
-        System.out.println(race + " " + speciality);
+        System.out.print(race + " " + speciality);
     }
 
     public void setLeader(boolean leader) {
@@ -106,8 +86,10 @@ public class Hero {
         points+=i;
     }
     public void printMainParameters(){
-        for(int i=4;i<parametersNames.size();i++){
-            System.out.print(Colors.GREEN+"["+(i-3)+": "+parametersNames.get(i)+" "+parametersNumbers.get(i)+"] "+Colors.RESET);
+        System.out.print(GREEN+"[0 : info] "+RESET);
+        for(int i=0;i<GameConstants.parametersNames.length;i++){
+            System.out.print(GREEN+"["+(i+1)+": "+GameConstants.parametersNames[i]+
+                    " "+parametersNumbers.get(i)+"] "+RESET);
         }
         System.out.println();
     }

@@ -1,22 +1,10 @@
 package util;
 
-public final class Validation {
+public class Validator {
 
-    private Validation() throws IllegalStateException {
+    private Validator() throws IllegalStateException {
         throw new IllegalStateException("Can't create instance of util.ScannerUtil");
     }
-
-    /*public static boolean checkStartApp() {
-        String s;
-        System.out.println("\none more time?\ny- yes\tn-no\n");
-        do {
-            s = Reader.getString();
-            if (!("y".equalsIgnoreCase(s) || "n".equalsIgnoreCase(s))) {
-                System.out.println("invalid answer try y or n");
-            }
-        } while (!("y".equalsIgnoreCase(s) || "n".equalsIgnoreCase(s)));
-        return "y".equalsIgnoreCase(s);
-    }*/
 
     public static int getNumber(String s, int min, int max) {
         String input;

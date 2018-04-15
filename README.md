@@ -8,12 +8,10 @@ For doing this we need a team of three characters, one of them is a leader.
 In case of a leader's death or if we find special item "the Great Crystal", the game will end.
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 Each race have a specialities which have treir own advantages.
-### Start stats for each race:
-  Race  |  Charisma | Stamina | Intellect | Agility | Concentration  
-------- | --------- | ------- | --------- | ------- | -------------   
-  Elf | 15 | 10 | 25 | 22 | 18
-  Human | 10 | 30 | 20 | 15 | 15
-  Dwarf | 5 | 45 | 15 | 20 | 5 
+### Hero Races
+ - __Elf__
+ - __Human__
+ - __Dwarf__
 ### Hero parameters
 #### Main
  - __Race__
@@ -29,6 +27,13 @@ Each race have a specialities which have treir own advantages.
  - __Intellect__ 2 mp – per 1 intelect point, 0,25 mp regen per 1 intelect point
  - __Agility__  4 rp per 1 agility point, chance to avoid hit 1% per 2 points
  - __Concentration__ 1 hp, 1,5 mp/1 rp regen per turn for 1 consentartion point, 1 turn cd decresion per 25 points
+ ### Start stats for each race:
+  Race  |  Charisma | Stamina | Intellect | Agility | Concentration  
+------- | --------- | ------- | --------- | ------- | -------------   
+  Elf | 15 | 10 | 25 | 22 | 18
+  Human | 10 | 30 | 20 | 15 | 15
+  Dwarf | 5 | 45 | 15 | 20 | 5 
+  
 ### algorithm of actions:
  - greetings
  - repeat 3 times:

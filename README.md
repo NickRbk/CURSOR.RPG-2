@@ -18,14 +18,14 @@ Fireball (45 mp) 3d10, cd (calldown) 3 turns (not moving turns, but battle phase
 Spell Shield (15 mp), block 60 dmg till destruction, cd 2 turns
 Frost Bolt (20 mp), 2d6, cd 1 turn
 Dispell (20 mp), dispells any spell, cd 3 turns
-Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns
+Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns.
    -gunslinger:
         Shoot from the bow – regular attack (damage 2d6)
         attack the enemy with dagger (d6)
         can have spell skills (requires mana consumption):
-Multishot (30 mp) – attack 1 additional target, cd 2 turns
-RapidFire(30 mp) – attack single target with 1 additional attack, cd 3 turns
-BullsEye(40 mp) – archer takes aim and deal crit damage to sinle target 3d10, cd 3 turns
+      -Multishot (30 mp) – attack 1 additional target, cd 2 turns
+      -RapidFire(30 mp) – attack single target with 1 additional attack, cd 3 turns
+      -BullsEye(40 mp) – archer takes aim and deal crit damage to sinle target 3d10, cd 3 turns
  - __Human__ середній вплив середня магія невелика виносливість
  - __Dwarf__ мала ініціатива і слабка магія , але велике здоровя і витривалість
 ### Hero parameters

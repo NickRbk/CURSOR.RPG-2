@@ -8,10 +8,26 @@ For doing this we need a team of three characters, one of them is a leader.
 In case of a leader's death or if we find special item "the Great Crystal", the game will end.
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 Each race have a specialities which have treir own advantages.
-### Hero Races
- - __Elf__ 
- - __Human__ 
- - __Dwarf__ 
+### Hero Races and specialities
+ - __Elf__ впливові, гарно володіють магією і мають найкращу витривалість, проте мала кількість хп
+   - mage:
+imposition of an improvement on the character of his unit
+can hold wizard Stuff (attack d6)
+can have various spells (requires mana consumption):
+Fireball (45 mp) 3d10, cd (calldown) 3 turns (not moving turns, but battle phase turns)
+Spell Shield (15 mp), block 60 dmg till destruction, cd 2 turns
+Frost Bolt (20 mp), 2d6, cd 1 turn
+Dispell (20 mp), dispells any spell, cd 3 turns
+Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns
+   -gunslinger:
+        Shoot from the bow – regular attack (damage 2d6)
+        attack the enemy with dagger (d6)
+        can have spell skills (requires mana consumption):
+Multishot (30 mp) – attack 1 additional target, cd 2 turns
+RapidFire(30 mp) – attack single target with 1 additional attack, cd 3 turns
+BullsEye(40 mp) – archer takes aim and deal crit damage to sinle target 3d10, cd 3 turns
+ - __Human__ середній вплив середня магія невелика виносливість
+ - __Dwarf__ мала ініціатива і слабка магія , але велике здоровя і витривалість
 ### Hero parameters
 #### Main
  - __Race__

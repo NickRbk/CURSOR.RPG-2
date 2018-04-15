@@ -9,9 +9,9 @@ In case of a leader's death or if we find special item "the Great Crystal", the 
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 Each race have a specialities which have treir own advantages.
 ### Hero Races
- - __Elf__
- - __Human__
- - __Dwarf__
+ - __Elf__ 
+ - __Human__ 
+ - __Dwarf__ 
 ### Hero parameters
 #### Main
  - __Race__
@@ -23,9 +23,9 @@ Each race have a specialities which have treir own advantages.
  - __Health__
  #### Regular
  - __Charisma__
- - __Stamina__ 2 hp per 1 stamina point, 0,25 hp regen per 1 stamina point
- - __Intellect__ 2 mp – per 1 intelect point, 0,25 mp regen per 1 intelect point
- - __Agility__  4 rp per 1 agility point, chance to avoid hit 1% per 2 points
+ - __Stamina__ вона впливає на кількість і відновлення здоровя (1 stamina point = 2 hp, 4 stamina point=1 hp regeneration). 
+ - __Intellect__ вона впливає на кількість і відновлення мани (1 intelect point = 2 mp, 4 intelect point = 1 mp regeneration).
+ - __Agility__  вона впливає на 4 rp per 1 agility point, chance to avoid hit 1% per 2 points
  - __Concentration__ 1 hp, 1,5 mp/1 rp regen per turn for 1 consentartion point, 1 turn cd decresion per 25 points
  ### Start stats for each race:
   Race  |  Charisma | Stamina | Intellect | Agility | Concentration  

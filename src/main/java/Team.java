@@ -14,7 +14,7 @@ import util.Validator;
 
 import static util.Console.fillSpace;
 
-class Team implements Colors,GameConstants {
+class Team implements Colors, GameConstants {
     @Setter
     @Getter
     private Room position;
@@ -36,21 +36,19 @@ class Team implements Colors,GameConstants {
     ///////////////////////////////////////////////createTeam///////////////////////////////////////////////////////////////
     private void chooseHero() {
         RacesVariants rv = getRace();
-        Specialities spec=getSpeciality(rv);
+        Specialities spec = getSpeciality(rv);
         heroes.add(new Hero(rv, spec));
     }
 
     private Specialities getSpeciality(RacesVariants rv) {
-        System.out.println("choose hero speciality: ");
-        System.out.print("[0 info] ");
         int answer;
         do {
-            for (int i = 0; i < Specialities.values().length / 3; i++) {
-                System.out.print("[" + (i + 1) + " " + Specialities.valueOf(rv.name() + "S" + (i + 1)).name + "] ");
+            displaySpecialities();
+            answer = Validator.getNumber("answer: ", 0, Specialities.values().length / 3);
+            if (answer == 0) {
+                System.out.println("here will be specialities info");
             }
-            System.out.print(": ");
-            answer= Validator.getNumber("answer: ", 0, Specialities.values().length / 3);
-        }while(answer==0);
+        } while (answer == 0);
         return Specialities.valueOf(rv.name() + "S" + answer);
     }
 
@@ -59,16 +57,28 @@ class Team implements Colors,GameConstants {
         do {
             displayRaces();
             answer = Validator.getNumber("answer: ", 0, RacesVariants.values().length);
-            if (answer == 0) {/*print race info*/}
+            if (answer == 0) {
+                System.out.println("here will be races info");
+            }
         } while (answer == 0);
         return RacesVariants.valueOf("R" + answer);
     }
-    private void displayRaces(){
+
+    private void displayRaces() {
         System.out.println("############################################################################");
         System.out.println("choose race:");
         System.out.print("[0 info] ");
         for (int i = 1; i <= RacesVariants.values().length; i++) {
             System.out.print("[" + i + " " + RacesVariants.valueOf("R" + i).name + "] ");
+        }
+        System.out.print(": ");
+    }
+
+    private void displaySpecialities() {
+        System.out.println("choose speciality: ");
+        System.out.print("[0 info] ");
+        for (int i = 0; i < Specialities.values().length / 3; i++) {
+            System.out.print("[" + (i + 1) + " " + Specialities.valueOf(rv.name() + "S" + (i + 1)).name + "] ");
         }
         System.out.print(": ");
     }
@@ -166,7 +176,7 @@ class Team implements Colors,GameConstants {
                 int a = Validator.getNumber("enter quantity", 1, h.getPoints());
                 h.incPoints(-1 * a);
                 i += 3;
-                int i2 = a +h.getParametersNumbers().get(i);
+                int i2 = a + h.getParametersNumbers().get(i);
                 h.getParametersNumbers().set(i, i2);
             }
         }

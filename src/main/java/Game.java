@@ -2,7 +2,7 @@ import labyrinth.Dungeon;
 
 import util.*;
 
-class Game implements Colors, GameConstants {
+class Game implements Colors, GameConstants ,displayingInfo{
     private Team team;
     private Dungeon dungeon;
 
@@ -12,8 +12,10 @@ class Game implements Colors, GameConstants {
     }
 
     void start(){
-        System.out.println("-----game name-----");
-        System.out.println("there will be an introduction....\ncoming soon");
+        System.out.print("-------------------------------- ");
+        System.out.print(GAME_NAME);
+        System.out.println(" ------------------------------");
+        Console.printParagraph(GAME_DESCRIPTION);
         team.createTeam();
         turn();
     }

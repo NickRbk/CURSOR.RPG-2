@@ -57,17 +57,20 @@ class Team implements Colors,GameConstants {
     private RacesVariants getRace() {
         int answer;
         do {
-            System.out.println("########################################");
-            System.out.println("choose race:");
-            System.out.print("[0 info] ");
-            for (int i = 1; i <= RacesVariants.values().length; i++) {
-                System.out.print("[" + i + " " + RacesVariants.valueOf("R" + i).name + "] ");
-            }
-            System.out.print(": ");
+            displayRaces();
             answer = Validator.getNumber("answer: ", 0, RacesVariants.values().length);
             if (answer == 0) {/*print race info*/}
         } while (answer == 0);
         return RacesVariants.valueOf("R" + answer);
+    }
+    private void displayRaces(){
+        System.out.println("############################################################################");
+        System.out.println("choose race:");
+        System.out.print("[0 info] ");
+        for (int i = 1; i <= RacesVariants.values().length; i++) {
+            System.out.print("[" + i + " " + RacesVariants.valueOf("R" + i).name + "] ");
+        }
+        System.out.print(": ");
     }
 
     private void chooseLeader() {

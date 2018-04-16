@@ -63,8 +63,8 @@ Skills:
  - __Health__
  #### Regular
  - __Charisma__
- - __Stamina__ вона впливає на кількість і відновлення здоровя (1 stamina point = 2 hp, 4 stamina point=1 hp regeneration). 
- - __Intellect__ вона впливає на кількість і відновлення мани (1 intelect point = 2 mp, 4 intelect point = 1 mp regeneration).
+ - __Stamina__ it affects the number and rehabilitation of health (1 stamina point = 2 hp, 4 stamina point=1 hp regeneration). 
+ - __Intellect__ it affects the amount and recovery of manna (1 intelect point = 2 mp, 4 intelect point = 1 mp regeneration).
  - __Agility__  вона впливає на 4 rp per 1 agility point, chance to avoid hit 1% per 2 points
  - __Concentration__ 1 hp, 1,5 mp/1 rp regen per turn for 1 consentartion point, 1 turn cd decresion per 25 points
  ### Start stats for each race:

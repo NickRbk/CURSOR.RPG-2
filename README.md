@@ -9,16 +9,16 @@ In case of a leader's death or if we find special item "the Great Crystal", the 
 The team can be compiled from the characters of three races: Elf, Human, Dwarf.
 Each race have a specialities which have treir own advantages.
 ### Hero Races and specialities
- - __Elf__ впливові, гарно володіють магією і мають найкращу витривалість, проте мала кількість хп
+ - __Elf__ influential, have a good magic and have the best endurance, but there is a small number of xp
    - mage:
 imposition of an improvement on the character of his unit
 can hold wizard Stuff (attack d6)
 can have various spells (requires mana consumption):
-Fireball (45 mp) 3d10, cd (calldown) 3 turns (not moving turns, but battle phase turns)
-Spell Shield (15 mp), block 60 dmg till destruction, cd 2 turns
-Frost Bolt (20 mp), 2d6, cd 1 turn
-Dispell (20 mp), dispells any spell, cd 3 turns
-Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns.
+      - Fireball (45 mp) 3d10, cd (calldown) 3 turns (not moving turns, but battle phase turns)
+      - Spell Shield (15 mp), block 60 dmg till destruction, cd 2 turns
+      - Frost Bolt (20 mp), 2d6, cd 1 turn
+      - Dispell (20 mp), dispells any spell, cd 3 turns
+      - Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns.
 
    - gunslinger:
         Shoot from the bow – regular attack (damage 2d6)
@@ -31,28 +31,27 @@ Stone Gaze (20 mp), transform enemy into stone for 2 turns, cd 4 turns.
     - Priest/monk:
 attack with fists – regular attack d10
 skills
-Lay of Fists (10 RP), cd 3 turns, hits multiple targets (from 2 to 3)
-Battle Fury(30 RP), cd 4 turns, hits every enemy with additional 2d6 damage
+      - Lay of Fists (10 RP), cd 3 turns, hits multiple targets (from 2 to 3)
+      - Battle Fury(30 RP), cd 4 turns, hits every enemy with additional 2d6 damage
 Spells: 
-Hand of God(25 mp), cd 2 turns, heals 20 hits (can be cast on itself or other unit, if casts on UNDEAD deal damage instead of heal)
-Battle trance(65 mp), cd 4 turns, gain immunity for next turn.
-
+      - Hand of God(25 mp), cd 2 turns, heals 20 hits (can be cast on itself or other unit, if casts on UNDEAD deal damage instead of heal)
+      - Battle trance(65 mp), cd 4 turns, gain immunity for next turn.
     - paladin:
 attack with a sword (damage done by 2d10), regular
 Skills:
-Splash (20 rp) – attack 2 additional targets, cd 2 turns
-Rush(20 rp) – dashes to nearest enemy to deal additional 2d6 damage
+      - Splash (20 rp) – attack 2 additional targets, cd 2 turns
+      - Rush(20 rp) – dashes to nearest enemy to deal additional 2d6 damage
  - __Dwarf__ мала ініціатива і слабка магія , але велике здоровя і витривалість
     - Warrior:
 Attack with axe, 2d10, regular
 Skils:
-Whriling Axe(30 rp) – throw axe into nearest enemy, deal additional 2d6 damage, cd 2 turns, apply regular attack to this unit
-Stand my ground(20 rp), cd 4 turns, gain 50 HP shield for 2 turns
+      - Whriling Axe(30 rp) – throw axe into nearest enemy, deal additional 2d6 damage, cd 2 turns, apply regular attack to this unit
+      - Stand my ground(20 rp), cd 4 turns, gain 50 HP shield for 2 turns
     - Mechanist:
 Attack with gun, 2d6, regular
 Skills:
-Bombs! (25rp) – throw a bomb that hits 2 enemys and deal 2d6 dmg to each, cd 2 turns
-Droid to arms(25 rp) – crate droid that attack random enemy with 2d6 every turn, lasts 3 turns, cd 5 turns, has 50 HP
+      - Bombs! (25rp) – throw a bomb that hits 2 enemys and deal 2d6 dmg to each, cd 2 turns
+      - Droid to arms(25 rp) – crate droid that attack random enemy with 2d6 every turn, lasts 3 turns, cd 5 turns, has 50 HP
 ### Hero parameters
 #### Main
  - __Race__

@@ -82,13 +82,6 @@ public class Dungeon implements Colors, GameConstants {
         System.out.println(line + RESET);
     }
 
-    private String randomLine(String line, int n) {
-        StringBuilder sb = new StringBuilder(line);
-        while (sb.length() < n) {
-            sb.append((Math.random() > CHANCE_50) ? S1 : S2);
-        }
-        return sb.toString();
-    }
     private String randomLine(int n) {
         StringBuilder sb = new StringBuilder();
         while (sb.length() < n) {

@@ -32,7 +32,7 @@ public enum HeroNames {
     R3NAME8("Kyryn"),
     R3NAME9("Roen");
 
-    public String name;
+    public final String name;
 
     HeroNames(String name) {
         this.name = name;

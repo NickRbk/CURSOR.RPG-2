@@ -73,9 +73,9 @@ public enum RoomDescription {
                 "It's a huge cave occupied by the lake. Something is glowing in the water depth. You've " +
                         "thought it's Amelit, what a strange mineral");
 
-    public String name;
-    public String doorSignboard;
-    public String description;
+    public final  String name;
+    public final  String doorSignboard;
+    public final  String description;
 
     RoomDescription(String name, String doorSignboard, String description) {
         this.description = description;

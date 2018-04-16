@@ -14,7 +14,7 @@ class Game implements Colors, GameConstants {
     void start(){
         System.out.println("-----game name-----");
         System.out.println("there will be an introduction....\ncoming soon");
-        //team.createTeam();
+        team.createTeam();
         turn();
     }
 

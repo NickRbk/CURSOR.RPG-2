@@ -4,6 +4,7 @@ import lombok.Getter;
 import util.Colors;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Room implements Colors {
     @Getter
@@ -12,9 +13,8 @@ public class Room implements Colors {
     public String description;
     @Getter
     public String doorSignboard;
-    //private boolean isExitsAreOpen;
     @Getter
-    private ArrayList<Room> exits = new ArrayList<>();
+    private List<Room> exits = new ArrayList<>();
 
     Room(RoomDescription rd) {
         this.name = rd.name;
@@ -27,10 +27,11 @@ public class Room implements Colors {
         exits.add(r);
     }
 
-    public void printExits() {
+    void printExits() {
         int n = 1;
         for (Room r : exits) {
-            System.out.println(GREEN + "\u2B9A" + RESET + "[" + n + "] "+((n==1 && !"Start".equals(name))?"(back) ":"") + r.getDoorSignboard());
+            System.out.println(GREEN + "\u2B9A" + RESET + "[" + n + "] "+((n==1 && !"Start".equals(name))?"(back) ":"")
+                    + r.getDoorSignboard());
             n++;
         }
     }

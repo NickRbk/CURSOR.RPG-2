@@ -43,7 +43,7 @@ public enum RoomDescription {
 
     R6("Vine room.",
                "hmm .. the smell of alcohol. Let's go here.",
-               "You're got to the somebody's cache with wine. But who decided to place it here? Concerning to the " +
+               "You've got to the somebody's cache with wine. But who decided to place it here? Concerning to the " +
                        "skeleton at the table with the broken glass, there has been nobody for several years.  " +
                        "Let's take few barrels and go further"),
 
@@ -63,15 +63,15 @@ public enum RoomDescription {
                "It's another spacious  cave.  It looks like  orcs or goblins live in this cave but now there is " +
                        "nobody here. It's better go out of here."),
 
-    R10("Склеп",
-                "Піти у прохід біля tombstone.",
-                "багато трупів, дуже багато, мені туд не подобається. здається он той ворухнувся, чи той. " +
-                        "Мерщій звідси"),
+    R10("Crypt.",
+                "Go through the passage near the tombstone.",
+                "There are a lot of corpses here. I don't like this place. It seems to me that this corpse has " +
+                        "moved or that one. Let's go out of this place"),
 
-    R11("Озеро",
-                "Піти у прохід у стіні. ",
-                "Величезна пещера повністю занята озером. Щось світиться у глибину. ви подумали - полюбому амеліт. " +
-                        "Що ж він таке?");
+    R11("Lake",
+                "Go through the passage in the wall.",
+                "It's a huge cave occupied by the lake. Something is glowing in the water depth. You've " +
+                        "thought it's Amelit, what a strange mineral");
 
     public String name;
     public String doorSignboard;

@@ -1,8 +1,12 @@
 package labyrinth;
 
+import util.Colors;
+import util.Console;
+import util.GameConstants;
+import util.Validator;
 import java.util.ArrayList;
 
-public class Dungeon {
+public class Dungeon implements Colors, GameConstants {
     private ArrayList<Room> rooms;
     private int maxLength;
 
@@ -56,4 +60,40 @@ public class Dungeon {
         return rooms;
     }
 
+    public Room chooseNextRoom(Room r) {
+        roomSignboard(r.getName());
+        Console.printParagraph(r.getDescription());
+        r.printExits();
+        int next = Validator.getNumber("move to: ", 1, r.getExits().size()) - 1;
+        return r.getExits().get(next);
+    }
+
+    private void roomSignboard(String name) {
+        System.out.print(BLUE);
+        String line=randomLine(PARAGRAPH_LENGTH);
+        System.out.println(line);
+        line = randomLine(PARAGRAPH_LENGTH/2 - name.length() / 2);
+        System.out.print(line);
+        line+=" "+name+" ";
+        System.out.print(" " + RESET + name + BLUE + " ");
+        line = randomLine(PARAGRAPH_LENGTH - line.length());
+        System.out.println(line);
+        line=randomLine(PARAGRAPH_LENGTH);
+        System.out.println(line + RESET);
+    }
+
+    private String randomLine(String line, int n) {
+        StringBuilder sb = new StringBuilder(line);
+        while (sb.length() < n) {
+            sb.append((Math.random() > CHANCE_50) ? S1 : S2);
+        }
+        return sb.toString();
+    }
+    private String randomLine(int n) {
+        StringBuilder sb = new StringBuilder();
+        while (sb.length() < n) {
+            sb.append((Math.random() > CHANCE_50) ? S1 : S2);
+        }
+        return sb.toString();
+    }
 }

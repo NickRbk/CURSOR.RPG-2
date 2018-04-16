@@ -1,7 +1,7 @@
 package util;
 
-public class Console {
-    public final static int TAB = 8;
+public class Console implements GameConstants{
+
 
     public static void fillSpace(int maxLength, int length, String s) {
         for (int i = 0; i < maxLength - length; i++) {
@@ -10,19 +10,19 @@ public class Console {
     }
 
     public static void printParagraph(String s) {
-        String s1 = new String();
+        StringBuilder sb = new StringBuilder();
         int index = 0;
         int i = 0;
         while (i < s.length()) {
-            s1 += String.valueOf(s.charAt(i));
+            sb.append(String.valueOf(s.charAt(i)));
             if (s.charAt(i) == ' ' || i == s.length() - 1) {
-                index += s1.length();
+                index += sb.length();
                 if (index >= TAB * 9 + 4) {
                     System.out.println();
-                    index=s1.length();
+                    index=sb.length();
                 }
-                System.out.print(s1);
-                s1 = new String();
+                System.out.print(sb);
+                sb = new StringBuilder();
             }
             i++;
         }

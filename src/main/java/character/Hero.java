@@ -3,9 +3,9 @@ package character;
 import lombok.Getter;
 import lombok.Setter;
 import util.Colors;
-import util.Console;
 import util.GameConstants;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Hero implements Colors {
     @Getter
@@ -16,12 +16,10 @@ public class Hero implements Colors {
     @Getter
     private String name;
     @Getter
-    private String race;
-    private String speciality;
-    RacesVariants rv;
+    private RacesVariants rv;
     @Getter
-    ArrayList <Integer>parametersNumbers=new ArrayList<>();
-    Specialities spec;
+    private List<Integer> parametersNumbers=new ArrayList<>();
+    private Specialities spec;
 
 
     public Hero(RacesVariants rv, Specialities spec) {
@@ -34,7 +32,6 @@ public class Hero implements Colors {
     }
 
     private void setParameters(RacesVariants rv) {
-        this.race = rv.name;
         parametersNumbers.add(rv.charisma);
         parametersNumbers.add(rv.stamina);
         parametersNumbers.add(rv.intellect);
@@ -42,41 +39,12 @@ public class Hero implements Colors {
         parametersNumbers.add(rv.concentration);
     }
 
-    public void printHeroInfo() {
-        System.out.println("----------------------------------------");
-        System.out.print("Name");
-        Console.fillSpace(2 * Console.TAB, 4,".");
-        System.out.println(name);
-        System.out.print("Race");
-        Console.fillSpace(2 * Console.TAB, 4,".");
-        System.out.println(race);
-        System.out.println("parameters:");
-        printParameters();
-        printSpecialities();
-        System.out.println(isLeader ? "Leader!!" : "");
-    }
-
-    private void printParameters() {
-        for (int i=0;i<parametersNumbers.size();i++) {
-            System.out.print(GameConstants.parametersNames[i]);
-            Console.fillSpace(2 * Console.TAB, GameConstants.parametersNames[i].length(),".");
-            System.out.println(parametersNumbers.get(i));
-        }
-    }
-
-    private void printSpecialities() {
-        System.out.println("speciality:");
-            System.out.print(spec.name);
-            Console.fillSpace(2 * Console.TAB, spec.name.length(),".");
-            System.out.println(spec.description);
-    }
-
     private void setName(){
-        name = HeroNames.valueOf(rv.name()+"NAME"+(int) (Math.random() * 10)).name;
+        name = HeroNames.valueOf(rv.name()+"NAME"+(int) (Math.random() * HeroNames.values().length/3)).name;
     }
 
     public void printInfo() {
-        System.out.print(race + " " + speciality);
+        System.out.print(rv.name + " " + spec.name);
     }
 
     public void setLeader(boolean leader) {

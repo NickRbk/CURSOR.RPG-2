@@ -1,4 +1,0 @@
-package character;
-
-class Race {
-}

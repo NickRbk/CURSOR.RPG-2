@@ -1,5 +1,4 @@
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +12,14 @@ import util.Colors;
 import util.GameConstants;
 import util.Validator;
 
-
 import static util.Console.fillSpace;
-import static util.Console.TAB;
 
-class Team implements Colors {
+class Team implements Colors,GameConstants {
     @Setter
     @Getter
     private Room position;
     @Getter
-    private ArrayList<Hero> heroes = new ArrayList<>();
+    private List<Hero> heroes = new ArrayList<>();
 
     Team() {
     }
@@ -32,7 +29,7 @@ class Team implements Colors {
             chooseHero();
         }
         chooseLeader();
-        printTeam(CYAN);
+        printTeam();
         upgradeHeroes();
     }
 
@@ -85,20 +82,20 @@ class Team implements Colors {
 
     //////////////////////////////////////endCreateTeam/////////////////////////////////////////////////////////////////////
     //////////////////  print heroes table /////////////////////////////////////////////////////////////////////////////
-    void printTeam(String s) {
-        printLine(s + "\u250F", "\u2533", "\u2513" + RESET);
-        printHeroesNames(s);
-        printHeroesRace(s);
-        printLine(s + "\u2523", "\u254B", "\u252B" + RESET);
-        printHeroesParameters(s);
-        printLeader(s);
-        printLine(s + "\u2517", "\u253B", "\u251B" + RESET);
+    private void printTeam() {
+        printLine(TABLE_COLOR + "\u250F", "\u2533", "\u2513" + RESET);
+        printHeroesNames();
+        printHeroesRace();
+        printLine(TABLE_COLOR + "\u2523", "\u254B", "\u252B" + RESET);
+        printHeroesParameters();
+        printLeader();
+        printLine(TABLE_COLOR + "\u2517", "\u253B", "\u251B" + RESET);
     }
 
-    private void printHeroesParameters(String s) {
+    private void printHeroesParameters() {
         for (int j = 0; j < GameConstants.parametersNames.length; j++) {
             for (Hero h : heroes) {
-                System.out.print(s + "\u2503" + RESET);
+                System.out.print(TABLE_COLOR + "\u2503" + RESET);
                 String name = GameConstants.parametersNames[j];
                 String number = Double.toString(h.getParametersNumbers().get(j));
                 System.out.print(name);
@@ -106,43 +103,43 @@ class Team implements Colors {
                 System.out.print(number);
                 fillSpace(TAB, number.length(), ".");
             }
-            System.out.println(s + "\u2503" + RESET);
+            System.out.println(TABLE_COLOR + "\u2503" + RESET);
         }
     }
 
-    private void printHeroesNames(String s) {
+    private void printHeroesNames() {
         for (Hero h : heroes) {
-            System.out.print(s + "\u2503" + RESET);
+            System.out.print(TABLE_COLOR + "\u2503" + RESET);
             String name = h.getName();
             System.out.print("Name");
             fillSpace(2 * TAB, 4, ".");
             System.out.print(name);
             fillSpace(TAB, name.length(), ".");
         }
-        System.out.println(s + "\u2503" + RESET);// ┃
+        System.out.println(TABLE_COLOR + "\u2503" + RESET);// ┃
     }
 
-    private void printHeroesRace(String s) {
+    private void printHeroesRace() {
         for (Hero h : heroes) {
-            System.out.print(s + "\u2503" + RESET);
-            String race = h.getRace();
+            System.out.print(TABLE_COLOR + "\u2503" + RESET);
+            String race = h.getRv().name;
             System.out.print("Race");
             fillSpace(2 * TAB, 4, ".");
             System.out.print(race);
             fillSpace(TAB, race.length(), ".");
         }
-        System.out.println(s + "\u2503" + RESET);
+        System.out.println(TABLE_COLOR + "\u2503" + RESET);
     }
 
-    private void printLeader(String s) {
+    private void printLeader() {
         for (Hero h : heroes) {
-            System.out.print(s + "\u2503" + RESET);
+            System.out.print(TABLE_COLOR + "\u2503" + RESET);
             boolean leader = h.isLeader();
             System.out.print(leader ? "Leader!!" : "");
             fillSpace(2 * TAB, leader ? 8 : 0, ".");
             fillSpace(TAB, 0, ".");
         }
-        System.out.println(s + "\u2503" + RESET);
+        System.out.println(TABLE_COLOR + "\u2503" + RESET);
     }
 
     private void printLine(String start, String middle, String end) {
@@ -156,10 +153,10 @@ class Team implements Colors {
     }
 
     /////////////////////////////////end print heroes table/////////////////////////////////////////////////////////////
-    void upgradeHeroes() {
+    private void upgradeHeroes() {
         for (Hero h : heroes) {
             while (h.getPoints() > 0) {
-                System.out.print(BLUE + "upgrade hero:" + YELLOW + h.getName() + " " + h.getRace() + BLUE);
+                System.out.print(BLUE + "upgrade hero:" + YELLOW + h.getName() + " " + h.getRv().name + BLUE);
                 System.out.println(" you have " + PURPLE + h.getPoints() + BLUE + " points" + RESET);
                 h.printMainParameters();
                 int i = Validator.getNumber("enter your variant", 1, GameConstants.parametersNames.length);
@@ -172,7 +169,7 @@ class Team implements Colors {
         }
     }
 
-    void setLeader(int i) {
+    private void setLeader(int i) {
         heroes.get(i - 1).setLeader(true);
     }
 

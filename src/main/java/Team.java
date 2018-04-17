@@ -43,7 +43,7 @@ class Team implements Colors, GameConstants {
     private Specialities getSpeciality(RacesVariants rv) {
         int answer;
         do {
-            displaySpecialities();
+            displaySpecialities(rv.name());
             answer = Validator.getNumber("answer: ", 0, Specialities.values().length / 3);
             if (answer == 0) {
                 System.out.println("here will be specialities info");
@@ -74,11 +74,11 @@ class Team implements Colors, GameConstants {
         System.out.print(": ");
     }
 
-    private void displaySpecialities() {
+    private void displaySpecialities(String raceName) {
         System.out.println("choose speciality: ");
         System.out.print("[0 info] ");
         for (int i = 0; i < Specialities.values().length / 3; i++) {
-            System.out.print("[" + (i + 1) + " " + Specialities.valueOf(rv.name() + "S" + (i + 1)).name + "] ");
+            System.out.print("[" + (i + 1) + " " + Specialities.valueOf(raceName + "S" + (i + 1)).name + "] ");
         }
         System.out.print(": ");
     }

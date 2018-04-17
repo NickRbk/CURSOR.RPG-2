@@ -12,13 +12,13 @@ public class Dungeon implements Colors, GameConstants {
 
     public Dungeon() {
         rooms = new ArrayList<>();
-        maxLength = 7 + (int) (Math.random() * 3);
+        maxLength = LABYRINTH_MAIN_LINE_LENGTH + (int) (Math.random() * 3);
         dungeonGenerator();
     }
 
     private void dungeonGenerator() {
         createMainLine();
-        for (int i = 0; i < Math.random() * 2 + 2; i++) {
+        for (int i = 0; i < LABYRINTH_SIDE_LINE_LENGTH; i++) {
             createSideline();
         }
     }
@@ -42,7 +42,7 @@ public class Dungeon implements Colors, GameConstants {
     private void createSideline() {
         int j = (int) (Math.random() * (maxLength - 1)) + 1;
         Room r1 = rooms.get(j);
-        for (int i = 0; i < Math.random() * 3; i++) {
+        for (int i = 0; i < Math.random() * 2+3; i++) {
             int number1 = (int) (Math.random() * (RoomDescription.values().length-2));
             Room r2 = new Room(RoomDescription.valueOf("R" + number1));
             setExits(r1, r2);

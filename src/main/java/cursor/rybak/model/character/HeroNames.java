@@ -1,4 +1,4 @@
-package cursor.rybak.character;
+package cursor.rybak.model.character;
 
 public enum HeroNames {
     R1NAME0("Amaael"),

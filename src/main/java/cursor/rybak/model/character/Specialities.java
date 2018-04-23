@@ -1,4 +1,4 @@
-package cursor.rybak.character;
+package cursor.rybak.model.character;
 
 public enum Specialities {
     R1S1("Mage", "imposition of an improvement on the character of his unit can hold wizard Stuff (attack d6)"),

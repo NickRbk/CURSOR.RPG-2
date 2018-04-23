@@ -1,11 +1,11 @@
-package cursor.rybak;
+package cursor.rybak.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cursor.rybak.character.Hero;
-import cursor.rybak.character.RacesVariants;
-import cursor.rybak.character.Specialities;
+import cursor.rybak.model.character.Hero;
+import cursor.rybak.model.character.RacesVariants;
+import cursor.rybak.model.character.Specialities;
 import lombok.Getter;
 import cursor.rybak.util.Colors;
 import cursor.rybak.util.GameConstants;

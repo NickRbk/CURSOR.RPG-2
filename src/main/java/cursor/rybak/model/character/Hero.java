@@ -1,4 +1,4 @@
-package cursor.rybak.character;
+package cursor.rybak.model.character;
 
 import lombok.Getter;
 import lombok.Setter;

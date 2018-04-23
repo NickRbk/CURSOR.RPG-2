@@ -1,4 +1,4 @@
-package cursor.rybak;
+package cursor.rybak.view;
 
 public interface displayingInfo {
 String GAME_NAME = "Good ‘ol RPG";

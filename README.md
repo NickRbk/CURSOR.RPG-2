@@ -84,7 +84,7 @@ Skills:
 ### how to start
  - download or git clone
  - in directory with pom file: mvn package
- - java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar Main
+ - java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar cursor.rybak.Main
  
 #### __stuff__
  - [unicode symbols](https://unicode-table.com/ru/#box-drawing)

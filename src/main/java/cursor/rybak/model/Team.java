@@ -6,6 +6,7 @@ import java.util.List;
 import cursor.rybak.model.character.Hero;
 import cursor.rybak.model.character.RacesVariants;
 import cursor.rybak.model.character.Specialities;
+import cursor.rybak.util.Console;
 import lombok.Getter;
 import cursor.rybak.util.Colors;
 import cursor.rybak.util.GameConstants;
@@ -13,14 +14,14 @@ import cursor.rybak.util.Validator;
 
 import static cursor.rybak.util.Console.fillSpace;
 
-class Team implements Colors, GameConstants {
+public class Team implements Colors, GameConstants {
     @Getter
     private List<Hero> heroes = new ArrayList<>();
 
-    Team() {
+    public Team() {
     }
 
-    void createTeam() {
+    public void createTeam() {
         for (int i = 0; i < 3; i++) {
             chooseHero();
         }

@@ -1,16 +1,17 @@
+package cursor.rybak;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import character.Hero;
-import character.RacesVariants;
-import character.Specialities;
+import cursor.rybak.character.Hero;
+import cursor.rybak.character.RacesVariants;
+import cursor.rybak.character.Specialities;
 import lombok.Getter;
-import util.Colors;
-import util.GameConstants;
-import util.Validator;
+import cursor.rybak.util.Colors;
+import cursor.rybak.util.GameConstants;
+import cursor.rybak.util.Validator;
 
-import static util.Console.fillSpace;
+import static cursor.rybak.util.Console.fillSpace;
 
 class Team implements Colors, GameConstants {
     @Getter
@@ -91,72 +92,72 @@ class Team implements Colors, GameConstants {
     //////////////////////////////////////endCreateTeam/////////////////////////////////////////////////////////////////////
     //////////////////  print heroes table /////////////////////////////////////////////////////////////////////////////
     private void printTeam() {
-        printLine(TABLE_COLOR + "\u250F", "\u2533", "\u2513" + RESET);
+        printLine(GameConstants.TABLE_COLOR + "\u250F", "\u2533", "\u2513" + Colors.RESET);
         printHeroesNames();
         printHeroesRace();
-        printLine(TABLE_COLOR + "\u2523", "\u254B", "\u252B" + RESET);
+        printLine(GameConstants.TABLE_COLOR + "\u2523", "\u254B", "\u252B" + Colors.RESET);
         printHeroesParameters();
         printLeader();
-        printLine(TABLE_COLOR + "\u2517", "\u253B", "\u251B" + RESET);
+        printLine(GameConstants.TABLE_COLOR + "\u2517", "\u253B", "\u251B" + Colors.RESET);
     }
 
     private void printHeroesParameters() {
         for (int j = 0; j < GameConstants.parametersNames.length; j++) {
             for (Hero h : heroes) {
-                System.out.print(TABLE_COLOR + "\u2503" + RESET);
+                System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
                 String name = GameConstants.parametersNames[j];
                 String number = Double.toString(h.getParametersNumbers().get(j));
                 System.out.print(name);
-                fillSpace(2 * TAB, name.length(), ".");
+                Console.fillSpace(2 * GameConstants.TAB, name.length(), ".");
                 System.out.print(number);
-                fillSpace(TAB, number.length(), ".");
+                Console.fillSpace(GameConstants.TAB, number.length(), ".");
             }
-            System.out.println(TABLE_COLOR + "\u2503" + RESET);
+            System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
         }
     }
 
     private void printHeroesNames() {
         for (Hero h : heroes) {
-            System.out.print(TABLE_COLOR + "\u2503" + RESET);
+            System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             String name = h.getName();
             System.out.print("Name");
-            fillSpace(2 * TAB, 4, ".");
+            Console.fillSpace(2 * GameConstants.TAB, 4, ".");
             System.out.print(name);
-            fillSpace(TAB, name.length(), ".");
+            Console.fillSpace(GameConstants.TAB, name.length(), ".");
         }
-        System.out.println(TABLE_COLOR + "\u2503" + RESET);// ┃
+        System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);// ┃
     }
 
     private void printHeroesRace() {
         for (Hero h : heroes) {
-            System.out.print(TABLE_COLOR + "\u2503" + RESET);
+            System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             String race = h.getRv().name;
             System.out.print("Race");
-            fillSpace(2 * TAB, 4, ".");
+            Console.fillSpace(2 * GameConstants.TAB, 4, ".");
             System.out.print(race);
-            fillSpace(TAB, race.length(), ".");
+            Console.fillSpace(GameConstants.TAB, race.length(), ".");
         }
-        System.out.println(TABLE_COLOR + "\u2503" + RESET);
+        System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
     }
 
     private void printLeader() {
         for (Hero h : heroes) {
-            System.out.print(TABLE_COLOR + "\u2503" + RESET);
+            System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             boolean leader = h.isLeader();
             System.out.print(leader ? "Leader!!" : "");
-            fillSpace(2 * TAB, leader ? 8 : 0, ".");
-            fillSpace(TAB, 0, ".");
+            Console.fillSpace(2 * GameConstants.TAB, leader ? 8 : 0, ".");
+            Console.fillSpace(GameConstants.TAB, 0, ".");
         }
-        System.out.println(TABLE_COLOR + "\u2503" + RESET);
+        System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
     }
 
     private void printLine(String start, String middle, String end) {
         System.out.print(start);
         for (int i = 0; i < heroes.size() - 1; i++) {
-            fillSpace(3 * TAB, 0, "\u2501");    // ━
+            Console.fillSpace(3 * GameConstants.TAB, 0, "\u2501");    // ━
             System.out.print(middle);
         }
-        fillSpace(3 * TAB, 0, "\u2501");
+        Console.fillSpace(3 * GameConstants.TAB, 0, "\u2501");
         System.out.println(end);
     }
 
@@ -164,8 +165,8 @@ class Team implements Colors, GameConstants {
     private void upgradeHeroes() {
         for (Hero h : heroes) {
             while (h.getPoints() > 0) {
-                System.out.print(BLUE + "upgrade hero:" + YELLOW + h.getName() + " " + h.getRv().name + BLUE);
-                System.out.println(" you have " + PURPLE + h.getPoints() + BLUE + " points" + RESET);
+                System.out.print(Colors.BLUE + "upgrade hero:" + Colors.YELLOW + h.getName() + " " + h.getRv().name + Colors.BLUE);
+                System.out.println(" you have " + Colors.PURPLE + h.getPoints() + Colors.BLUE + " points" + Colors.RESET);
                 h.printMainParameters();
                 int i = Validator.getNumber("enter your variant", 1, GameConstants.parametersNames.length);
                 int a = Validator.getNumber("enter quantity", 1, h.getPoints());

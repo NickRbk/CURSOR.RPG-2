@@ -1,3 +1,5 @@
+package cursor.rybak;
+
 public interface displayingInfo {
 String GAME_NAME = "Good ‘ol RPG";
 String GAME_DESCRIPTION = "We must fight against monsters in the Labyrinth. For doing this we need a team of three " +

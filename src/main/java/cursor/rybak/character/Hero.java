@@ -1,9 +1,9 @@
-package character;
+package cursor.rybak.character;
 
 import lombok.Getter;
 import lombok.Setter;
-import util.Colors;
-import util.GameConstants;
+import cursor.rybak.util.Colors;
+import cursor.rybak.util.GameConstants;
 import java.util.ArrayList;
 import java.util.List;
 

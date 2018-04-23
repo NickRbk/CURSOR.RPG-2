@@ -1,4 +1,6 @@
-import util.*;
+package cursor.rybak;
+
+import cursor.rybak.util.*;
 
 class Game implements Colors, GameConstants ,displayingInfo{
     private Team team;

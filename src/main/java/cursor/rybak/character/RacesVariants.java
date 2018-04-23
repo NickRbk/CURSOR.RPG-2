@@ -1,4 +1,4 @@
-package character;
+package cursor.rybak.character;
 
 public enum RacesVariants {
     R1("Elf", "Here will be the description of the race 1", 15, 10, 25, 22, 18),

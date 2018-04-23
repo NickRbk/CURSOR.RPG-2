@@ -1,4 +1,4 @@
-package util;
+package cursor.rybak.util;
 
 public interface Colors {
     String DARKGREY_ON_WHITE = "\u001B[7m";

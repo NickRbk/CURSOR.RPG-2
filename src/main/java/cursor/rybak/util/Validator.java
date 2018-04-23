@@ -1,4 +1,4 @@
-package util;
+package cursor.rybak.util;
 
 public class Validator {
 

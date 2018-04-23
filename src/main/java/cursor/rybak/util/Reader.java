@@ -1,4 +1,4 @@
-package util;
+package cursor.rybak.util;
 import java.util.Scanner;
 
 public final class Reader {

@@ -175,7 +175,6 @@ class Team implements Colors, GameConstants {
                 int i = Validator.getNumber("enter your variant", 1, GameConstants.parametersNames.length);
                 int a = Validator.getNumber("enter quantity", 1, h.getPoints());
                 h.incPoints(-1 * a);
-                i += 3;
                 int i2 = a + h.getParametersNumbers().get(i);
                 h.getParametersNumbers().set(i, i2);
             }

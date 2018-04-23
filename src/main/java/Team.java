@@ -5,9 +5,7 @@ import java.util.List;
 import character.Hero;
 import character.RacesVariants;
 import character.Specialities;
-import labyrinth.Room;
 import lombok.Getter;
-import lombok.Setter;
 import util.Colors;
 import util.GameConstants;
 import util.Validator;
@@ -15,9 +13,6 @@ import util.Validator;
 import static util.Console.fillSpace;
 
 class Team implements Colors, GameConstants {
-    @Setter
-    @Getter
-    private Room position;
     @Getter
     private List<Hero> heroes = new ArrayList<>();
 

@@ -4,7 +4,6 @@ import cursor.rybak.game.UserInteraction;
 import cursor.rybak.model.race.AbstractRace;
 import lombok.Getter;
 
-
 public class Team {
     private static final int TEAM_MEMBERS = 3;
 

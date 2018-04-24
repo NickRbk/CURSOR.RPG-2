@@ -5,5 +5,6 @@ public interface RaceInitValues {
     int initValue = 100;
     int xp = 10;
     int level = 1;
-    String[] keyToUpgrade = {"charisma", "stamina", "intellect", "agility", "concentration", "INFO"};
+    String[] keyToUpgrade = {Characteristics.CHARISMA, Characteristics.STAMINA, Characteristics.INTELLECT,
+            Characteristics.AGILITY, Characteristics.CONCENTRATION, "INFO"};
 }

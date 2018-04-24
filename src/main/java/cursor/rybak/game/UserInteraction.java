@@ -6,13 +6,11 @@ import cursor.rybak.view.ErrorMessage;
 import cursor.rybak.view.GeneralMessage;
 import cursor.rybak.view.Message;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class UserInteraction {
     private static final Scanner in = new Scanner(System.in);
+    private static final DistributionSwitch distributionSwitch = new DistributionSwitch();
 
     /**
      * ask about name (for props, that validate
@@ -236,11 +234,13 @@ public class UserInteraction {
      * @param points         upgrade points
      */
     private static void upgradeCharacteristic(String characteristic, AbstractRace hero, int points) {
-        if ("charisma".equals(characteristic)) hero.setCharisma(points);
-        if ("stamina".equals(characteristic)) hero.setStamina(points);
-        if ("intellect".equals(characteristic)) hero.setIntellect(points);
-        if ("agility".equals(characteristic)) hero.setAgility(points);
-        if ("concentration".equals(characteristic)) hero.setConcentration(points);
+        Map<AbstractRace, Integer> arguments = new HashMap<>();
+        arguments.put(hero, points);
+
+        distributionSwitch
+                .getCharacteristicsSwitch()
+                .get(characteristic)
+                .apply(arguments);
     }
 
 

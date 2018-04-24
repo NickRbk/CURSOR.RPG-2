@@ -1,6 +1,5 @@
 package cursor.rybak.model.character;
 
-import cursor.rybak.util.Colors;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +7,7 @@ import cursor.rybak.util.GameConstants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero implements Colors {
+public class Hero {
     @Getter
     private boolean isLeader;
     @Getter
@@ -55,10 +54,10 @@ public class Hero implements Colors {
         points+=i;
     }
     public void printMainParameters(){
-        System.out.print(GREEN+"[0 : info] "+RESET);
+        System.out.print("[0 : info] ");
         for(int i=0;i<GameConstants.parametersNames.length;i++){
-            System.out.print(GREEN+"["+(i+1)+": "+GameConstants.parametersNames[i]+
-                    " "+parametersNumbers.get(i)+"] "+RESET);
+            System.out.print("["+(i+1)+": "+GameConstants.parametersNames[i]+
+                    " "+parametersNumbers.get(i)+"] ");
         }
         System.out.println();
     }

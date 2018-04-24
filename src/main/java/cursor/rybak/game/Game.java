@@ -1,9 +1,8 @@
 package cursor.rybak.game;
 
 import cursor.rybak.model.Team;
-import cursor.rybak.util.*;
 
-public class Game implements Colors, GameConstants {
+public class Game {
     private Team team;
 
     public Game() {

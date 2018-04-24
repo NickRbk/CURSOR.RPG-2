@@ -3,7 +3,6 @@ package cursor.rybak.model;
 import cursor.rybak.model.character.Hero;
 import cursor.rybak.model.character.RacesVariants;
 import cursor.rybak.model.character.Specialities;
-import cursor.rybak.util.Colors;
 import cursor.rybak.util.GameConstants;
 import cursor.rybak.util.Validator;
 import lombok.Getter;
@@ -11,7 +10,7 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team implements Colors, GameConstants {
+public class Team implements GameConstants {
     @Getter
     private List<Hero> heroes = new ArrayList<>();
 
@@ -58,7 +57,7 @@ public class Team implements Colors, GameConstants {
     }
 
     private void displayRaces() {
-        System.out.println("choose race:");
+        System.out.println("choose race: ");
         System.out.print("[0 info] ");
         for (int i = 1; i <= RacesVariants.values().length; i++) {
             System.out.print("[" + i + " " + RacesVariants.valueOf("R" + i).name + "] ");
@@ -88,11 +87,11 @@ public class Team implements Colors, GameConstants {
     private void upgradeHeroes() {
         for (Hero h : heroes) {
             while (h.getPoints() > 0) {
-                System.out.print(Colors.BLUE + "upgrade hero:" + Colors.YELLOW + h.getName() + " " + h.getRv().name + Colors.BLUE);
-                System.out.println(" you have " + Colors.PURPLE + h.getPoints() + Colors.BLUE + " points" + Colors.RESET);
+                System.out.print("upgrade hero: " + h.getName() + " " + h.getRv().name);
+                System.out.println(" you have " + h.getPoints() + " points");
                 h.printMainParameters();
-                int i = Validator.getNumber("enter your variant", 1, GameConstants.parametersNames.length);
-                int a = Validator.getNumber("enter quantity", 1, h.getPoints());
+                int i = Validator.getNumber("enter your variant: ", 1, GameConstants.parametersNames.length);
+                int a = Validator.getNumber("enter quantity: ", 1, h.getPoints());
                 h.incPoints(-1 * a);
                 int i2 = a + h.getParametersNumbers().get(i);
                 h.getParametersNumbers().set(i, i2);

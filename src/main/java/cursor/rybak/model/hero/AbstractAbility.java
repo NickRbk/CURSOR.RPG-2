@@ -3,14 +3,12 @@ package cursor.rybak.model.hero;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public abstract class AbstractAbility {
-    @Getter
     private String name;
-    @Getter
     private int energyConsumption;
-    @Getter
     private int[] damageOptions;
-    @Getter
+
     @Setter
     private int coolDown;
 

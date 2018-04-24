@@ -39,16 +39,6 @@ public class Message implements MagicColors {
 
 
     /**
-     * message to ask game mode (for advance edition)
-     *
-     * @param options mode options (in string)
-     */
-    public static void askGameMode(String options) {
-        System.out.print(BLUE + "\n\tChoose GAME MODE -> " + RESET + "[" + options + "]: ");
-    }
-
-
-    /**
      * print options to choose race
      */
     public static void printRaces() {
@@ -151,10 +141,5 @@ public class Message implements MagicColors {
      */
     public static void printRemainedInfo(int remainedPoints) {
         System.out.format("%s| You have %d points left |%s ", RED, remainedPoints, RESET);
-    }
-
-
-    public static void askAboutHint() {
-        System.out.print(BLUE + "\tMaybe you want to see a maze map ?)) [y - yes] --> " + RESET);
     }
 }

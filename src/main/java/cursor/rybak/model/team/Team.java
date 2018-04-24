@@ -4,15 +4,12 @@ import cursor.rybak.game.UserInteraction;
 import cursor.rybak.model.race.AbstractRace;
 import lombok.Getter;
 
+@Getter
 public class Team {
     private static final int TEAM_MEMBERS = 3;
-
-    @Getter
     private AbstractRace[] heroes;
-    @Getter
     private String name;
 
-    // Create custom constructor to create Team
     public Team(String name) {
         heroes = createTeam();
         this.name = name;

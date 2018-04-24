@@ -1,6 +1,7 @@
 package cursor.rybak.view;
 
 import cursor.rybak.model.race.AbstractRace;
+import cursor.rybak.model.race.Characteristics;
 import cursor.rybak.model.team.Team;
 
 public class TeamMessage implements MagicColors {
@@ -99,19 +100,19 @@ public class TeamMessage implements MagicColors {
      * @param hero   special format String
      */
     private static void printHeroesCharacteristic(String format, AbstractRace[] hero) {
-        System.out.format(format, "Charisma",
+        System.out.format(format, Characteristics.CHARISMA,
                 hero[0].getCharisma(), hero[1].getCharisma(), hero[2].getCharisma());
 
-        System.out.format(format, "Stamina",
+        System.out.format(format, Characteristics.STAMINA,
                 hero[0].getStamina(), hero[1].getStamina(), hero[2].getStamina());
 
-        System.out.format(format, "Intellect",
+        System.out.format(format, Characteristics.INTELLECT,
                 hero[0].getIntellect(), hero[1].getIntellect(), hero[2].getIntellect());
 
-        System.out.format(format, "Agility",
+        System.out.format(format, Characteristics.AGILITY,
                 hero[0].getAgility(), hero[1].getAgility(), hero[2].getAgility());
 
-        System.out.format(format, "Concentration",
+        System.out.format(format, Characteristics.CONCENTRATION,
                 hero[0].getConcentration(), hero[1].getConcentration(), hero[2].getConcentration());
     }
 }

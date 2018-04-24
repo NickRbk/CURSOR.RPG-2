@@ -9,8 +9,8 @@ import java.util.Map;
 public class Human extends AbstractRace {
 
     public Human(String heroName) {
-        super("Human", heroName, Races.Human.getCharisma(), Races.Human.getStamina(), Races.Human.getIntellect(),
-                Races.Human.getAgility(), Races.Human.getConcentration());
+        super(Races.Human.getName(), heroName, Races.Human.getCharisma(), Races.Human.getStamina(),
+                Races.Human.getIntellect(), Races.Human.getAgility(), Races.Human.getConcentration());
     }
 
     /**

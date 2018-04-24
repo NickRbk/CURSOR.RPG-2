@@ -9,8 +9,8 @@ import java.util.Map;
 public class Elf extends AbstractRace {
 
     public Elf(String heroName) {
-        super("Elf", heroName, Races.Elf.getCharisma(), Races.Elf.getStamina(), Races.Elf.getIntellect(),
-                Races.Elf.getAgility(), Races.Elf.getConcentration());
+        super(Races.Elf.getName(), heroName, Races.Elf.getCharisma(), Races.Elf.getStamina(),
+                Races.Elf.getIntellect(), Races.Elf.getAgility(), Races.Elf.getConcentration());
     }
 
     /**

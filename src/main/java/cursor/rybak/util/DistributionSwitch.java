@@ -1,4 +1,4 @@
-package cursor.rybak.game;
+package cursor.rybak.util;
 
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.Characteristics;

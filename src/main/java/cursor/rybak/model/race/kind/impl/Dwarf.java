@@ -9,8 +9,8 @@ import java.util.Map;
 public class Dwarf extends AbstractRace {
 
     public Dwarf(String heroName) {
-        super("Dwarf", heroName, Races.Dwarf.getCharisma(), Races.Dwarf.getStamina(), Races.Dwarf.getIntellect(),
-                Races.Dwarf.getAgility(), Races.Dwarf.getConcentration());
+        super(Races.Dwarf.getName(), heroName, Races.Dwarf.getCharisma(), Races.Dwarf.getStamina(),
+                Races.Dwarf.getIntellect(), Races.Dwarf.getAgility(), Races.Dwarf.getConcentration());
     }
 
     /**

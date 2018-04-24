@@ -1,10 +1,9 @@
 package cursor.rybak.game;
 
-import cursor.rybak.view.displayingInfo;
 import cursor.rybak.model.Team;
 import cursor.rybak.util.*;
 
-public class Game implements Colors, GameConstants ,displayingInfo {
+public class Game implements Colors, GameConstants {
     private Team team;
 
     public Game() {
@@ -12,10 +11,6 @@ public class Game implements Colors, GameConstants ,displayingInfo {
     }
 
     public void start(){
-        System.out.print("-------------------------------- ");
-        System.out.print(GAME_NAME);
-        System.out.println(" ------------------------------");
-        Console.printParagraph(GAME_DESCRIPTION);
         team.createTeam();
     }
 }

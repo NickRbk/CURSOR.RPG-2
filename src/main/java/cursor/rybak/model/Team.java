@@ -1,18 +1,15 @@
 package cursor.rybak.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cursor.rybak.model.character.Hero;
 import cursor.rybak.model.character.RacesVariants;
 import cursor.rybak.model.character.Specialities;
-import cursor.rybak.util.Console;
-import lombok.Getter;
 import cursor.rybak.util.Colors;
 import cursor.rybak.util.GameConstants;
 import cursor.rybak.util.Validator;
+import lombok.Getter;
 
-import static cursor.rybak.util.Console.fillSpace;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Team implements Colors, GameConstants {
     @Getter
@@ -62,7 +59,6 @@ public class Team implements Colors, GameConstants {
     }
 
     private void displayRaces() {
-        System.out.println("############################################################################");
         System.out.println("choose race:");
         System.out.print("[0 info] ");
         for (int i = 1; i <= RacesVariants.values().length; i++) {
@@ -109,9 +105,7 @@ public class Team implements Colors, GameConstants {
                 String name = GameConstants.parametersNames[j];
                 String number = Double.toString(h.getParametersNumbers().get(j));
                 System.out.print(name);
-                Console.fillSpace(2 * GameConstants.TAB, name.length(), ".");
                 System.out.print(number);
-                Console.fillSpace(GameConstants.TAB, number.length(), ".");
             }
             System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
         }
@@ -122,9 +116,7 @@ public class Team implements Colors, GameConstants {
             System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             String name = h.getName();
             System.out.print("Name");
-            Console.fillSpace(2 * GameConstants.TAB, 4, ".");
             System.out.print(name);
-            Console.fillSpace(GameConstants.TAB, name.length(), ".");
         }
         System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);// ┃
     }
@@ -134,9 +126,7 @@ public class Team implements Colors, GameConstants {
             System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             String race = h.getRv().name;
             System.out.print("Race");
-            Console.fillSpace(2 * GameConstants.TAB, 4, ".");
             System.out.print(race);
-            Console.fillSpace(GameConstants.TAB, race.length(), ".");
         }
         System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
     }
@@ -146,8 +136,6 @@ public class Team implements Colors, GameConstants {
             System.out.print(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
             boolean leader = h.isLeader();
             System.out.print(leader ? "Leader!!" : "");
-            Console.fillSpace(2 * GameConstants.TAB, leader ? 8 : 0, ".");
-            Console.fillSpace(GameConstants.TAB, 0, ".");
         }
         System.out.println(GameConstants.TABLE_COLOR + "\u2503" + Colors.RESET);
     }
@@ -155,10 +143,8 @@ public class Team implements Colors, GameConstants {
     private void printLine(String start, String middle, String end) {
         System.out.print(start);
         for (int i = 0; i < heroes.size() - 1; i++) {
-            Console.fillSpace(3 * GameConstants.TAB, 0, "\u2501");    // ━
             System.out.print(middle);
         }
-        Console.fillSpace(3 * GameConstants.TAB, 0, "\u2501");
         System.out.println(end);
     }
 

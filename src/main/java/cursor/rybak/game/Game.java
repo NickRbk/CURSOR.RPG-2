@@ -43,9 +43,11 @@ public class Game {
     }
 
     private static boolean isHeroAlive(Team team) {
-        Optional<AbstractRace> leader = Arrays.stream(team.getHeroes())
-                .filter(AbstractRace::isLeader).findFirst();
+        return team.getHeroes()[0].getHealth() > 0;
 
-        return leader.get().getHealth() > 0;
+//        Optional<AbstractRace> leader = Arrays.stream(team.getHeroes())
+//                .filter(AbstractRace::isLeader).findFirst();
+//
+//        return leader.get().getHealth() > 0;
     }
 }

@@ -68,6 +68,9 @@ public class Team implements GameCalcs {
                         hero.setXp( hero.getXp() - levelUpPoints );
                         hero.setLevel( hero.getLevel() + 1 );
                         hero.setPrevLevelPoints( levelUpPoints );
+
+                        hero.setSp(RaceInitValues.sp);
+                        UserInteraction.distributePoints(hero);
                     }
                 });
     }

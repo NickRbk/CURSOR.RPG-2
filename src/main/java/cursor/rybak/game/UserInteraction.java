@@ -169,7 +169,7 @@ public class UserInteraction {
      *
      * @param hero instance of particular hero
      */
-    private static void distributePoints(AbstractRace hero) {
+    public static void distributePoints(AbstractRace hero) {
         int remainedPoints = hero.getSp();
         Message.printDistributionIntro(remainedPoints);
 

@@ -1,6 +1,11 @@
 package cursor.rybak.model.room;
 
+import cursor.rybak.model.enemy.AbstractMonster;
+import cursor.rybak.model.enemy.MonsterKinds;
+import cursor.rybak.model.enemy.packMap.EnemiesPackMap;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.function.Function;
@@ -49,6 +54,20 @@ public class RoomSwitch {
             room.setMonsterPresent(random.nextInt(2));
         }
 
+        if(room.isMonsterPresent()) putEnemies(room);
+
         return room;
+    }
+
+
+    private void putEnemies(Room room) {
+        int enemiesKind = random.nextInt(MonsterKinds.values().length);
+        String kind = MonsterKinds.values()[enemiesKind].getKind();
+
+        Map<String, List<AbstractMonster>> enemiesPack = EnemiesPackMap.getEnemiesPack().get(kind);
+
+        String packIndex = "" + random.nextInt(enemiesPack.size());
+
+        room.setEnemies( enemiesPack.get(packIndex) );
     }
 }

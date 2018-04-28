@@ -1,9 +1,12 @@
 package cursor.rybak.model.room;
 
+import cursor.rybak.model.enemy.AbstractMonster;
 import cursor.rybak.model.team.Team;
 import cursor.rybak.util.RandomInt;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,6 +18,8 @@ public class Room implements RandomInt {
 
     private Room previous;            // previous room
     private boolean isMonsterPresent; // marker for monsters env
+
+    private List<AbstractMonster> enemies;
     private Team team;
 
     private Room[] chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type

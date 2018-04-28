@@ -41,4 +41,10 @@ public class GeneralMessage implements MagicColors {
                 "\t\t| 1rp regen per turn per 1 point\n" +
                 "\t\t| 1 turn cd decrease per 25 points" + RESET + "\n\n");
     }
+
+
+    public static void gameOverInfo() {
+        System.out.println(RED + "\n\t\tGAME OVER!\n\n" + RESET);
+    }
+
 }

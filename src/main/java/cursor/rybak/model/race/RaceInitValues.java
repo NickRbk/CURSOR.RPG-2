@@ -3,7 +3,7 @@ package cursor.rybak.model.race;
 public interface RaceInitValues {
     int minValue = 0;
     int initValue = 100;
-    int xp = 10;
+    int sp = 10;
     int level = 1;
 
     String[] keyToUpgrade = {Characteristics.CHARISMA, Characteristics.STAMINA, Characteristics.INTELLECT,

@@ -24,23 +24,22 @@ public class Game {
     }
 
     private static void launch(Team team) {
-        while (isHeroAlive(team)) {
-            Maze maze = new Maze();
-            Room currentRoom = team.enterToMaze(maze);
+        Maze maze = new Maze();
+        Room currentRoom = team.enterToMaze(maze);
 
-            while (!currentRoom.isObjective() && isHeroAlive(team)) {
-                System.out.println(currentRoom);
+        while (!currentRoom.isObjective() && isHeroAlive(team)) {
+            System.out.println(currentRoom);
 
-                Battle.blitzkrieg(currentRoom); // simple battle phase
+            Battle.blitzkrieg(currentRoom); // simple battle phase
 
-                MazeMessage.printNeighbors(currentRoom);
-                String moveOption = UserInteraction.chooseMoveOption(currentRoom);
+            MazeMessage.printNeighbors(currentRoom);
+            String moveOption = UserInteraction.chooseMoveOption(currentRoom);
 
-                currentRoom = team.move(currentRoom, moveOption);
-            }
-
-            System.out.println(currentRoom.getDescription());
+            currentRoom = team.move(currentRoom, moveOption);
         }
+
+        if(isHeroAlive(team)) System.out.println(currentRoom.getDescription());
+        else GeneralMessage.gameOverInfo();
     }
 
     private static boolean isHeroAlive(Team team) {

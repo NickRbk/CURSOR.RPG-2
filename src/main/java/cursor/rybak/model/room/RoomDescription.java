@@ -60,7 +60,6 @@ public enum RoomDescription implements MagicColors {
 
     END_POINT(PURPLE + "\n\n\t================================" +
             "\n\n\tCongratulations!!! You are free!" +
-            "\n\n\tContinue our Game)" +
             "\n\n\t================================\n" + RESET, "END POINT");
 
     private String description;

@@ -19,7 +19,10 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     private boolean isLeader;
 
     @Setter
-    private double xp = RaceInitValues.xp; // skill points (xp)
+    private double xp;
+
+    @Setter
+    private int sp = RaceInitValues.sp; // skill points (xp)
 
     private double mana = RaceInitValues.initValue; // manna point for spells (mp)
     private double rage = RaceInitValues.initValue; // rage points (rp)

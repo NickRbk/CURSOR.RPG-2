@@ -170,7 +170,7 @@ public class UserInteraction {
      * @param hero instance of particular hero
      */
     private static void distributePoints(AbstractRace hero) {
-        int remainedPoints = (int) hero.getXp();
+        int remainedPoints = hero.getSp();
         Message.printDistributionIntro(remainedPoints);
 
         while (remainedPoints > 0) {
@@ -224,7 +224,7 @@ public class UserInteraction {
                     && parseInt(userInput) > 0
                     && parseInt(userInput) <= remainedPoints) {
 
-                updateXp(hero, parseInt(userInput));
+                updateSp(hero, parseInt(userInput));
                 upgradeCharacteristic(characteristic, hero, parseInt(userInput));
                 remainedPoints -= parseInt(userInput);
                 Message.printUpgradeInfo(userInput, characteristic, hero.getHeroName());
@@ -240,13 +240,13 @@ public class UserInteraction {
 
 
     /**
-     * update hero XP
+     * update hero skill points
      *
      * @param hero      current hero
      * @param userInput input value
      */
-    private static void updateXp(AbstractRace hero, int userInput) {
-        hero.setXp(hero.getXp() - (double) userInput);
+    private static void updateSp(AbstractRace hero, int userInput) {
+        hero.setSp(hero.getSp() - userInput);
     }
 
 

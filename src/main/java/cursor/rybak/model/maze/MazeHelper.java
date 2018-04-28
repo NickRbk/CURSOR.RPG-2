@@ -14,10 +14,7 @@ public interface MazeHelper {
                     .filter(el -> el.equals(RoomTypes.values()[roomTypeIndex].name()))
                     .count();
 
-            if (length > 0) {
-                System.out.println(RoomTypes.values()[roomTypeIndex].name());
-                return roomTypeIndex;
-            }
+            if (length > 0) return roomTypeIndex;
         }
     }
 

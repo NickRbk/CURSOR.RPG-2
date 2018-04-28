@@ -9,7 +9,7 @@ public enum RoomDescription implements MagicColors {
     START_POINT(CYAN + "\tYou're in Game, welcome! It's dark around... but doesn't matter.\n" +
             "\tYou must know only a few things... here live monsters and\n" +
             "\tyou run away from here, if you find the key)\n" +
-            "\tBe careful, good luck!\n" + RESET, "START POINT"),
+            "\tBe careful, good luck!" + RESET, "START POINT"),
 
     LOCATION1(CYAN + "\tThere is too much water. TEAM, we need to get out of here" + RESET, "Location #1"),
 

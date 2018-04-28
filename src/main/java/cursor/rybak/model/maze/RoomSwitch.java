@@ -46,7 +46,7 @@ public class RoomSwitch {
 
         // set monsters in rooms (besides START)
         if (!roomType.equals(RoomTypes.START)) {
-            room.setMonsterPresent(random.nextInt(1));
+            room.setMonsterPresent(random.nextInt(2));
         }
 
         return room;

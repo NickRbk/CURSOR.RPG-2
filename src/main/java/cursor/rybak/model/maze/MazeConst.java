@@ -1,7 +1,7 @@
 package cursor.rybak.model.maze;
 
 public interface MazeConst {
-    int MIN_ROOMS = 14;
+    int MIN_ROOMS = 30;
 
     int DEEP = 3;
     int INITIAL_DEEP = 1;

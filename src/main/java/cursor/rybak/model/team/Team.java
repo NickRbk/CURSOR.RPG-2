@@ -1,6 +1,8 @@
 package cursor.rybak.model.team;
 
 import cursor.rybak.game.UserInteraction;
+import cursor.rybak.model.maze.Maze;
+import cursor.rybak.model.maze.Room;
 import cursor.rybak.model.race.AbstractRace;
 import lombok.Getter;
 
@@ -15,7 +17,6 @@ public class Team {
         this.name = name;
     }
 
-
     /**
      * create Team
      *
@@ -25,6 +26,24 @@ public class Team {
         AbstractRace[] selectedHeroes = UserInteraction.askHeroes(TEAM_MEMBERS);
         selectedHeroes[0].setLeader();
         return selectedHeroes;
+    }
+
+    public Room enterToMaze(Maze maze) {
+        maze.getStartRoom().setTeam(this);
+        return maze.getStartRoom();
+    }
+
+    public Room move(Room currentRoom, String moveOption) {
+        int index = Integer.parseInt(moveOption) - 1;
+        currentRoom.setTeam(null);
+        currentRoom.setPrevious(null);
+
+        Room nextRoom = currentRoom.getChainedTo()[index];
+        nextRoom.setTeam(this);
+        nextRoom.setPrevious(currentRoom);
+        nextRoom.setChecked(true);
+
+        return nextRoom;
     }
 
     @Override

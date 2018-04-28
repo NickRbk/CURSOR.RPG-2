@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class Maze implements MazeConst, MazeHelper {
     @Getter
@@ -18,10 +19,11 @@ public class Maze implements MazeConst, MazeHelper {
     }
 
     private void generate() {
-        while ((rooms.size() + impasseRooms.size()) < MIN_ROOMS) {
+        while (rooms.size() < MIN_ROOMS) {
             generateMazePath(initStartPoint(), INITIAL_DEEP);
             setImpasse();
         }
+        putObjective();
     }
 
     /**
@@ -73,10 +75,18 @@ public class Maze implements MazeConst, MazeHelper {
                 .get(RoomTypes.START)
                 .apply(RoomDescription.START_POINT);
 
+        startRoom.setChecked(true);
         rooms.add(startRoom);
         this.startRoom = startRoom;
 
         return startRoom;
+    }
+
+    private void putObjective() {
+        int index = new Random().nextInt(rooms.size() - 15) + 10;
+        rooms.get(index).setObjective(true);
+        rooms.get(index).setDescription(RoomDescription.END_POINT.getDescription());
+        rooms.get(index).setLabel(RoomDescription.END_POINT.getLabel());
     }
 
     @Override

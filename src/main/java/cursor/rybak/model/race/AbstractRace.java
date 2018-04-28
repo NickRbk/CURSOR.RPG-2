@@ -9,14 +9,16 @@ import java.util.Map;
 @Getter
 public abstract class AbstractRace implements RaceInitValues, CalcConst {
 
+    private double XPCoefficient = initXPCoefficient;
+
     private String race;
     private String heroKind;
 
     @Setter
     private String heroName;
 
-    private double health = RaceInitValues.initValue; // health points (hp)
-    private boolean isLeader;
+    private double health = initValue; // health points (hp)
+    private boolean isLeader ;
 
     @Setter
     private double xp;
@@ -24,8 +26,8 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     @Setter
     private int sp = RaceInitValues.sp; // skill points (xp)
 
-    private double mana = RaceInitValues.initValue; // manna point for spells (mp)
-    private double rage = RaceInitValues.initValue; // rage points (rp)
+    private double mana = initValue; // manna point for spells (mp)
+    private double rage = initValue; // rage points (rp)
     private int charisma;
     private int stamina;
     private int intellect;
@@ -69,6 +71,7 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
 
     public void setLeader() {
         this.isLeader = true;
+        this.XPCoefficient = leaderXPCoefficient;
     }
 
     public void setHealth(int health) {
@@ -90,14 +93,17 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     public abstract Map<String, int[]> getAttacks();
 
 
+    public void gainXp(double xp) {
+        // 2% XP gain for every two charisma points
+        int remainder = charisma % 2;
+
+        this.xp += remainder == 0
+                ? ((1 + increaseXPCoefficientPerCharisma * charisma / 2) * xp)
+                : ((1 + increaseXPCoefficientPerCharisma * (charisma - remainder) / 2) * xp);
+    }
+
     public void setCharisma(int charisma) {
         this.charisma += charisma;
-
-        // 2% XP gain for every two points
-        int remainder = charisma % 2;
-        this.xp += remainder == 0
-                ? (increaseXPCoefficientPerCharisma * this.xp * charisma / 2)
-                : (increaseXPCoefficientPerCharisma * this.xp * (charisma - remainder));
 
         // 1 additional initiative point per 2 points
         // CODE WILL BE HERE

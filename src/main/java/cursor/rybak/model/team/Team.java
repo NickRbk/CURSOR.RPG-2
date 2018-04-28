@@ -5,12 +5,13 @@ import cursor.rybak.model.maze.Maze;
 import cursor.rybak.model.race.RaceInitValues;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.model.race.AbstractRace;
+import cursor.rybak.view.BattleMessage;
 import lombok.Getter;
 
 import java.util.Arrays;
 
 @Getter
-public class Team implements GameCalcs {
+public class Team implements GameCalc {
     private static final int TEAM_MEMBERS = 3;
     private AbstractRace[] heroes;
     private String name;
@@ -58,13 +59,15 @@ public class Team implements GameCalcs {
     private void tryLevelUp() {
         Arrays.stream(heroes)
                 .forEach(hero -> {
-                    int prevLevelPoints = hero.getLevel() == 1
+                    int prevLevelPoints = hero.getPrevLevelPoints();
+
+                    int levelUpPoints = hero.getLevel() == 1
                             ? RaceInitValues.initLevelUpPoints
-                            : hero.getPrevLevelPoints();
+                            : levelUpPoints(this, prevLevelPoints);
 
-                    int levelUpPoints = levelUpPoints(this, prevLevelPoints);
+                    if(hero.getXp() >= levelUpPoints && hero.getLevel() < RaceInitValues.maxLevel) {
+                        BattleMessage.printUpgradeHero(hero);
 
-                    if(hero.getXp() >= levelUpPoints) {
                         hero.setXp( hero.getXp() - levelUpPoints );
                         hero.setLevel( hero.getLevel() + 1 );
                         hero.setPrevLevelPoints( levelUpPoints );

@@ -1,15 +1,11 @@
 package cursor.rybak.game;
 
 import cursor.rybak.model.maze.Maze;
-import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.model.team.Team;
 import cursor.rybak.view.GeneralMessage;
 import cursor.rybak.view.MazeMessage;
 import cursor.rybak.view.TeamMessage;
-
-import java.util.Arrays;
-import java.util.Optional;
 
 public class Game {
     public static void start() {
@@ -44,10 +40,5 @@ public class Game {
 
     private static boolean isHeroAlive(Team team) {
         return team.getHeroes()[0].getHealth() > 0;
-
-//        Optional<AbstractRace> leader = Arrays.stream(team.getHeroes())
-//                .filter(AbstractRace::isLeader).findFirst();
-//
-//        return leader.get().getHealth() > 0;
     }
 }

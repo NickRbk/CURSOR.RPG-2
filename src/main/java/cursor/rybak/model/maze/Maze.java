@@ -37,15 +37,18 @@ public class Maze implements MazeConst, MazeHelper {
                     .apply(getRoomDescription());
 
             rooms.add(secondRoom);
-
             setConnections(firstRoom, secondRoom);
-
-            if (deep != DEEP
-                    && (firstRoom.getType().equals(RoomTypes.CROSS) || firstRoom.getType().equals(RoomTypes.START))) {
-                generateMazePath(firstRoom, deep + 1);
-            }
-
+            generateSidePath(deep, firstRoom); // recursively invoke generateMazePath()
             firstRoom = secondRoom;
+        }
+    }
+
+
+    private void generateSidePath(int currentDeep, Room room) {
+        if (currentDeep != DEEP
+                && (room.getType().equals(RoomTypes.CROSS) || room.getType().equals(RoomTypes.START))) {
+
+            generateMazePath(room, currentDeep + 1);
         }
     }
 

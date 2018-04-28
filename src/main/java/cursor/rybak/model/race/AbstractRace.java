@@ -35,6 +35,9 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     @Setter
     private int level = RaceInitValues.level;
 
+    @Setter
+    private int prevLevelPoints;
+
     /**
      * constructor for abstract
      * class AbstractRace

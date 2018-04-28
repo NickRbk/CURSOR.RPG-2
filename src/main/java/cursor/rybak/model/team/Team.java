@@ -2,12 +2,15 @@ package cursor.rybak.model.team;
 
 import cursor.rybak.game.UserInteraction;
 import cursor.rybak.model.maze.Maze;
+import cursor.rybak.model.race.RaceInitValues;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.model.race.AbstractRace;
 import lombok.Getter;
 
+import java.util.Arrays;
+
 @Getter
-public class Team {
+public class Team implements GameCalcs {
     private static final int TEAM_MEMBERS = 3;
     private AbstractRace[] heroes;
     private String name;
@@ -43,8 +46,32 @@ public class Team {
         nextRoom.setPrevious(currentRoom);
         nextRoom.setChecked(true);
 
+        tryLevelUp();
+
         return nextRoom;
     }
+
+
+    /**
+     * Level up method
+     */
+    private void tryLevelUp() {
+        Arrays.stream(heroes)
+                .forEach(hero -> {
+                    int prevLevelPoints = hero.getLevel() == 1
+                            ? RaceInitValues.initLevelUpPoints
+                            : hero.getPrevLevelPoints();
+
+                    int levelUpPoints = levelUpPoints(this, prevLevelPoints);
+
+                    if(hero.getXp() >= levelUpPoints) {
+                        hero.setXp( hero.getXp() - levelUpPoints );
+                        hero.setLevel( hero.getLevel() + 1 );
+                        hero.setPrevLevelPoints( levelUpPoints );
+                    }
+                });
+    }
+
 
     @Override
     public String toString() {

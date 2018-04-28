@@ -1,6 +1,6 @@
 package cursor.rybak.game;
 
-import cursor.rybak.model.maze.Room;
+import cursor.rybak.model.room.Room;
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.store.RaceMap;
 import cursor.rybak.util.DistributionSwitch;

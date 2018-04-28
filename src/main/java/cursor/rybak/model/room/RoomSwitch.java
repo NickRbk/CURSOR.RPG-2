@@ -1,4 +1,4 @@
-package cursor.rybak.model.maze;
+package cursor.rybak.model.room;
 
 import java.util.HashMap;
 import java.util.Map;

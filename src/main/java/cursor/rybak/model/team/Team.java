@@ -2,7 +2,7 @@ package cursor.rybak.model.team;
 
 import cursor.rybak.game.UserInteraction;
 import cursor.rybak.model.maze.Maze;
-import cursor.rybak.model.maze.Room;
+import cursor.rybak.model.room.Room;
 import cursor.rybak.model.race.AbstractRace;
 import lombok.Getter;
 

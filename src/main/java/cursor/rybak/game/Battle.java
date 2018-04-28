@@ -1,6 +1,6 @@
 package cursor.rybak.game;
 
-import cursor.rybak.model.maze.Room;
+import cursor.rybak.model.room.Room;
 import cursor.rybak.view.BattleMessage;
 
 public class Battle {

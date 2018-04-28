@@ -1,12 +1,15 @@
 package cursor.rybak.model.maze;
 
+import cursor.rybak.model.room.RoomDescription;
+import cursor.rybak.model.room.RoomTypes;
+
 public interface MazeConst {
     int MIN_ROOMS = 30;
 
     int DEEP = 3;
     int INITIAL_DEEP = 1;
 
-    // Levels depends connected with deep
+    // Levels connected with deep
     int LINE_LENGTH_LEVEL_1 = 7;
     int LINE_LENGTH_LEVEL_2 = 5;
     int LINE_LENGTH_LEVEL_3 = 6;

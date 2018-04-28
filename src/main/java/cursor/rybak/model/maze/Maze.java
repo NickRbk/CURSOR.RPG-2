@@ -1,5 +1,9 @@
 package cursor.rybak.model.maze;
 
+import cursor.rybak.model.room.Room;
+import cursor.rybak.model.room.RoomDescription;
+import cursor.rybak.model.room.RoomSwitch;
+import cursor.rybak.model.room.RoomTypes;
 import lombok.Getter;
 
 import java.util.LinkedList;

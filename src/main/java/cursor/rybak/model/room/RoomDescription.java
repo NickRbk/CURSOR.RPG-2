@@ -1,4 +1,4 @@
-package cursor.rybak.model.maze;
+package cursor.rybak.model.room;
 
 import cursor.rybak.view.MagicColors;
 import lombok.Getter;

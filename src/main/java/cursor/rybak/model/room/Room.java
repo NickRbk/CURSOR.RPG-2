@@ -1,4 +1,4 @@
-package cursor.rybak.model.maze;
+package cursor.rybak.model.room;
 
 import cursor.rybak.model.team.Team;
 import cursor.rybak.util.RandomInt;
@@ -17,7 +17,7 @@ public class Room implements RandomInt {
     private boolean isMonsterPresent; // marker for monsters env
     private Team team;
 
-    private Room[] chainedTo;
+    private Room[] chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type
 
     private boolean isObjective = false;
     private boolean isChecked = false; // when Team enter to room at first time the value set 'true'

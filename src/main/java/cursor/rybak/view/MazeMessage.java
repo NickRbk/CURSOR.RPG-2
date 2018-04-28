@@ -1,6 +1,6 @@
 package cursor.rybak.view;
 
-import cursor.rybak.model.maze.Room;
+import cursor.rybak.model.room.Room;
 
 import java.util.Arrays;
 

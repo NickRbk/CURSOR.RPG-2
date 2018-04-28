@@ -1,5 +1,9 @@
 package cursor.rybak.model.maze;
 
+import cursor.rybak.model.room.Room;
+import cursor.rybak.model.room.RoomDescription;
+import cursor.rybak.model.room.RoomTypes;
+
 import java.util.Arrays;
 import java.util.Random;
 

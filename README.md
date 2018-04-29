@@ -30,4 +30,4 @@ App better used in terminal full-screen mode in conventional terminal)
 - build the maven project ```mvn package```
 - start app with the below cmd
           
-            java -cp target/GoodOldRpg-1.0-SNAPSHOT.jar cursor.rybak.Main
+            java -jar target/GoodOldRpg-1.0-SNAPSHOT.jar

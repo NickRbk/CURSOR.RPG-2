@@ -10,20 +10,21 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class Maze implements MazeConst, MazeHelper {
-    @Getter
+@Getter
+public class Maze implements MazeConst {
     private Room startRoom;
     private RoomSwitch roomsSwitch = new RoomSwitch();
-
     private List<Room> rooms = new LinkedList<>();
     private List<Room> impasseRooms = new LinkedList<>();
+    private MazeHelper helper;
 
     public Maze() {
+        helper = new MazeHelper();
         generate();
     }
 
     private void generate() {
-        while (rooms.size() < MIN_ROOMS) {
+        while (getRooms().size() < MIN_ROOMS) {
             generateMazePath(initStartPoint(), INITIAL_DEEP);
             setImpasse();
         }
@@ -38,59 +39,71 @@ public class Maze implements MazeConst, MazeHelper {
      */
     private void generateMazePath(Room firstRoom, int deep) {
         for (int i = 1; i < LINE_LEVEL_LENGTH[deep - 1]; i++) {
-            Room secondRoom = roomsSwitch.getRoomsSwitch()
-                    .get(RoomTypes.values()[getRoomTypeIndex()])
-                    .apply(getRoomDescription());
 
-            rooms.add(secondRoom);
-            setConnections(firstRoom, secondRoom);
+            Room secondRoom = this.roomsSwitch.getRoomsSwitch()
+                    .get(RoomTypes.values()[this.helper.getRoomTypeIndex()])
+                    .apply(this.helper.getRoomDescription());
+
+            getRooms().add(secondRoom);
+            this.helper.setConnections(firstRoom, secondRoom);
             generateSidePath(deep, firstRoom); // recursively invoke generateMazePath()
             firstRoom = secondRoom;
         }
     }
 
-
+    //==============================================================================================
     private void generateSidePath(int currentDeep, Room room) {
-        if (currentDeep != DEEP
-                && (room.getType().equals(RoomTypes.CROSS) || room.getType().equals(RoomTypes.START))) {
-
+        if (isMazeRecursion(currentDeep, room)) {
             generateMazePath(room, currentDeep + 1);
         }
     }
+
+    private boolean isMazeRecursion(int currentDeep, Room room) {
+        return currentDeep != DEEP
+                && (isTypeEquals(room, RoomTypes.CROSS) || isTypeEquals(room, RoomTypes.START));
+    }
+
+    private boolean isTypeEquals(Room room, RoomTypes type) {
+        return room.getType().equals(type);
+    }
+    //==============================================================================================
+
 
     /**
      * after maze path generated, set impasse rooms
      */
     private void setImpasse() {
-        rooms.forEach(room -> {
-            while (getIndexForRoom(room.getChainedTo()) != -1) {
-                Room impasseRoom = roomsSwitch.getRoomsSwitch()
+        getRooms().forEach(room -> {
+            while (this.helper.getIndexForRoom(room.getChainedTo()) != -1) {
+                Room impasseRoom = this.roomsSwitch.getRoomsSwitch()
                         .get(RoomTypes.IMPASSE)
-                        .apply(getRoomDescription());
+                        .apply(this.helper.getRoomDescription());
 
-                impasseRooms.add(impasseRoom);
-                setConnections(room, impasseRoom);
+                getImpasseRooms().add(impasseRoom);
+                this.helper.setConnections(room, impasseRoom);
             }
         });
     }
 
     private Room initStartPoint() {
-        Room startRoom = roomsSwitch.getRoomsSwitch()
+        Room startRoom = this.roomsSwitch.getRoomsSwitch()
                 .get(RoomTypes.START)
                 .apply(RoomDescription.START_POINT);
 
         startRoom.setChecked(true);
-        rooms.add(startRoom);
+        getRooms().add(startRoom);
         this.startRoom = startRoom;
 
         return startRoom;
     }
 
     private void putObjective() {
-        int index = new Random().nextInt(rooms.size() - 15) + 10;
-        rooms.get(index).setObjective(true);
-        rooms.get(index).setDescription(RoomDescription.END_POINT.getDescription());
-        rooms.get(index).setLabel(RoomDescription.END_POINT.getLabel());
+        int index = new Random().nextInt(rooms.size() - 30) + 25;
+        Room room = getRooms().get(index);
+
+        room.setObjective(true);
+        room.setDescription(RoomDescription.END_POINT.getDescription());
+        room.setLabel(RoomDescription.END_POINT.getLabel());
     }
 
     @Override

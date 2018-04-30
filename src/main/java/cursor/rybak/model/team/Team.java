@@ -2,18 +2,19 @@ package cursor.rybak.model.team;
 
 import cursor.rybak.game.UserInteraction;
 import cursor.rybak.model.maze.Maze;
+import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.RaceInitValues;
 import cursor.rybak.model.room.Room;
-import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.view.BattleMessage;
 import lombok.Getter;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
-public class Team implements GameCalc {
+public class Team implements LevelUp {
     private static final int TEAM_MEMBERS = 3;
-    private AbstractRace[] heroes;
+    private List<AbstractRace> heroes;
     private String name;
 
     public Team(String name) {
@@ -26,9 +27,9 @@ public class Team implements GameCalc {
      *
      * @return array of members team
      */
-    private AbstractRace[] createTeam() {
-        AbstractRace[] selectedHeroes = UserInteraction.askHeroes(TEAM_MEMBERS);
-        selectedHeroes[0].setLeader();
+    private List<AbstractRace> createTeam() {
+        List<AbstractRace> selectedHeroes = UserInteraction.askHeroes(TEAM_MEMBERS);
+        selectedHeroes.get(1).setLeader();
         return selectedHeroes;
     }
 
@@ -42,7 +43,7 @@ public class Team implements GameCalc {
         currentRoom.setTeam(null);
         currentRoom.setPrevious(null);
 
-        Room nextRoom = currentRoom.getChainedTo()[index];
+        Room nextRoom = currentRoom.getChainedTo().get(index);
         nextRoom.setTeam(this);
         nextRoom.setPrevious(currentRoom);
         nextRoom.setChecked(true);
@@ -57,32 +58,31 @@ public class Team implements GameCalc {
      * Level up method
      */
     private void tryLevelUp() {
-        Arrays.stream(heroes)
-                .forEach(hero -> {
-                    int prevLevelPoints = hero.getPrevLevelPoints();
+        this.heroes.forEach(hero -> {
+            int prevLevelPoints = hero.getPrevLevelPoints();
 
-                    int levelUpPoints = hero.getLevel() == 1
-                            ? RaceInitValues.initLevelUpPoints
-                            : levelUpPoints(this, prevLevelPoints);
+            int levelUpPoints = hero.getLevel() == 1
+                    ? RaceInitValues.initLevelUpPoints
+                    : levelUpPoints(this, prevLevelPoints);
 
-                    if(hero.getXp() >= levelUpPoints && hero.getLevel() < RaceInitValues.maxLevel) {
-                        BattleMessage.printUpgradeHero(hero);
+            if (hero.getXp() >= levelUpPoints && hero.getLevel() < RaceInitValues.maxLevel) {
+                BattleMessage.printUpgradeHero(hero);
 
-                        hero.setXp( hero.getXp() - levelUpPoints );
-                        hero.setLevel( hero.getLevel() + 1 );
-                        hero.setPrevLevelPoints( levelUpPoints );
+                hero.setXp(hero.getXp() - levelUpPoints);
+                hero.setLevel(hero.getLevel() + 1);
+                hero.setPrevLevelPoints(levelUpPoints);
 
-                        hero.setSp(RaceInitValues.sp);
-                        UserInteraction.distributePoints(hero);
-                    }
-                });
+                hero.setSp(RaceInitValues.sp);
+                UserInteraction.distributePoints(hero);
+            }
+        });
     }
 
 
     @Override
     public String toString() {
         return String.format("\n\t%s team, members: %d\n\t\t--> %s",
-                name, heroes.length, printTeamMembers());
+                name, heroes.size(), printTeamMembers());
     }
 
     /**
@@ -91,12 +91,11 @@ public class Team implements GameCalc {
      * @return members name in team
      */
     private String printTeamMembers() {
-        String[] heroesName = new String[heroes.length];
+        List<String> heroesInfo = this.heroes
+                .stream()
+                .map(hero -> String.format("%s (%.0f)", hero.getHeroName(), hero.getHealth()))
+                .collect(Collectors.toList());
 
-        for (int i = 0; i < heroes.length; i++) {
-            heroesName[i] = String.format("%s (%.0f)", heroes[i].getHeroName(), heroes[i].getHealth());
-        }
-
-        return String.join(", ", heroesName);
+        return String.join(", ", heroesInfo);
     }
 }

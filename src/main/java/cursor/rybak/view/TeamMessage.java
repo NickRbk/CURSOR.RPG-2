@@ -4,6 +4,8 @@ import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.Characteristics;
 import cursor.rybak.model.team.Team;
 
+import java.util.List;
+
 public class TeamMessage implements MagicColors {
     /**
      * print info about Team
@@ -24,10 +26,10 @@ public class TeamMessage implements MagicColors {
      * @param format special format String
      * @param hero   array of heroes
      */
-    private static void printTeamTableHeader(String format, AbstractRace[] hero) {
+    private static void printTeamTableHeader(String format, List<AbstractRace> hero) {
         printTeamTableDivider();
         System.out.format(format, "Characteristic\\Hero",
-                hero[0].getHeroName() + " (L)", hero[1].getHeroName(), hero[2].getHeroName());
+                hero.get(0).getHeroName() + " (L)", hero.get(1).getHeroName(), hero.get(2).getHeroName());
         printTeamTableDivider();
     }
 
@@ -47,7 +49,7 @@ public class TeamMessage implements MagicColors {
      * @param format special format String
      * @param hero   array of heroes
      */
-    private static void printTeamMemberInfo(String format, AbstractRace[] hero) {
+    private static void printTeamMemberInfo(String format, List<AbstractRace> hero) {
 
         printHeroesVitalCharacteristic(format, hero);
         printTeamTableDivider();
@@ -64,31 +66,31 @@ public class TeamMessage implements MagicColors {
      * @param format special format String
      * @param hero   array of heroes
      */
-    private static void printHeroesVitalCharacteristic(String format, AbstractRace[] hero) {
+    private static void printHeroesVitalCharacteristic(String format, List<AbstractRace> hero) {
         String doubleFormat = "| %-20s | %-20.2f | %-20.2f | %-20.2f |%n";
 
         System.out.format(format, "Profession",
-                hero[0].getHeroKind() + "  (" + hero[0].getRace() + ")",
-                hero[1].getHeroKind() + "  (" + hero[1].getRace() + ")",
-                hero[2].getHeroKind() + "  (" + hero[2].getRace() + ")"
+                hero.get(0).getHeroKind() + "  (" + hero.get(0).getRace() + ")",
+                hero.get(1).getHeroKind() + "  (" + hero.get(1).getRace() + ")",
+                hero.get(2).getHeroKind() + "  (" + hero.get(2).getRace() + ")"
         );
 
         System.out.format(format, "Level",
-                hero[0].getLevel(), hero[1].getLevel(), hero[2].getLevel());
+                hero.get(0).getLevel(), hero.get(1).getLevel(), hero.get(2).getLevel());
 
         System.out.format(doubleFormat, "XP",
-                hero[0].getXp(), hero[1].getXp(), hero[2].getXp());
+                hero.get(0).getXp(), hero.get(1).getXp(), hero.get(2).getXp());
 
         printTeamTableDivider();
 
         System.out.format(doubleFormat, "Health",
-                hero[0].getHealth(), hero[1].getHealth(), hero[2].getHealth());
+                hero.get(0).getHealth(), hero.get(1).getHealth(), hero.get(2).getHealth());
 
         System.out.format(doubleFormat, "Mana",
-                hero[0].getMana(), hero[1].getMana(), hero[2].getMana());
+                hero.get(0).getMana(), hero.get(1).getMana(), hero.get(2).getMana());
 
         System.out.format(doubleFormat, "Rage",
-                hero[0].getRage(), hero[1].getRage(), hero[2].getRage());
+                hero.get(0).getRage(), hero.get(1).getRage(), hero.get(2).getRage());
     }
 
 
@@ -99,20 +101,20 @@ public class TeamMessage implements MagicColors {
      * @param format special format String
      * @param hero   special format String
      */
-    private static void printHeroesCharacteristic(String format, AbstractRace[] hero) {
+    private static void printHeroesCharacteristic(String format, List<AbstractRace> hero) {
         System.out.format(format, Characteristics.CHARISMA,
-                hero[0].getCharisma(), hero[1].getCharisma(), hero[2].getCharisma());
+                hero.get(0).getCharisma(), hero.get(1).getCharisma(), hero.get(2).getCharisma());
 
         System.out.format(format, Characteristics.STAMINA,
-                hero[0].getStamina(), hero[1].getStamina(), hero[2].getStamina());
+                hero.get(0).getStamina(), hero.get(1).getStamina(), hero.get(2).getStamina());
 
         System.out.format(format, Characteristics.INTELLECT,
-                hero[0].getIntellect(), hero[1].getIntellect(), hero[2].getIntellect());
+                hero.get(0).getIntellect(), hero.get(1).getIntellect(), hero.get(2).getIntellect());
 
         System.out.format(format, Characteristics.AGILITY,
-                hero[0].getAgility(), hero[1].getAgility(), hero[2].getAgility());
+                hero.get(0).getAgility(), hero.get(1).getAgility(), hero.get(2).getAgility());
 
         System.out.format(format, Characteristics.CONCENTRATION,
-                hero[0].getConcentration(), hero[1].getConcentration(), hero[2].getConcentration());
+                hero.get(0).getConcentration(), hero.get(1).getConcentration(), hero.get(2).getConcentration());
     }
 }

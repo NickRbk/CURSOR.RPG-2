@@ -4,7 +4,7 @@ import cursor.rybak.model.room.RoomDescription;
 import cursor.rybak.model.room.RoomTypes;
 
 public interface MazeConst {
-    int MIN_ROOMS = 30;
+    int MIN_ROOMS = 50;
 
     int DEEP = 3;
     int INITIAL_DEEP = 1;

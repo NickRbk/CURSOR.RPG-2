@@ -4,10 +4,7 @@ import cursor.rybak.model.enemy.AbstractMonster;
 import cursor.rybak.model.enemy.MonsterKinds;
 import cursor.rybak.model.enemy.packMap.EnemiesPackMap;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 public class RoomSwitch {
@@ -47,14 +44,14 @@ public class RoomSwitch {
     private Room initRoom(RoomDescription roomDescription, RoomTypes roomType) {
         Room room = new Room(roomDescription.getDescription(), roomDescription.getLabel(), roomType);
 
-        room.setChainedTo(new Room[roomType.getChainedRoom()]);
+        room.setChainedTo(Arrays.asList(new Room[roomType.getChainedRoom()]));
 
         // set monsters in rooms (besides START)
         if (!roomType.equals(RoomTypes.START)) {
             room.setMonsterPresent(random.nextInt(2));
         }
 
-        if(room.isMonsterPresent()) putEnemies(room);
+        if (room.isMonsterPresent()) putEnemies(room);
 
         return room;
     }
@@ -68,6 +65,6 @@ public class RoomSwitch {
 
         String packIndex = "" + random.nextInt(enemiesPack.size());
 
-        room.setEnemies( enemiesPack.get(packIndex) );
+        room.setEnemies(enemiesPack.get(packIndex));
     }
 }

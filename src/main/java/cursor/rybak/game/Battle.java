@@ -5,7 +5,6 @@ import cursor.rybak.model.room.Room;
 import cursor.rybak.model.team.Team;
 import cursor.rybak.view.BattleMessage;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Battle {
@@ -31,7 +30,7 @@ public class Battle {
                 .reduce((xp1, xp2) -> xp1 + xp2)
                 .orElse(0);
 
-        Arrays.stream(team.getHeroes())
+        team.getHeroes()
                 .forEach(hero -> hero.gainXp(totalXp * hero.getXPCoefficient()));
     }
 }

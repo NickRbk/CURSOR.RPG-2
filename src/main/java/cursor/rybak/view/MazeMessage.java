@@ -2,7 +2,7 @@ package cursor.rybak.view;
 
 import cursor.rybak.model.room.Room;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class MazeMessage implements MagicColors {
 
@@ -16,16 +16,16 @@ public class MazeMessage implements MagicColors {
         System.out.format("\n\t\t%sChoose move option from the list above:%s ", GREEN, RESET);
 
         StringBuilder options = new StringBuilder();
-        for (int i = 0; i < room.getChainedTo().length; i++) options.append(i + 1);
+        for (int i = 0; i < room.getChainedTo().size(); i++) options.append(i + 1);
         return options.toString();
     }
 
 
     public static void printNeighbors(Room room) {
         System.out.print(CYAN + "\t\tAhh, What we see here..? " + RESET);
-        Room[] chainedTo = room.getChainedTo();
+        List<Room> chainedTo = room.getChainedTo();
 
-        if (chainedTo.length == 1) {
+        if (chainedTo.size() == 1) {
             System.out.format(RED + " Its deadlocked, move back.. " + RESET + "(1)");
         } else {
             printChainedRoom(room.getPrevious(), chainedTo);
@@ -40,18 +40,17 @@ public class MazeMessage implements MagicColors {
      * @param previousRoom previous room
      * @param chainedTo    chained room
      */
-    private static void printChainedRoom(Room previousRoom, Room[] chainedTo) {
-        Arrays.stream(chainedTo)
-                .forEach(chainedRoom -> {
-                    int index = getRoomIndex(chainedTo, chainedRoom) + 1;
+    private static void printChainedRoom(Room previousRoom, List<Room> chainedTo) {
+        chainedTo.forEach(chainedRoom -> {
+            int index = getRoomIndex(chainedTo, chainedRoom) + 1;
 
-                    if (chainedRoom.equals(previousRoom)) {
-                        System.out.format("\n\t\t%d -> %s(back)%s %s%s%s",
-                                index, RED, RESET, CYAN, chainedRoom.getLabel(), RESET);
-                    } else {
-                        checkRoom(chainedRoom, index);
-                    }
-                });
+            if (chainedRoom.equals(previousRoom)) {
+                System.out.format("\n\t\t%d -> %s(back)%s %s%s%s",
+                        index, RED, RESET, CYAN, chainedRoom.getLabel(), RESET);
+            } else {
+                checkRoom(chainedRoom, index);
+            }
+        });
     }
 
 
@@ -81,8 +80,7 @@ public class MazeMessage implements MagicColors {
      * @param room      analyzed room
      * @return index
      */
-    private static int getRoomIndex(Room[] chainedTo, Room room) {
-        return Arrays.asList(chainedTo)
-                .indexOf(room);
+    private static int getRoomIndex(List<Room> chainedTo, Room room) {
+        return chainedTo.indexOf(room);
     }
 }

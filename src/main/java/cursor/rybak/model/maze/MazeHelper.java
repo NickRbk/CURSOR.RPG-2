@@ -5,12 +5,13 @@ import cursor.rybak.model.room.RoomDescription;
 import cursor.rybak.model.room.RoomTypes;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
-public interface MazeHelper {
-    Random random = new Random();
+class MazeHelper {
+    private Random random = new Random();
 
-    default int getRoomTypeIndex() {
+    int getRoomTypeIndex() {
         while (true) {
             int roomTypeIndex = getRandom(MazeConst.ROOM_TYPES_COUNT);
 
@@ -23,18 +24,17 @@ public interface MazeHelper {
     }
 
 
-    default int getIndexForRoom(Room[] chainedTo) {
-        return Arrays.asList(chainedTo)
-                .indexOf(null);
+    int getIndexForRoom(List<Room> chainedTo) {
+        return chainedTo.indexOf(null);
     }
 
 
-    default void setConnections(Room firstRoom, Room secondRoom) {
-        Room[] chainedToR1 = firstRoom.getChainedTo();
-        Room[] chainedToR2 = secondRoom.getChainedTo();
+    void setConnections(Room firstRoom, Room secondRoom) {
+        List<Room> chainedToR1 = firstRoom.getChainedTo();
+        List<Room> chainedToR2 = secondRoom.getChainedTo();
 
-        chainedToR1[getIndexForRoom(chainedToR1)] = secondRoom;
-        chainedToR2[getIndexForRoom(chainedToR2)] = firstRoom;
+        chainedToR1.set(getIndexForRoom(chainedToR1), secondRoom);
+        chainedToR2.set(getIndexForRoom(chainedToR2), firstRoom);
     }
 
 
@@ -44,12 +44,12 @@ public interface MazeHelper {
      * @param maxValue maxValue (exclusive)
      * @return random integer [1:maxValue)
      */
-    default int getRandom(int maxValue) {
+    private int getRandom(int maxValue) {
         return random.nextInt(maxValue - 1) + 1;
     }
 
 
-    default RoomDescription getRoomDescription() {
+    RoomDescription getRoomDescription() {
         int index = getRandom(MazeConst.ROOM_DESCRIPTION_COUNT);
 
         return RoomDescription.valueOf("LOCATION" + index);

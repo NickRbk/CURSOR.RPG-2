@@ -126,8 +126,8 @@ public class UserInteraction {
      * @param teamMembers heroes number in team
      * @return array of heroes
      */
-    public static AbstractRace[] askHeroes(int teamMembers) {
-        ArrayList<AbstractRace> teamHeroes = new ArrayList<>();
+    public static List<AbstractRace> askHeroes(int teamMembers) {
+        List<AbstractRace> teamHeroes = new LinkedList<>();
 
         Message.askHeroLeader();
 
@@ -141,7 +141,7 @@ public class UserInteraction {
             }
         }
 
-        return teamHeroes.toArray(new AbstractRace[teamHeroes.size()]);
+        return teamHeroes;
     }
 
 
@@ -150,7 +150,7 @@ public class UserInteraction {
      *
      * @param teamHeroes team
      */
-    private static void initializeHero(ArrayList<AbstractRace> teamHeroes) {
+    private static void initializeHero(List<AbstractRace> teamHeroes) {
         Map<String, Map<String, AbstractRace>> raceMap = RaceMap.getRace();
 
         String name = askName("hero name");

@@ -22,7 +22,7 @@ public class Room implements RandomInt {
     private List<AbstractMonster> enemies;
     private Team team;
 
-    private Room[] chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type
+    private List<Room> chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type
 
     private boolean isObjective = false;
     private boolean isChecked = false; // when Team enter to room at first time the value set 'true'

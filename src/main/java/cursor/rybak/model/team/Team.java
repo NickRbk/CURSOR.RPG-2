@@ -61,7 +61,6 @@ public class Team implements LevelUp {
         Room nextRoom = currentRoom.getChainedTo().get(index);
         nextRoom.setTeam(this);
         nextRoom.setPrevious(currentRoom);
-        nextRoom.setChecked(true);
 
         return nextRoom;
     }

@@ -217,7 +217,9 @@ public class UserInteraction {
      * @return remained points
      */
     private static int upgradeHeroKey(int remainedPoints, String characteristic, AbstractRace hero) {
-        while (true) {
+        int newRemainedPoints = remainedPoints;
+
+        while (newRemainedPoints == remainedPoints) {
             String userInput = in.nextLine();
             if (!userInput.isEmpty()
                     && userInput.matches("\\d+")
@@ -230,12 +232,12 @@ public class UserInteraction {
                 Message.printUpgradeInfo(userInput, characteristic, hero.getHeroName());
 
                 if (remainedPoints != 0) Message.printRemainedInfo(remainedPoints);
-                return remainedPoints;
-
             } else {
                 ErrorMessage.errorOutOfBound(remainedPoints);
             }
         }
+
+        return remainedPoints;
     }
 
 

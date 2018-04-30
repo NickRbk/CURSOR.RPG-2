@@ -1,13 +1,14 @@
 package cursor.rybak.model.race;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.util.PointRescale;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
 
 @Getter
-public abstract class AbstractRace implements RaceInitValues, CalcConst {
+public abstract class AbstractRace implements RaceInitValues {
 
     private double XPCoefficient = initXPCoefficient;
 
@@ -18,7 +19,7 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     private String heroName;
 
     private double health = initValue; // health points (hp)
-    private boolean isLeader ;
+    private boolean isLeader;
 
     @Setter
     private double xp;
@@ -38,20 +39,8 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
     private int level = RaceInitValues.level;
 
     @Setter
-    private int prevLevelPoints;
+    private int prevLevelPoints = initLevelUpPoints;
 
-    /**
-     * constructor for abstract
-     * class AbstractRace
-     *
-     * @param race          race kind
-     * @param heroKind      hero name
-     * @param charisma      hero charisma
-     * @param stamina       hero stamina
-     * @param intellect     hero intellect
-     * @param agility       hero agility
-     * @param concentration hero concentration
-     */
     public AbstractRace(String race,
                         String heroKind,
                         int charisma,
@@ -92,14 +81,8 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
 
     public abstract Map<String, int[]> getAttacks();
 
-
     public void gainXp(double xp) {
-        // 2% XP gain for every two charisma points
-        int remainder = charisma % 2;
-
-        this.xp += remainder == 0
-                ? ((1 + increaseXPCoefficientPerCharisma * charisma / 2) * xp)
-                : ((1 + increaseXPCoefficientPerCharisma * (charisma - remainder) / 2) * xp);
+        this.xp += xp + PointRescale.rescaleXPperCharisma(getCharisma(), xp);
     }
 
     public void setCharisma(int charisma) {
@@ -116,17 +99,17 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
 
     public void setStamina(int stamina) {
         this.stamina += stamina;
-        this.health += 2 * stamina + regenHPCoefficientPerStamina * this.health;
+        this.health += PointRescale.rescaleHPperStamina(stamina);
     }
 
     public void setIntellect(int intellect) {
         this.intellect += intellect;
-        this.mana += 2 * intellect + regenMPCoefficientPerIntellect * this.mana;
+        this.mana += PointRescale.rescaleMPperIntellect(intellect);
     }
 
     public void setAgility(int agility) {
         this.agility += agility;
-        this.rage += 4 * agility;
+        this.rage += PointRescale.rescaleRPperAgility(agility);
 
         // chance to avoid hit 1% per 2 points
         // CODE WILL BE HERE
@@ -134,13 +117,18 @@ public abstract class AbstractRace implements RaceInitValues, CalcConst {
 
     public void setConcentration(int concentration) {
         this.concentration += concentration;
-        this.health += increaseHPCoefficientPerConcentration * concentration;
-        this.mana += increaseMPCoefficientPerConcentration * concentration;
-
-        // 1 rp regen per 1 turn per 1 point
-        // CODE WILL BE HERE
 
         // 1 turn cd decrease per 25 points
         // CODE WILL BE HERE
+    }
+
+    public void regeneration() {
+        this.health += PointRescale.regenHPperConcentration(getConcentration())
+                + PointRescale.regenHPperStamina(getStamina());
+
+        this.mana += PointRescale.regenMPperConcentration(getConcentration())
+                + PointRescale.regenMPperIntellect(getIntellect());
+
+        this.rage += PointRescale.regenRPperConcentration(getConcentration());
     }
 }

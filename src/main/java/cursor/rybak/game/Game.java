@@ -39,6 +39,6 @@ public class Game {
     }
 
     private static boolean isHeroAlive(Team team) {
-        return team.getHeroes().get(1).getHealth() > 0;
+        return team.getHeroes().get(0).getHealth() > 0;
     }
 }

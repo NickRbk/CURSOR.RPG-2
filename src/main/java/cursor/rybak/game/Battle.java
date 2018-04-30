@@ -10,13 +10,10 @@ import java.util.List;
 public class Battle {
     public static void blitzkrieg(Room currentRoom) {
         if (currentRoom.isMonsterPresent()) {
+
             BattleMessage.printStartBattleInfo();
-            StringBuilder enemies = new StringBuilder();
-
-            currentRoom.getEnemies()
-                    .forEach(enemy -> enemies.append(String.format("%s(%d XP)  ", enemy.getName(), enemy.getCost())));
-
-            System.out.println(enemies.toString());
+            BattleMessage.printEnemies(currentRoom.getEnemies());
+            BattleMessage.printTeamMembers(currentRoom.getTeam());
 
             battle(currentRoom.getEnemies(), currentRoom.getTeam());
 
@@ -31,6 +28,10 @@ public class Battle {
                 .orElse(0);
 
         team.getHeroes()
-                .forEach(hero -> hero.gainXp(totalXp * hero.getXPCoefficient()));
+                .forEach(hero -> {
+                    BattleMessage.printGainedXP(hero, totalXp);
+                    hero.gainXp(totalXp * hero.getXPCoefficient());
+                });
+        System.out.println("\n");
     }
 }

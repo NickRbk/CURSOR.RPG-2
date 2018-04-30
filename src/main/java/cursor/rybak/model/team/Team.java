@@ -6,8 +6,10 @@ import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.RaceInitValues;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.view.BattleMessage;
+import cursor.rybak.view.TeamMessage;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +31,7 @@ public class Team implements LevelUp {
      */
     private List<AbstractRace> createTeam() {
         List<AbstractRace> selectedHeroes = UserInteraction.askHeroes(TEAM_MEMBERS);
-        selectedHeroes.get(1).setLeader();
+        selectedHeroes.get(0).setLeader();
         return selectedHeroes;
     }
 
@@ -50,6 +52,8 @@ public class Team implements LevelUp {
 
         tryLevelUp();
 
+        this.heroes.forEach(AbstractRace::regeneration);
+
         return nextRoom;
     }
 
@@ -58,14 +62,18 @@ public class Team implements LevelUp {
      * Level up method
      */
     private void tryLevelUp() {
+        List<AbstractRace> heroesLevelUp = new ArrayList<>();
+
         this.heroes.forEach(hero -> {
             int prevLevelPoints = hero.getPrevLevelPoints();
 
             int levelUpPoints = hero.getLevel() == 1
-                    ? RaceInitValues.initLevelUpPoints
+                    ? prevLevelPoints
                     : levelUpPoints(this, prevLevelPoints);
 
             if (hero.getXp() >= levelUpPoints && hero.getLevel() < RaceInitValues.maxLevel) {
+                heroesLevelUp.add(hero);
+
                 BattleMessage.printUpgradeHero(hero);
 
                 hero.setXp(hero.getXp() - levelUpPoints);
@@ -76,6 +84,8 @@ public class Team implements LevelUp {
                 UserInteraction.distributePoints(hero);
             }
         });
+
+        if(heroesLevelUp.size() > 0) TeamMessage.printTeamInfo(this);
     }
 
 
@@ -90,10 +100,11 @@ public class Team implements LevelUp {
      *
      * @return members name in team
      */
-    private String printTeamMembers() {
+    public String printTeamMembers() {
         List<String> heroesInfo = this.heroes
                 .stream()
-                .map(hero -> String.format("%s (%.0f)", hero.getHeroName(), hero.getHealth()))
+                .map(hero -> String.format("%s (%.0f HP, Lvl %d)",
+                        hero.getHeroName(), hero.getHealth(), hero.getLevel()))
                 .collect(Collectors.toList());
 
         return String.join(", ", heroesInfo);

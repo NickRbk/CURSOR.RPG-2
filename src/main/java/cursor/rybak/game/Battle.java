@@ -32,6 +32,8 @@ public class Battle {
                     BattleMessage.printGainedXP(hero, totalXp);
                     hero.gainXp(totalXp * hero.getXPCoefficient());
                 });
+
         System.out.println("\n");
+        team.tryLevelUp(); // try to Lvl up
     }
 }

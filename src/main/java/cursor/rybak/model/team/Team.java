@@ -40,28 +40,37 @@ public class Team implements LevelUp {
         return maze.getStartRoom();
     }
 
+    //=====================================================================
     public Room move(Room currentRoom, String moveOption) {
         int index = Integer.parseInt(moveOption) - 1;
-        currentRoom.setTeam(null);
-        currentRoom.setPrevious(null);
+        escapeFromRoom(currentRoom);
+        Room nextRoom = enterToRoom(currentRoom, index);
 
-        Room nextRoom = currentRoom.getChainedTo().get(index);
-        nextRoom.setTeam(this);
-        nextRoom.setPrevious(currentRoom);
-        nextRoom.setChecked(true);
-
-        tryLevelUp();
-
-        this.heroes.forEach(AbstractRace::regeneration);
+        this.heroes.forEach(AbstractRace::regeneration); // trigger regeneration mode
 
         return nextRoom;
     }
 
 
+    private void escapeFromRoom(Room currentRoom) {
+        currentRoom.setTeam(null);
+        currentRoom.setPrevious(null);
+    }
+
+    private Room enterToRoom(Room currentRoom, int index) {
+        Room nextRoom = currentRoom.getChainedTo().get(index);
+        nextRoom.setTeam(this);
+        nextRoom.setPrevious(currentRoom);
+        nextRoom.setChecked(true);
+
+        return nextRoom;
+    }
+    //=====================================================================
+
     /**
      * Level up method
      */
-    private void tryLevelUp() {
+    public void tryLevelUp() {
         List<AbstractRace> heroesLevelUp = new ArrayList<>();
 
         this.heroes.forEach(hero -> {
@@ -71,22 +80,30 @@ public class Team implements LevelUp {
                     ? prevLevelPoints
                     : levelUpPoints(this, prevLevelPoints);
 
-            if (hero.getXp() >= levelUpPoints && hero.getLevel() < RaceInitValues.maxLevel) {
+            if (isPossibleToLevelUp(hero, levelUpPoints)) {
                 heroesLevelUp.add(hero);
-
                 BattleMessage.printUpgradeHero(hero);
-
-                hero.setXp(hero.getXp() - levelUpPoints);
-                hero.setLevel(hero.getLevel() + 1);
-                hero.setPrevLevelPoints(levelUpPoints);
-
-                hero.setSp(RaceInitValues.sp);
+                levelUpHero(hero, levelUpPoints);
                 UserInteraction.distributePoints(hero);
             }
         });
 
-        if(heroesLevelUp.size() > 0) TeamMessage.printTeamInfo(this);
+        if (heroesLevelUp.size() > 0) TeamMessage.printTeamInfo(this);
     }
+
+    private boolean isPossibleToLevelUp(AbstractRace hero, int levelUpPoints) {
+        return hero.getXp() >= levelUpPoints
+                && hero.getLevel() < RaceInitValues.maxLevel;
+    }
+
+    private void levelUpHero(AbstractRace hero, int levelUpPoints) {
+        hero.setXp(hero.getXp() - levelUpPoints);
+        hero.setLevel(hero.getLevel() + 1);
+        hero.setPrevLevelPoints(levelUpPoints);
+
+        hero.setSp(RaceInitValues.sp);
+    }
+    //=====================================================================
 
 
     @Override

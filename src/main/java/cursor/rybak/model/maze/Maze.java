@@ -19,7 +19,7 @@ public class Maze implements MazeConst {
     private MazeHelper helper;
 
     public Maze() {
-        this.roomsSwitch = new RoomSwitch();
+        this.roomsSwitch = RoomSwitch.getInstance();
         this.rooms = new LinkedList<>();
         this.impasseRooms = new LinkedList<>();
         this.helper = new MazeHelper();

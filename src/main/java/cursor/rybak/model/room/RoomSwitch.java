@@ -3,14 +3,32 @@ package cursor.rybak.model.room;
 import cursor.rybak.model.enemy.AbstractMonster;
 import cursor.rybak.model.enemy.MonsterKinds;
 import cursor.rybak.model.enemy.packMap.EnemiesPackMap;
+import lombok.Getter;
 
 import java.util.*;
 import java.util.function.Function;
 
 public class RoomSwitch {
-    private Random random = new Random();
+    private static RoomSwitch instance;
+    private Random random;
 
-    public Map<RoomTypes, Function<RoomDescription, Room>> getRoomsSwitch() {
+    @Getter
+    private Map<RoomTypes, Function<RoomDescription, Room>> roomsSwitch;
+
+    private RoomSwitch() {
+        this.random = new Random();
+        this.roomsSwitch = generateRoomsSwitch();
+    }
+
+    public static RoomSwitch getInstance() {
+        if (instance == null) {
+            instance = new RoomSwitch();
+        }
+
+        return instance;
+    }
+
+    private Map<RoomTypes, Function<RoomDescription, Room>> generateRoomsSwitch() {
         Map<RoomTypes, Function<RoomDescription, Room>> map = new HashMap<>();
 
         map.put(RoomTypes.START, this::createStartRoom);

@@ -10,6 +10,7 @@ import cursor.rybak.view.MazeMessage;
 import cursor.rybak.view.Message;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 public class UserInteraction {
     private static final Scanner in = new Scanner(System.in);
@@ -86,7 +87,7 @@ public class UserInteraction {
      * @return name of race
      */
     private static String askRace() {
-        Set<String> racesKey = RaceMap.getRace().keySet();
+        Set<String> racesKey = RaceMap.getInstance().getRaceMap().keySet();
         String[] races = racesKey.toArray(new String[racesKey.size()]);
 
         Message.askName("race");
@@ -106,7 +107,7 @@ public class UserInteraction {
      * @param race      race
      * @return chosen hero
      */
-    private static AbstractRace askHero(Map<String, AbstractRace> heroesMap, String race) {
+    private static AbstractRace askHero(Map<String, Supplier<AbstractRace>> heroesMap, String race) {
         Set<String> heroesKey = heroesMap.keySet();
         String[] heroes = heroesKey.toArray(new String[heroesKey.size()]);
 
@@ -116,7 +117,9 @@ public class UserInteraction {
 
         Message.printChosenOption(heroes[option]);
 
-        return heroesMap.get(heroes[option]);
+        return heroesMap
+                .get(heroes[option])
+                .get();
     }
 
 
@@ -151,7 +154,7 @@ public class UserInteraction {
      * @param teamHeroes team
      */
     private static void initializeHero(List<AbstractRace> teamHeroes) {
-        Map<String, Map<String, AbstractRace>> raceMap = RaceMap.getRace();
+        Map<String, Map<String, Supplier<AbstractRace>>> raceMap = RaceMap.getInstance().getRaceMap();
 
         String name = askName("hero name");
         String race = askRace();

@@ -6,14 +6,23 @@ import cursor.rybak.model.race.AbstractRace;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class HumanHeroesMap {
-    public static Map<String, AbstractRace> getHumanHeroes() {
-        Map<String, AbstractRace> raceHeroes = new LinkedHashMap<>();
+    public Map<String, Supplier<AbstractRace>> getHumanHeroes() {
+        Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 
-        raceHeroes.put("priest", new Priest());
-        raceHeroes.put("paladin", new Paladin());
+        raceHeroes.put("priest", this::createPriest);
+        raceHeroes.put("paladin", this::createPaladin);
 
         return raceHeroes;
+    }
+
+    private AbstractRace createPriest() {
+        return new Priest();
+    }
+
+    private AbstractRace createPaladin() {
+        return new Paladin();
     }
 }

@@ -4,9 +4,10 @@ import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.store.RaceMap;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 public class Message implements MagicColors {
-    private static Map<String, Map<String, AbstractRace>> raceMap = RaceMap.getRace();
+    private static Map<String, Map<String, Supplier<AbstractRace>>> raceMap = RaceMap.getInstance().getRaceMap();
 
     /**
      * message to ask name for something

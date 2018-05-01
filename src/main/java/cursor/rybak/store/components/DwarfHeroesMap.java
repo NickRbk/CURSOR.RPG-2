@@ -6,14 +6,23 @@ import cursor.rybak.model.race.AbstractRace;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class DwarfHeroesMap {
-    public static Map<String, AbstractRace> getDwarfHeroes() {
-        Map<String, AbstractRace> raceHeroes = new LinkedHashMap<>();
+    public Map<String, Supplier<AbstractRace>> getDwarfHeroes() {
+        Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 
-        raceHeroes.put("warrior", new Warrior());
-        raceHeroes.put("mechanist", new Mechanist());
+        raceHeroes.put("warrior", this::createWarrior);
+        raceHeroes.put("mechanist", this::createMechanist);
 
         return raceHeroes;
+    }
+
+    private AbstractRace createWarrior() {
+        return new Warrior();
+    }
+
+    private AbstractRace createMechanist() {
+        return new Mechanist();
     }
 }

@@ -2,13 +2,31 @@ package cursor.rybak.util;
 
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.Characteristics;
+import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
 public class DistributionSwitch {
-    public Map<String, Consumer<Map<AbstractRace, Integer>>> getCharacteristicsSwitch() {
+    private static DistributionSwitch instance;
+
+    @Getter
+    private Map<String, Consumer<Map<AbstractRace, Integer>>> characteristicsSwitch;
+
+    private DistributionSwitch() {
+        this.characteristicsSwitch = generateCharacteristicsSwitch();
+    }
+
+    public static DistributionSwitch getInstance() {
+        if (instance == null) {
+            instance = new DistributionSwitch();
+        }
+
+        return instance;
+    }
+
+    private Map<String, Consumer<Map<AbstractRace, Integer>>> generateCharacteristicsSwitch() {
         Map<String, Consumer<Map<AbstractRace, Integer>>> map = new HashMap<>();
 
         map.put(Characteristics.CHARISMA, this::setCharisma);

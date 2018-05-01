@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class UserInteraction {
     private static final Scanner in = new Scanner(System.in);
-    private static final DistributionSwitch distributionSwitch = new DistributionSwitch();
+    private static final DistributionSwitch distributionSwitch = DistributionSwitch.getInstance();
 
     /**
      * ask about name (for props, that validate

@@ -14,7 +14,6 @@ import java.util.function.Supplier;
 
 public class UserInteraction {
     private static final Scanner in = new Scanner(System.in);
-    private static final DistributionSwitch distributionSwitch = DistributionSwitch.getInstance();
 
     /**
      * ask about name (for props, that validate
@@ -266,7 +265,7 @@ public class UserInteraction {
         Map<AbstractRace, Integer> arguments = new HashMap<>();
         arguments.put(hero, points);
 
-        distributionSwitch
+        DistributionSwitch.getInstance()
                 .getCharacteristicsSwitch()
                 .get(characteristic)
                 .accept(arguments);

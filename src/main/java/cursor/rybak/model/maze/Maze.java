@@ -13,13 +13,17 @@ import java.util.Random;
 @Getter
 public class Maze implements MazeConst {
     private Room startRoom;
-    private RoomSwitch roomsSwitch = new RoomSwitch();
-    private List<Room> rooms = new LinkedList<>();
-    private List<Room> impasseRooms = new LinkedList<>();
+    private RoomSwitch roomsSwitch;
+    private List<Room> rooms;
+    private List<Room> impasseRooms;
     private MazeHelper helper;
 
     public Maze() {
-        helper = new MazeHelper();
+        this.roomsSwitch = new RoomSwitch();
+        this.rooms = new LinkedList<>();
+        this.impasseRooms = new LinkedList<>();
+        this.helper = new MazeHelper();
+
         generate();
     }
 

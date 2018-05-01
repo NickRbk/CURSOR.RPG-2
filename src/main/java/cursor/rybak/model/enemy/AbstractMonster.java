@@ -8,7 +8,7 @@ public abstract class AbstractMonster {
     private static final int MIN_HEALTH = 0;
 
     @Setter
-    private boolean spellImmune = false;
+    private boolean spellImmune;
 
     private String kind; // kind of monster (e.g. UNDEAD, ORKOID, CREATURE)
     private String name; // name of monster in certain kind

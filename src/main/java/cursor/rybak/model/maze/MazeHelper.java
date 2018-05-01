@@ -8,11 +8,11 @@ import cursor.rybak.util.RandomInt;
 import java.util.Arrays;
 import java.util.List;
 
-class MazeHelper implements RandomInt {
+class MazeHelper {
 
     int getRoomTypeIndex() {
         while (true) {
-            int roomTypeIndex = getRandom(MazeConst.ROOM_TYPES_COUNT);
+            int roomTypeIndex = RandomInt.getRandom(MazeConst.ROOM_TYPES_COUNT);
 
             int length = (int) Arrays.stream(MazeConst.ROOM_TYPES_ON_LINE)
                     .filter(el -> el.equals(RoomTypes.values()[roomTypeIndex].name()))
@@ -35,7 +35,7 @@ class MazeHelper implements RandomInt {
     }
 
     RoomDescription getRoomDescription() {
-        int index = getRandom(MazeConst.ROOM_DESCRIPTION_COUNT);
+        int index = RandomInt.getRandom(MazeConst.ROOM_DESCRIPTION_COUNT);
 
         return RoomDescription.valueOf("LOCATION" + index);
     }

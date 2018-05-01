@@ -10,7 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Room implements RandomInt {
+public class Room {
     private RoomTypes type;           // room type from 'RoomTypes' enum
 
     private String label;
@@ -29,7 +29,7 @@ public class Room implements RandomInt {
 
     Room(String description, String label, RoomTypes type) {
         this.description = description;
-        this.label = String.format("%s |%d|", label, getRandom(150));
+        this.label = String.format("%s |%d|", label, RandomInt.getRandom(150));
         this.type = type;
     }
 

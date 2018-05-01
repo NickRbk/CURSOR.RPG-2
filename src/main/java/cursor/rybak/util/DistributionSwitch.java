@@ -5,11 +5,11 @@ import cursor.rybak.model.race.Characteristics;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 public class DistributionSwitch {
-    public Map<String, Function<Map<AbstractRace, Integer>, Boolean>> getCharacteristicsSwitch() {
-        Map<String, Function<Map<AbstractRace, Integer>, Boolean>> map = new HashMap<>();
+    public Map<String, Consumer<Map<AbstractRace, Integer>>> getCharacteristicsSwitch() {
+        Map<String, Consumer<Map<AbstractRace, Integer>>> map = new HashMap<>();
 
         map.put(Characteristics.CHARISMA, this::setCharisma);
         map.put(Characteristics.STAMINA, this::setStamina);
@@ -20,28 +20,23 @@ public class DistributionSwitch {
         return map;
     }
 
-    private Boolean setCharisma(Map<AbstractRace, Integer> map) {
+    private void setCharisma(Map<AbstractRace, Integer> map) {
         map.forEach(AbstractRace::setCharisma);
-        return true;
     }
 
-    private Boolean setStamina(Map<AbstractRace, Integer> map) {
+    private void setStamina(Map<AbstractRace, Integer> map) {
         map.forEach(AbstractRace::setStamina);
-        return true;
     }
 
-    private Boolean setIntellect(Map<AbstractRace, Integer> map) {
+    private void setIntellect(Map<AbstractRace, Integer> map) {
         map.forEach(AbstractRace::setIntellect);
-        return true;
     }
 
-    private Boolean setAgility(Map<AbstractRace, Integer> map) {
+    private void setAgility(Map<AbstractRace, Integer> map) {
         map.forEach(AbstractRace::setAgility);
-        return true;
     }
 
-    private Boolean setConcentration(Map<AbstractRace, Integer> map) {
+    private void setConcentration(Map<AbstractRace, Integer> map) {
         map.forEach(AbstractRace::setConcentration);
-        return true;
     }
 }

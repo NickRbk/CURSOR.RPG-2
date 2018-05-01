@@ -1,7 +1,7 @@
 package cursor.rybak.game;
 
-import cursor.rybak.model.room.Room;
 import cursor.rybak.model.race.AbstractRace;
+import cursor.rybak.model.room.Room;
 import cursor.rybak.store.RaceMap;
 import cursor.rybak.util.DistributionSwitch;
 import cursor.rybak.view.ErrorMessage;
@@ -269,7 +269,7 @@ public class UserInteraction {
         distributionSwitch
                 .getCharacteristicsSwitch()
                 .get(characteristic)
-                .apply(arguments);
+                .accept(arguments);
     }
 
 

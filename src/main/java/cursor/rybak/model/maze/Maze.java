@@ -94,7 +94,6 @@ public class Maze implements MazeConst {
                 .get(RoomTypes.START)
                 .apply(RoomDescription.START_POINT);
 
-        startRoom.setChecked(true);
         getRooms().add(startRoom);
         this.startRoom = startRoom;
 

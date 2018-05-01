@@ -62,13 +62,9 @@ public class MazeMessage implements MagicColors {
      * @param index       it's index
      */
     private static void checkRoom(Room chainedRoom, int index) {
-        if (chainedRoom.isChecked()) {
-            System.out.format("\n\t\t%d -> %s%s%s",
-                    index, GREEN, chainedRoom.getLabel(), RESET);
-        } else {
-            System.out.format("\n\t\t%d -> %s%s%s",
-                    index, CYAN, chainedRoom.getLabel(), RESET);
-        }
+        System.out.format("\n\t\t%d -> %s%s%s",
+                index, CYAN, chainedRoom.getLabel(), RESET);
+
     }
 
 

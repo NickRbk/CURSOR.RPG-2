@@ -25,7 +25,6 @@ public class Room {
     private List<Room> chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type
 
     private boolean isObjective;
-    private boolean isChecked; // when Team enter to room at first time the value set 'true'
 
     Room(String description, String label, RoomTypes type) {
         this.description = description;

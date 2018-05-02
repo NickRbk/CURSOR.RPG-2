@@ -1,13 +1,13 @@
 package cursor.rybak.view;
 
 import cursor.rybak.model.race.AbstractRace;
-import cursor.rybak.store.RaceMap;
+import cursor.rybak.store.heroes.HeroesMap;
 
 import java.util.*;
 import java.util.function.Supplier;
 
 public class Message implements MagicColors {
-    private static Map<String, Map<String, Supplier<AbstractRace>>> raceMap = RaceMap.getInstance().getRaceMap();
+    private static Map<String, Map<String, Supplier<AbstractRace>>> raceMap = HeroesMap.getInstance().getRaceMap();
 
     /**
      * message to ask name for something

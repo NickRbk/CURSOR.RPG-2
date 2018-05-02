@@ -8,8 +8,9 @@ public class Skeleton extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public Skeleton() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.Skeleton.getName(), Undeads.Skeleton.getHealth(),
-                Undeads.Skeleton.getInitiative(), Undeads.Skeleton.getCost());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.Skeleton.getName(),
+                Undeads.Skeleton.getHealth(), Undeads.Skeleton.getInitiative(),
+                Undeads.Skeleton.getCost(), Undeads.Skeleton.getMinLevel());
     }
 
     @Override

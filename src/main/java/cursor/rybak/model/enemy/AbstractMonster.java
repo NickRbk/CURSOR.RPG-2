@@ -15,13 +15,15 @@ public abstract class AbstractMonster {
     private int health;
     private int initiative;
     private int cost;
+    private int minLevel; // min Lvl from which monster sets in maze
 
-    public AbstractMonster(String kind, String name, int health, int initiative, int cost) {
+    public AbstractMonster(String kind, String name, int health, int initiative, int cost, int minLevel) {
         this.kind = kind;
         this.name = name;
         this.health = health;
         this.initiative = initiative;
         this.cost = cost;
+        this.minLevel = minLevel;
     }
 
     /**

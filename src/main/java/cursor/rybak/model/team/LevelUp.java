@@ -2,13 +2,11 @@ package cursor.rybak.model.team;
 
 import cursor.rybak.model.race.AbstractRace;
 
+import java.util.List;
+
 public interface LevelUp {
-    default int levelUpPoints(Team team, int prevLevelPoints) {
-        int levelsSum = team.getHeroes()
-                .stream()
-                .map(AbstractRace::getLevel)
-                .reduce((lvl1, lvl2) -> lvl1 + lvl2)
-                .orElse(0);
+    default int levelUpPoints(List<AbstractRace> heroes, int prevLevelPoints) {
+        int levelsSum = LevelMathUtil.getSum(heroes);
 
         return prevLevelPoints * (100 - levelsSum) / 100 + prevLevelPoints;
     }

@@ -1,4 +1,4 @@
-package cursor.rybak.store.components;
+package cursor.rybak.store.heroes.components;
 
 import cursor.rybak.model.hero.human.paladin.Paladin;
 import cursor.rybak.model.hero.human.priest.Priest;
@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class HumanHeroesMap {
+public class HumanMap {
     public Map<String, Supplier<AbstractRace>> getHumanHeroes() {
         Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 

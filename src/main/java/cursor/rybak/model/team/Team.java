@@ -51,7 +51,6 @@ public class Team implements LevelUp {
         return nextRoom;
     }
 
-
     private void escapeFromRoom(Room currentRoom) {
         currentRoom.setTeam(null);
         currentRoom.setPrevious(null);
@@ -62,7 +61,15 @@ public class Team implements LevelUp {
         nextRoom.setTeam(this);
         nextRoom.setPrevious(currentRoom);
 
+        setMonsters(nextRoom);
+
         return nextRoom;
+    }
+
+    private void setMonsters(Room nextRoom) {
+        if (nextRoom.isMonsterPresent()) {
+            Room.setMonsters(LevelMathUtil.getAverage(this.getHeroes()), nextRoom);
+        }
     }
     //=====================================================================
 
@@ -77,7 +84,7 @@ public class Team implements LevelUp {
 
             int levelUpPoints = hero.getLevel() == 1
                     ? prevLevelPoints
-                    : levelUpPoints(this, prevLevelPoints);
+                    : levelUpPoints(this.getHeroes(), prevLevelPoints);
 
             if (isPossibleToLevelUp(hero, levelUpPoints)) {
                 heroesLevelUp.add(hero);

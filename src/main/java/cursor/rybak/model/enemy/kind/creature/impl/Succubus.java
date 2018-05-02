@@ -9,8 +9,9 @@ public class Succubus extends AbstractMonster {
     private int coolDown = 4;
 
     public Succubus() {
-        super(MonsterKinds.CREATURE.getKind(), Creatures.Succubus.getName(), Creatures.Succubus.getHealth(),
-                Creatures.Succubus.getInitiative(), Creatures.Succubus.getCost());
+        super(MonsterKinds.CREATURE.getKind(), Creatures.Succubus.getName(),
+                Creatures.Succubus.getHealth(), Creatures.Succubus.getInitiative(),
+                Creatures.Succubus.getCost(), Creatures.Succubus.getMinLevel());
     }
 
     @Override

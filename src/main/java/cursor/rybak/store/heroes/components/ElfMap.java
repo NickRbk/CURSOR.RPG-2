@@ -1,4 +1,4 @@
-package cursor.rybak.store.components;
+package cursor.rybak.store.heroes.components;
 
 import cursor.rybak.model.hero.elf.gunslinger.Gunslinger;
 import cursor.rybak.model.hero.elf.mage.Mage;
@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class ElfHeroesMap {
+public class ElfMap {
     public Map<String, Supplier<AbstractRace>> getElfHeroes() {
         Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 

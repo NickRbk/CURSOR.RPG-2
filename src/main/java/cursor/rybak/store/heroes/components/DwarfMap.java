@@ -1,4 +1,4 @@
-package cursor.rybak.store.components;
+package cursor.rybak.store.heroes.components;
 
 import cursor.rybak.model.hero.dwarf.mechanist.Mechanist;
 import cursor.rybak.model.hero.dwarf.warrior.Warrior;
@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class DwarfHeroesMap {
+public class DwarfMap {
     public Map<String, Supplier<AbstractRace>> getDwarfHeroes() {
         Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 

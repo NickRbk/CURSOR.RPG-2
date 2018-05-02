@@ -8,8 +8,9 @@ public class Minotaur extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {2, 6};
 
     public Minotaur() {
-        super(MonsterKinds.CREATURE.getKind(), Creatures.Minotaur.getName(), Creatures.Minotaur.getHealth(),
-                Creatures.Minotaur.getInitiative(), Creatures.Minotaur.getCost());
+        super(MonsterKinds.CREATURE.getKind(), Creatures.Minotaur.getName(),
+                Creatures.Minotaur.getHealth(), Creatures.Minotaur.getInitiative(),
+                Creatures.Minotaur.getCost(), Creatures.Minotaur.getMinLevel());
     }
 
     @Override

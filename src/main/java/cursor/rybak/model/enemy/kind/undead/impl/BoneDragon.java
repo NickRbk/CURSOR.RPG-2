@@ -8,8 +8,9 @@ public class BoneDragon extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {3, 10};
 
     public BoneDragon() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.BoneDragon.getName(), Undeads.BoneDragon.getHealth(),
-                Undeads.BoneDragon.getInitiative(), Undeads.BoneDragon.getCost());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.BoneDragon.getName(),
+                Undeads.BoneDragon.getHealth(), Undeads.BoneDragon.getInitiative(),
+                Undeads.BoneDragon.getCost(), Undeads.BoneDragon.getMinLevel());
     }
 
     @Override

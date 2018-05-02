@@ -8,8 +8,9 @@ public class OrkWarlord extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {2, 6};
 
     public OrkWarlord() {
-        super(MonsterKinds.ORKOID.getKind(), Orkoids.OrkWarlord.getName(), Orkoids.OrkWarlord.getHealth(),
-                Orkoids.OrkWarlord.getInitiative(), Orkoids.OrkWarlord.getCost());
+        super(MonsterKinds.ORKOID.getKind(), Orkoids.OrkWarlord.getName(),
+                Orkoids.OrkWarlord.getHealth(), Orkoids.OrkWarlord.getInitiative(),
+                Orkoids.OrkWarlord.getCost(), Orkoids.OrkWarlord.getMinLevel());
     }
 
     @Override

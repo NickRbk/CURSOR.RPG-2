@@ -8,8 +8,9 @@ public class Imp extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public Imp() {
-        super(MonsterKinds.CREATURE.getKind(), Creatures.Imp.getName(), Creatures.Imp.getHealth(),
-                Creatures.Imp.getInitiative(), Creatures.Imp.getCost());
+        super(MonsterKinds.CREATURE.getKind(), Creatures.Imp.getName(),
+                Creatures.Imp.getHealth(), Creatures.Imp.getInitiative(),
+                Creatures.Imp.getCost(), Creatures.Imp.getMinLevel());
     }
 
     @Override

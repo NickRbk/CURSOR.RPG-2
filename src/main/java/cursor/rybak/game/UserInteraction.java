@@ -2,7 +2,7 @@ package cursor.rybak.game;
 
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.room.Room;
-import cursor.rybak.store.RaceMap;
+import cursor.rybak.store.heroes.HeroesMap;
 import cursor.rybak.util.DistributionSwitch;
 import cursor.rybak.view.ErrorMessage;
 import cursor.rybak.view.GeneralMessage;
@@ -86,7 +86,7 @@ public class UserInteraction {
      * @return name of race
      */
     private static String askRace() {
-        Set<String> racesKey = RaceMap.getInstance().getRaceMap().keySet();
+        Set<String> racesKey = HeroesMap.getInstance().getRaceMap().keySet();
         String[] races = racesKey.toArray(new String[racesKey.size()]);
 
         Message.askName("race");
@@ -153,7 +153,7 @@ public class UserInteraction {
      * @param teamHeroes team
      */
     private static void initializeHero(List<AbstractRace> teamHeroes) {
-        Map<String, Map<String, Supplier<AbstractRace>>> raceMap = RaceMap.getInstance().getRaceMap();
+        Map<String, Map<String, Supplier<AbstractRace>>> raceMap = HeroesMap.getInstance().getRaceMap();
 
         String name = askName("hero name");
         String race = askRace();

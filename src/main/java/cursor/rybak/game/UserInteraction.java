@@ -1,10 +1,12 @@
 package cursor.rybak.game;
 
 import cursor.rybak.model.race.AbstractRace;
+import cursor.rybak.model.race.Characteristics;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.store.heroes.HeroesMap;
 import cursor.rybak.util.DistributionSwitch;
 import cursor.rybak.util.Scanner;
+import cursor.rybak.util.Validation;
 import cursor.rybak.view.ErrorMessage;
 import cursor.rybak.view.GeneralMessage;
 import cursor.rybak.view.MazeMessage;
@@ -14,6 +16,9 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class UserInteraction {
+    private static Scanner scanner = Scanner.getInstance();
+    private static Validation validator = Validation.getInstance();
+
     /**
      * ask about name (for props, that validate
      * only for empty field)
@@ -24,7 +29,7 @@ public class UserInteraction {
         Message.askName(item);
 
         while (true) {
-            String userInput = Scanner.getInstance().getInput().toUpperCase().trim();
+            String userInput = scanner.getInput().toUpperCase().trim();
 
             if (!userInput.isEmpty()) {
                 return userInput;
@@ -43,12 +48,12 @@ public class UserInteraction {
      */
     private static int chooseOption(String[] items) {
         while (true) {
-            String userInput = Scanner.getInstance().getInput();
+            String userInput = scanner.getInput();
 
-            if (userInput.matches("\\d+")) {
+            if (validator.isNumberInput(userInput)) {
                 int option = Integer.parseInt(userInput);
 
-                if (option >= 1 && option <= items.length) {
+                if (validator.isNumberInRange(option, 0, items.length)) {
                     return option - 1;
                 }
             }
@@ -68,9 +73,9 @@ public class UserInteraction {
         String options = MazeMessage.getAndAskMoveOptions(currentRoom);
 
         while (true) {
-            String userInput = Scanner.getInstance().getInput();
+            String userInput = scanner.getInput();
 
-            if (userInput.matches("[" + options + "]")) {
+            if (validator.isMatchOptions(userInput, options)) {
                 return userInput;
             }
 
@@ -199,10 +204,10 @@ public class UserInteraction {
 
             option = chooseOption(options);
 
-            if ("INFO".equals(options[option])) {
+            if (Characteristics.INFO.equals(options[option])) {
                 GeneralMessage.characteristicsInfo();
             }
-        } while ("INFO".equals(options[option]));
+        } while (Characteristics.INFO.equals(options[option]));
 
         Message.printChosenOption(options[option]);
         return options[option];
@@ -221,10 +226,10 @@ public class UserInteraction {
         int newRemainedPoints = remainedPoints;
 
         while (newRemainedPoints == remainedPoints) {
-            String userInput = Scanner.getInstance().getInput();
-            if (userInput.matches("\\d+")
-                    && parseInt(userInput) > 0
-                    && parseInt(userInput) <= remainedPoints) {
+            String userInput = scanner.getInput();
+
+            if (validator.isNumberInput(userInput)
+                    && validator.isNumberInRange(parseInt(userInput), 0, remainedPoints)) {
 
                 updateSp(hero, parseInt(userInput));
                 upgradeCharacteristic(characteristic, hero, parseInt(userInput));

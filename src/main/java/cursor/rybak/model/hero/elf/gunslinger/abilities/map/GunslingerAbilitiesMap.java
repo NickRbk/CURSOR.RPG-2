@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.elf.gunslinger.abilities.map;
 
+import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.BullsEye;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.Multishot;
@@ -18,7 +19,7 @@ public class GunslingerAbilitiesMap {
     public static Map<String, Map<String, AbstractAbility>> getSpecialAttackMap() {
         Map<String, Map<String, AbstractAbility>> specialAttackMap = new HashMap<>();
 
-        specialAttackMap.put("spells", createSpellsMap());
+        specialAttackMap.put(AbilityType.SPELLS, createSpellsMap());
 
         return specialAttackMap;
     }

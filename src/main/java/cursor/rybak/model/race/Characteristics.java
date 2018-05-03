@@ -6,4 +6,5 @@ public interface Characteristics {
     String INTELLECT = "intellect";
     String AGILITY = "agility";
     String CONCENTRATION = "concentration";
+    String INFO = "INFO";
 }

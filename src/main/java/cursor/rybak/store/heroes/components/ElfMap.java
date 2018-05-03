@@ -1,5 +1,6 @@
 package cursor.rybak.store.heroes.components;
 
+import cursor.rybak.model.hero.elf.ElfProfession;
 import cursor.rybak.model.hero.elf.gunslinger.Gunslinger;
 import cursor.rybak.model.hero.elf.mage.Mage;
 import cursor.rybak.model.race.AbstractRace;
@@ -12,8 +13,8 @@ public class ElfMap {
     public Map<String, Supplier<AbstractRace>> getElfHeroes() {
         Map<String, Supplier<AbstractRace>> raceHeroes = new LinkedHashMap<>();
 
-        raceHeroes.put("mage", this::createMage);
-        raceHeroes.put("gunslinger", this::createGunslinger);
+        raceHeroes.put(ElfProfession.MAGE, this::createMage);
+        raceHeroes.put(ElfProfession.GUNSLINGER, this::createGunslinger);
 
         return raceHeroes;
     }

@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.dwarf.mechanist.abilities.map;
 
+import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.Bombs;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.DroidArms;
@@ -17,7 +18,7 @@ public class MechanistAbilitiesMap {
     public static Map<String, Map<String, AbstractAbility>> getSpecialAttackMap() {
         Map<String, Map<String, AbstractAbility>> specialAttackMap = new HashMap<>();
 
-        specialAttackMap.put("skills", createSkillsMap());
+        specialAttackMap.put(AbilityType.SKILLS, createSkillsMap());
 
         return specialAttackMap;
     }

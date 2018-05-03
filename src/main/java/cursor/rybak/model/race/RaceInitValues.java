@@ -11,5 +11,5 @@ public interface RaceInitValues {
     int maxLevel = 10;
 
     String[] keyToUpgrade = {Characteristics.CHARISMA, Characteristics.STAMINA, Characteristics.INTELLECT,
-            Characteristics.AGILITY, Characteristics.CONCENTRATION, "INFO"};
+            Characteristics.AGILITY, Characteristics.CONCENTRATION, Characteristics.INFO};
 }

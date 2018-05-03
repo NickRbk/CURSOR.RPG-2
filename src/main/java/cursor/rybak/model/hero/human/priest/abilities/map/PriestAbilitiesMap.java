@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.human.priest.abilities.map;
 
+import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.human.priest.abilities.BattleFury;
 import cursor.rybak.model.hero.human.priest.abilities.BattleTrance;
@@ -19,8 +20,8 @@ public class PriestAbilitiesMap {
     public static Map<String, Map<String, AbstractAbility>> getSpecialAttackMap() {
         Map<String, Map<String, AbstractAbility>> specialAttackMap = new HashMap<>();
 
-        specialAttackMap.put("spells", createSpellsMap());
-        specialAttackMap.put("skills", createSkillsMap());
+        specialAttackMap.put(AbilityType.SPELLS, createSpellsMap());
+        specialAttackMap.put(AbilityType.SKILLS, createSkillsMap());
 
         return specialAttackMap;
     }

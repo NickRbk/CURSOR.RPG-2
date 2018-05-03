@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.dwarf.warrior.abilities.map;
 
+import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.dwarf.warrior.abilities.StandGround;
 import cursor.rybak.model.hero.dwarf.warrior.abilities.WhirlingAxe;
@@ -17,7 +18,7 @@ public class WarriorAbilitiesMap {
     public static Map<String, Map<String, AbstractAbility>> getSpecialAttackMap() {
         Map<String, Map<String, AbstractAbility>> specialAttackMap = new HashMap<>();
 
-        specialAttackMap.put("skills", createSkillsMap());
+        specialAttackMap.put(AbilityType.SKILLS, createSkillsMap());
 
         return specialAttackMap;
     }

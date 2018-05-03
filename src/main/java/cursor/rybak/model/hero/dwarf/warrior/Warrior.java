@@ -1,6 +1,7 @@
 package cursor.rybak.model.hero.dwarf.warrior;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.dwarf.DwarfProfession;
 import cursor.rybak.model.hero.dwarf.warrior.abilities.map.WarriorAbilitiesMap;
 import cursor.rybak.model.race.kind.impl.Dwarf;
 import lombok.Getter;
@@ -14,7 +15,7 @@ public class Warrior extends Dwarf {
     Map<String, int[]> attacks = WarriorAbilitiesMap.getAttackMap();
 
     public Warrior() {
-        super("Warrior");
+        super(DwarfProfession.WARRIOR);
     }
 
     @Override

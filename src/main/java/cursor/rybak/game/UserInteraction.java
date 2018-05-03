@@ -4,6 +4,7 @@ import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.store.heroes.HeroesMap;
 import cursor.rybak.util.DistributionSwitch;
+import cursor.rybak.util.Scanner;
 import cursor.rybak.view.ErrorMessage;
 import cursor.rybak.view.GeneralMessage;
 import cursor.rybak.view.MazeMessage;
@@ -13,8 +14,6 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class UserInteraction {
-    private static final Scanner in = new Scanner(System.in);
-
     /**
      * ask about name (for props, that validate
      * only for empty field)
@@ -25,7 +24,7 @@ public class UserInteraction {
         Message.askName(item);
 
         while (true) {
-            String userInput = in.nextLine().toUpperCase().trim();
+            String userInput = Scanner.getInstance().getInput().toUpperCase().trim();
 
             if (!userInput.isEmpty()) {
                 return userInput;
@@ -44,7 +43,7 @@ public class UserInteraction {
      */
     private static int chooseOption(String[] items) {
         while (true) {
-            String userInput = in.nextLine();
+            String userInput = Scanner.getInstance().getInput();
 
             if (userInput.matches("\\d+")) {
                 int option = Integer.parseInt(userInput);
@@ -69,7 +68,7 @@ public class UserInteraction {
         String options = MazeMessage.getAndAskMoveOptions(currentRoom);
 
         while (true) {
-            String userInput = in.nextLine();
+            String userInput = Scanner.getInstance().getInput();
 
             if (userInput.matches("[" + options + "]")) {
                 return userInput;
@@ -222,7 +221,7 @@ public class UserInteraction {
         int newRemainedPoints = remainedPoints;
 
         while (newRemainedPoints == remainedPoints) {
-            String userInput = in.nextLine();
+            String userInput = Scanner.getInstance().getInput();
             if (userInput.matches("\\d+")
                     && parseInt(userInput) > 0
                     && parseInt(userInput) <= remainedPoints) {

@@ -14,7 +14,7 @@ public class Validation {
     }
 
     public boolean isNumberInput(String input) {
-        return input.matches("\\d+");
+        return input.matches(RegExp.NUMBERS);
     }
 
     public boolean isMatchOptions(String input, String options) {

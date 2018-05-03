@@ -30,7 +30,7 @@ public class Room {
     private List<AbstractMonster> enemies;
     private Team team;
 
-    private List<Room> chainedTo;         // created as array, cuz room has fixed chained options, depends on its Type
+    private List<Room> chainedTo;
 
     private boolean isObjective;
 

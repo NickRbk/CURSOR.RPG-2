@@ -46,7 +46,7 @@ public class UserInteraction {
         while (true) {
             String userInput = in.nextLine();
 
-            if (!userInput.isEmpty() && userInput.matches("\\d+")) {
+            if (userInput.matches("\\d+")) {
                 int option = Integer.parseInt(userInput);
 
                 if (option >= 1 && option <= items.length) {
@@ -71,7 +71,7 @@ public class UserInteraction {
         while (true) {
             String userInput = in.nextLine();
 
-            if (!userInput.isEmpty() && userInput.matches("[" + options + "]")) {
+            if (userInput.matches("[" + options + "]")) {
                 return userInput;
             }
 
@@ -223,8 +223,7 @@ public class UserInteraction {
 
         while (newRemainedPoints == remainedPoints) {
             String userInput = in.nextLine();
-            if (!userInput.isEmpty()
-                    && userInput.matches("\\d+")
+            if (userInput.matches("\\d+")
                     && parseInt(userInput) > 0
                     && parseInt(userInput) <= remainedPoints) {
 

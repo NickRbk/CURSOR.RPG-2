@@ -67,7 +67,9 @@ public class Team implements LevelUp {
     }
 
     private void setMonsters(Room nextRoom) {
-        if (nextRoom.isMonsterPresent()) {
+        if (nextRoom.isMonsterPresent()
+                && nextRoom.getEnemies() == null) {
+
             Room.setMonsters(LevelMathUtil.getAverage(this.getHeroes()), nextRoom);
         }
     }

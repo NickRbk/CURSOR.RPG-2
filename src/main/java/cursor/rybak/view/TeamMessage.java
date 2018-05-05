@@ -78,6 +78,9 @@ public class TeamMessage implements MagicColors {
         System.out.format(format, "Level",
                 hero.get(0).getLevel(), hero.get(1).getLevel(), hero.get(2).getLevel());
 
+        System.out.format(format, "Initiative",
+                hero.get(0).getInitiative(), hero.get(1).getInitiative(), hero.get(2).getInitiative());
+
         System.out.format(doubleFormat, "XP",
                 hero.get(0).getXp(), hero.get(1).getXp(), hero.get(2).getXp());
 

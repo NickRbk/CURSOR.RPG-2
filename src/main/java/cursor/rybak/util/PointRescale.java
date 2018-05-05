@@ -13,6 +13,16 @@ public class PointRescale implements CalcConst {
                 : ((increaseXPCoefficientPerCharisma * (charisma - remainder) / 2) * xp);
     }
 
+    public static int rescaleIPperCharisma(int charisma) {
+
+        // 1 additional initiative point per 2 points
+        int remainder = charisma % 2;
+
+        return remainder == 0
+                ? (charisma / 2)
+                : ((charisma - remainder) / 2);
+    }
+
     public static double rescaleHPperStamina(int stamina) {
         return increaseHPCoefficientPerStamina * stamina;
     }

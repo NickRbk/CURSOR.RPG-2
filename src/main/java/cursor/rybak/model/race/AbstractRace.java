@@ -29,6 +29,7 @@ public abstract class AbstractRace implements RaceInitValues {
 
     private double mana = initValue; // manna point for spells (mp)
     private double rage = initValue; // rage points (rp)
+    private int initiative;
     private int charisma;
     private int stamina;
     private int intellect;
@@ -87,10 +88,7 @@ public abstract class AbstractRace implements RaceInitValues {
 
     public void setCharisma(int charisma) {
         this.charisma += charisma;
-
-        // 1 additional initiative point per 2 points
-        // CODE WILL BE HERE
-
+        this.initiative = PointRescale.rescaleIPperCharisma(getCharisma());
 
         // charisma > 40 allows to fear enemies
         // (0.75% chance per 2 points of charisma)

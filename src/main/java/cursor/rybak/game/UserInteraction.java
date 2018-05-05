@@ -19,6 +19,12 @@ public class UserInteraction {
     private static Scanner scanner = Scanner.getInstance();
     private static Validation validator = Validation.getInstance();
 
+    public static boolean askYesNo() {
+        final String YES = "y";
+
+        return YES.equalsIgnoreCase(scanner.getInput());
+    }
+
     /**
      * ask about name (for props, that validate
      * only for empty field)

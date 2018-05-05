@@ -24,21 +24,48 @@ public class Game {
         Room currentRoom = team.enterToMaze(maze);
 
         while (!currentRoom.isObjective() && isHeroAlive(team)) {
+            boolean isBattle = true;
             System.out.println(currentRoom);
 
-            Battle.blitzkrieg(currentRoom); // simple battle phase
+            if (currentRoom.isMonsterPresent()) {
+                isBattle = Battle.blitzkrieg(currentRoom); // simple battle phase
+            }
 
+            currentRoom = move(currentRoom, team, isBattle);
+        }
+
+        printGameOverMessage(currentRoom, team);
+    }
+
+
+    /**
+     * move Team to another location
+     *
+     * @param currentRoom current location
+     * @param team        our Team
+     * @param isBattle    flag about was there a battle
+     * @return new Room
+     */
+    private static Room move(Room currentRoom, Team team, boolean isBattle) {
+        if (isBattle) {
             MazeMessage.printNeighbors(currentRoom);
             String moveOption = UserInteraction.chooseMoveOption(currentRoom);
 
-            currentRoom = team.move(currentRoom, moveOption);
-        }
+            return team.move(currentRoom, moveOption);
+        } else {
+            Room previousRoom = currentRoom.getPrevious();
+            String roomIndex = Integer.toString(currentRoom.getChainedTo().indexOf(previousRoom) + 1);
 
-        if(isHeroAlive(team)) System.out.println(currentRoom.getDescription());
-        else GeneralMessage.gameOverInfo();
+            return team.move(currentRoom, roomIndex);
+        }
     }
 
     private static boolean isHeroAlive(Team team) {
         return team.getHeroes().get(0).getHealth() > 0;
+    }
+
+    private static void printGameOverMessage(Room currentRoom, Team team) {
+        if (isHeroAlive(team)) System.out.println(currentRoom.getDescription());
+        else GeneralMessage.gameOverInfo();
     }
 }

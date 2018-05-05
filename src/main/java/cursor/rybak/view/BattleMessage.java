@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BattleMessage implements MagicColors {
     public static void printStartBattleInfo() {
-        System.out.print(RED + "\t<===BATTLE PHASE WILL BE HERE===>" + RESET);
+        System.out.print(RED + "\t<===BATTLE PHASE WILL BE HERE===>\n" + RESET);
     }
 
     public static void printUpgradeHero(AbstractRace hero) {
@@ -19,10 +19,16 @@ public class BattleMessage implements MagicColors {
     public static void printEnemies(List<AbstractMonster> enemies) {
         StringBuilder enemiesString = new StringBuilder();
 
-        enemies.forEach(enemy -> enemiesString.append(String.format("%s(%d XP)  ",
-                enemy.getName(), enemy.getCost())));
+        enemies.forEach(enemy -> enemiesString.append(String.format("%s(%d HP, %d XP)  ",
+                enemy.getName(), enemy.getHealth(), enemy.getCost())));
 
-        System.out.println(enemiesString.toString());
+        System.out.println("\t\t" + enemiesString.toString());
+    }
+
+    public static void printOfferToBack(int count) {
+        System.out.format("\t\tIn this room %d monsters: ... Maybe it's better to step back\n" +
+                "\t\t%sBack to previous room?%s - %sy%s or [%sany key to battle%s] -> ",
+                count, BLUE, RESET, GREEN, RESET, GREEN, RESET);
     }
 
     public static void printTeamMembers(Team team) {

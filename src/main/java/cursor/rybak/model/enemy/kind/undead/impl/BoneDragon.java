@@ -10,7 +10,7 @@ public class BoneDragon extends AbstractMonster {
     public BoneDragon() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.BoneDragon.getName(),
                 Undeads.BoneDragon.getHealth(), Undeads.BoneDragon.getInitiative(),
-                Undeads.BoneDragon.getCost(), Undeads.BoneDragon.getMinLevel());
+                Undeads.BoneDragon.getXp(), Undeads.BoneDragon.getLevel());
     }
 
     @Override

@@ -10,7 +10,7 @@ public class Goblin extends AbstractMonster {
     public Goblin() {
         super(MonsterKinds.ORKOID.getKind(), Orkoids.Goblin.getName(),
                 Orkoids.Goblin.getHealth(), Orkoids.Goblin.getInitiative(),
-                Orkoids.Goblin.getCost(), Orkoids.Goblin.getMinLevel());
+                Orkoids.Goblin.getXp(), Orkoids.Goblin.getLevel());
     }
 
     @Override

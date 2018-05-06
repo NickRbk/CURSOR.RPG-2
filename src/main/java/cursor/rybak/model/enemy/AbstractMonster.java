@@ -1,10 +1,11 @@
 package cursor.rybak.model.enemy;
 
+import cursor.rybak.model.common.CommonUnit;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public abstract class AbstractMonster {
+public abstract class AbstractMonster implements CommonUnit {
     private static final int MIN_HEALTH = 0;
 
     @Setter
@@ -14,16 +15,16 @@ public abstract class AbstractMonster {
     private String name; // name of monster in certain kind
     private int health;
     private int initiative;
-    private int cost;
-    private int minLevel; // min Lvl from which monster sets in maze
+    private double xp;
+    private int level; // min Lvl from which monster sets in maze
 
-    public AbstractMonster(String kind, String name, int health, int initiative, int cost, int minLevel) {
+    public AbstractMonster(String kind, String name, int health, int initiative, double xp, int level) {
         this.kind = kind;
         this.name = name;
         this.health = health;
         this.initiative = initiative;
-        this.cost = cost;
-        this.minLevel = minLevel;
+        this.xp = xp;
+        this.level = level;
     }
 
     /**

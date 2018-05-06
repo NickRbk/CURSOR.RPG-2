@@ -12,7 +12,7 @@ public class OrkShaman extends AbstractMonster {
     public OrkShaman() {
         super(MonsterKinds.ORKOID.getKind(), Orkoids.OrkShaman.getName(),
                 Orkoids.OrkShaman.getHealth(), Orkoids.OrkShaman.getInitiative(),
-                Orkoids.OrkShaman.getCost(), Orkoids.OrkShaman.getMinLevel());
+                Orkoids.OrkShaman.getXp(), Orkoids.OrkShaman.getLevel());
     }
 
     @Override

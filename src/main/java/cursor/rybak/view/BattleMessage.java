@@ -19,8 +19,8 @@ public class BattleMessage implements MagicColors {
     public static void printEnemies(List<AbstractMonster> enemies) {
         StringBuilder enemiesString = new StringBuilder();
 
-        enemies.forEach(enemy -> enemiesString.append(String.format("%s(%d HP, %d XP)  ",
-                enemy.getName(), enemy.getHealth(), enemy.getCost())));
+        enemies.forEach(enemy -> enemiesString.append(String.format("%s(%.2d HP, %.2f XP)  ",
+                enemy.getName(), enemy.getHealth(), enemy.getXp())));
 
         System.out.println("\t\t" + enemiesString.toString());
     }
@@ -35,7 +35,7 @@ public class BattleMessage implements MagicColors {
         System.out.println("\t\t" + team.printTeamMembers() + "\n");
     }
 
-    public static void printGainedXP(AbstractRace hero, int totalXp) {
+    public static void printGainedXP(AbstractRace hero, double totalXp) {
         System.out.format("\t\t\tHero %s gained %.2f XP\n",
                 hero.getHeroName(), totalXp * hero.getXPCoefficient());
     }

@@ -10,7 +10,7 @@ public class BlackDragon extends AbstractMonster {
     public BlackDragon() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.BlackDragon.getName(),
                 Creatures.BlackDragon.getHealth(), Creatures.BlackDragon.getInitiative(),
-                Creatures.BlackDragon.getCost(), Creatures.BlackDragon.getMinLevel());
+                Creatures.BlackDragon.getXp(), Creatures.BlackDragon.getLevel());
 
         this.setSpellImmune(true);
     }

@@ -10,7 +10,7 @@ public class Banshee extends AbstractMonster {
     public Banshee() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.Banshee.getName(),
                 Undeads.Banshee.getHealth(), Undeads.Banshee.getInitiative(),
-                Undeads.Banshee.getCost(), Undeads.Banshee.getMinLevel());
+                Undeads.Banshee.getXp(), Undeads.Banshee.getLevel());
     }
 
     @Override

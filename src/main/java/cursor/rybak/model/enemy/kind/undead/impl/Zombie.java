@@ -10,7 +10,7 @@ public class Zombie extends AbstractMonster {
     public Zombie() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.Zombie.getName(),
                 Undeads.Zombie.getHealth(), Undeads.Zombie.getInitiative(),
-                Undeads.Zombie.getCost(), Undeads.Zombie.getMinLevel());
+                Undeads.Zombie.getXp(), Undeads.Zombie.getLevel());
     }
 
     @Override

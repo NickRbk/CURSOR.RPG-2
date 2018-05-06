@@ -11,7 +11,7 @@ public class Succubus extends AbstractMonster {
     public Succubus() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.Succubus.getName(),
                 Creatures.Succubus.getHealth(), Creatures.Succubus.getInitiative(),
-                Creatures.Succubus.getCost(), Creatures.Succubus.getMinLevel());
+                Creatures.Succubus.getXp(), Creatures.Succubus.getLevel());
     }
 
     @Override

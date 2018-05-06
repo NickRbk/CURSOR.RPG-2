@@ -10,7 +10,7 @@ public class Skeleton extends AbstractMonster {
     public Skeleton() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.Skeleton.getName(),
                 Undeads.Skeleton.getHealth(), Undeads.Skeleton.getInitiative(),
-                Undeads.Skeleton.getCost(), Undeads.Skeleton.getMinLevel());
+                Undeads.Skeleton.getXp(), Undeads.Skeleton.getLevel());
     }
 
     @Override

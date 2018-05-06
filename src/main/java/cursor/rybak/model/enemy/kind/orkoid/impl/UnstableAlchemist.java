@@ -10,7 +10,7 @@ public class UnstableAlchemist extends AbstractMonster {
     public UnstableAlchemist() {
         super(MonsterKinds.ORKOID.getKind(), Orkoids.UnstableAlchemist.getName(),
                 Orkoids.UnstableAlchemist.getHealth(), Orkoids.UnstableAlchemist.getInitiative(),
-                Orkoids.UnstableAlchemist.getCost(), Orkoids.UnstableAlchemist.getMinLevel());
+                Orkoids.UnstableAlchemist.getXp(), Orkoids.UnstableAlchemist.getLevel());
     }
 
     @Override

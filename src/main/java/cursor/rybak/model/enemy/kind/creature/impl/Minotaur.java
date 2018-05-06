@@ -10,7 +10,7 @@ public class Minotaur extends AbstractMonster {
     public Minotaur() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.Minotaur.getName(),
                 Creatures.Minotaur.getHealth(), Creatures.Minotaur.getInitiative(),
-                Creatures.Minotaur.getCost(), Creatures.Minotaur.getMinLevel());
+                Creatures.Minotaur.getXp(), Creatures.Minotaur.getLevel());
     }
 
     @Override

@@ -10,7 +10,7 @@ public class Ogre extends AbstractMonster {
     public Ogre() {
         super(MonsterKinds.ORKOID.getKind(), Orkoids.Ogre.getName(),
                 Orkoids.Ogre.getHealth(), Orkoids.Ogre.getInitiative(),
-                Orkoids.Ogre.getCost(), Orkoids.Ogre.getMinLevel());
+                Orkoids.Ogre.getXp(), Orkoids.Ogre.getLevel());
     }
 
     @Override

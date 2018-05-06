@@ -10,7 +10,7 @@ public class SkeletonChief extends AbstractMonster {
     public SkeletonChief() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.SkeletonChief.getName(),
                 Undeads.SkeletonChief.getHealth(), Undeads.SkeletonChief.getInitiative(),
-                Undeads.SkeletonChief.getCost(), Undeads.SkeletonChief.getMinLevel());
+                Undeads.SkeletonChief.getXp(), Undeads.SkeletonChief.getLevel());
     }
 
     @Override

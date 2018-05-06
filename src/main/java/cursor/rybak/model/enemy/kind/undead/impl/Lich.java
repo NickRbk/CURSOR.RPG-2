@@ -10,7 +10,7 @@ public class Lich extends AbstractMonster {
     public Lich() {
         super(MonsterKinds.UNDEAD.getKind(), Undeads.Lich.getName(),
                 Undeads.Lich.getHealth(), Undeads.Lich.getInitiative(),
-                Undeads.Lich.getCost(), Undeads.Lich.getMinLevel());
+                Undeads.Lich.getXp(), Undeads.Lich.getLevel());
     }
 
     @Override

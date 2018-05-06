@@ -15,14 +15,14 @@ public enum Creatures implements MinLevel {
     private String name;
     private int health;
     private int initiative;
-    private int cost;
-    private int minLevel;
+    private double xp;
+    private int level;
 
-    Creatures(String name, int health, int initiative, int cost, int minLevel) {
+    Creatures(String name, int health, int initiative, double xp, int level) {
         this.name = name;
         this.health = health;
         this.initiative = initiative;
-        this.cost = cost;
-        this.minLevel = minLevel;
+        this.xp = xp;
+        this.level = level;
     }
 }

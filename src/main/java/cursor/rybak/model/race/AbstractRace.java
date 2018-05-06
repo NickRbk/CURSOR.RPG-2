@@ -1,5 +1,6 @@
 package cursor.rybak.model.race;
 
+import cursor.rybak.model.common.CommonUnit;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.util.PointRescale;
 import lombok.Getter;
@@ -8,7 +9,7 @@ import lombok.Setter;
 import java.util.Map;
 
 @Getter
-public abstract class AbstractRace implements RaceInitValues {
+public abstract class AbstractRace implements CommonUnit, RaceInitValues {
 
     private double XPCoefficient = initXPCoefficient;
 

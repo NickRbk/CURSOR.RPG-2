@@ -78,7 +78,7 @@ public class Room {
                 .get(kind)
                 .entrySet()
                 .stream()
-                .filter(map -> map.getKey().getMinLevel() <= averageLevel)
+                .filter(map -> map.getKey().getLevel() <= averageLevel)
                 .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
     }

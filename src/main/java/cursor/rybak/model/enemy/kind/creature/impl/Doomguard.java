@@ -10,7 +10,7 @@ public class Doomguard extends AbstractMonster {
     public Doomguard() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.Doomguard.getName(),
                 Creatures.Doomguard.getHealth(), Creatures.Doomguard.getInitiative(),
-                Creatures.Doomguard.getCost(), Creatures.Doomguard.getMinLevel());
+                Creatures.Doomguard.getXp(), Creatures.Doomguard.getLevel());
     }
 
     @Override

@@ -10,7 +10,7 @@ public class DoomSpider extends AbstractMonster {
     public DoomSpider() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.DoomSpider.getName(),
                 Creatures.DoomSpider.getHealth(), Creatures.DoomSpider.getInitiative(),
-                Creatures.DoomSpider.getCost(), Creatures.DoomSpider.getMinLevel());
+                Creatures.DoomSpider.getXp(), Creatures.DoomSpider.getLevel());
     }
 
     @Override

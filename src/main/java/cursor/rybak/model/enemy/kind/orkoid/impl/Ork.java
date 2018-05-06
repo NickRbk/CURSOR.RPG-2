@@ -10,7 +10,7 @@ public class Ork extends AbstractMonster {
     public Ork() {
         super(MonsterKinds.ORKOID.getKind(), Orkoids.Ork.getName(),
                 Orkoids.Ork.getHealth(), Orkoids.Ork.getInitiative(),
-                Orkoids.Ork.getCost(), Orkoids.Ork.getMinLevel());
+                Orkoids.Ork.getXp(), Orkoids.Ork.getLevel());
     }
 
     @Override

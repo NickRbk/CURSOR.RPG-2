@@ -10,7 +10,7 @@ public class Imp extends AbstractMonster {
     public Imp() {
         super(MonsterKinds.CREATURE.getKind(), Creatures.Imp.getName(),
                 Creatures.Imp.getHealth(), Creatures.Imp.getInitiative(),
-                Creatures.Imp.getCost(), Creatures.Imp.getMinLevel());
+                Creatures.Imp.getXp(), Creatures.Imp.getLevel());
     }
 
     @Override

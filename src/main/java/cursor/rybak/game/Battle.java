@@ -1,11 +1,14 @@
 package cursor.rybak.game;
 
+import cursor.rybak.model.common.CommonUnit;
 import cursor.rybak.model.enemy.AbstractMonster;
+import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.model.team.Team;
 import cursor.rybak.view.BattleMessage;
 
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Battle {
@@ -67,10 +70,19 @@ public class Battle {
 
     // Dull active battle phase, in future will be changed
     private static void battle(List<AbstractMonster> enemies, Team team, boolean isLeaderCool) {
-        int totalXp = enemies.stream()
-                .map(AbstractMonster::getCost)
+
+        List<CommonUnit> fightLine = generateFightLine(enemies, team.getHeroes());
+
+        fightLine.sort(new FightLineComparator());
+
+        fightLine.forEach(unit -> System.out.format("I - %d, Lvl - %d, XP - %.2f\n",
+                unit.getInitiative(), unit.getLevel(), unit.getXp()));
+
+
+        double totalXp = enemies.stream()
+                .map(AbstractMonster::getXp)
                 .reduce((xp1, xp2) -> xp1 + xp2)
-                .orElse(0);
+                .orElse(0.0);
 
         team.getHeroes()
                 .forEach(hero -> {
@@ -80,5 +92,14 @@ public class Battle {
 
         System.out.println("\n");
         team.tryLevelUp(); // try to Lvl up
+    }
+
+    private static List<CommonUnit> generateFightLine(List<AbstractMonster> enemies, List<AbstractRace> heroes) {
+        List<CommonUnit> fightLine = new LinkedList<>();
+
+        fightLine.addAll(enemies);
+        fightLine.addAll(heroes);
+
+        return fightLine;
     }
 }

@@ -5,6 +5,7 @@ import cursor.rybak.model.enemy.AbstractMonster;
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.room.Room;
 import cursor.rybak.model.team.Team;
+import cursor.rybak.util.ListUtil;
 import cursor.rybak.view.BattleMessage;
 
 import java.util.Comparator;
@@ -19,9 +20,8 @@ public class Battle {
 
         List<AbstractMonster> enemies = currentRoom.getEnemies();
         Team team = currentRoom.getTeam();
-        boolean isLeaderCool = isLeaderCool(team, enemies);
 
-        if (isLeaderCool) {
+        if (isLeaderCool(team, enemies)) {
             printEnemiesAndTeam(enemies, team);
             if (enemies.size() > COUNT) {
                 BattleMessage.printOfferToBack(enemies.size()); // offer Team to move back
@@ -29,7 +29,7 @@ public class Battle {
             }
         }
 
-        battle(enemies, team, isLeaderCool); // dull active battle phase
+        battle(enemies, team); // dull active battle phase
         currentRoom.setMonsterPresent(0);
         return true;
     }
@@ -69,37 +69,43 @@ public class Battle {
     }
 
     // Dull active battle phase, in future will be changed
-    private static void battle(List<AbstractMonster> enemies, Team team, boolean isLeaderCool) {
+    private static void battle(List<AbstractMonster> enemies, Team team) {
 
-        List<CommonUnit> fightLine = generateFightLine(enemies, team.getHeroes());
-
-        fightLine.sort(new FightLineComparator());
-
-        fightLine.forEach(unit -> System.out.format("I - %d, Lvl - %d, XP - %.2f\n",
-                unit.getInitiative(), unit.getLevel(), unit.getXp()));
+        List<CommonUnit> generalFightLine = generateSortedFightLine(enemies, team.getHeroes());
+        List<AbstractRace> teamLine = BattleCtrl.createTeamLine(ListUtil.copy(team.getHeroes()));
 
 
-        double totalXp = enemies.stream()
-                .map(AbstractMonster::getXp)
-                .reduce((xp1, xp2) -> xp1 + xp2)
-                .orElse(0.0);
-
-        team.getHeroes()
-                .forEach(hero -> {
-                    BattleMessage.printGainedXP(hero, totalXp);
-                    hero.gainXp(totalXp * hero.getXPCoefficient());
-                });
-
-        System.out.println("\n");
-        team.tryLevelUp(); // try to Lvl up
+//        generalFightLine.forEach(unit -> System.out.format("I - %d, Lvl - %d, XP - %.2f\n",
+//                unit.getInitiative(), unit.getLevel(), unit.getXp()));
+//
+//
+//        double totalXp = enemies.stream()
+//                .map(AbstractMonster::getXp)
+//                .reduce((xp1, xp2) -> xp1 + xp2)
+//                .orElse(0.0);
+//
+//        team.getHeroes()
+//                .forEach(hero -> {
+//                    BattleMessage.printGainedXP(hero, totalXp);
+//                    hero.gainXp(totalXp * hero.getXPCoefficient());
+//                });
+//
+//        System.out.println("\n");
+//        team.tryLevelUp(); // try to Lvl up
     }
 
-    private static List<CommonUnit> generateFightLine(List<AbstractMonster> enemies, List<AbstractRace> heroes) {
+    private static List<CommonUnit> generateSortedFightLine(List<AbstractMonster> enemies, List<AbstractRace> heroes) {
         List<CommonUnit> fightLine = new LinkedList<>();
 
         fightLine.addAll(enemies);
         fightLine.addAll(heroes);
 
+        fightLine.sort(new FightLineComparator());
+
         return fightLine;
+    }
+
+    private static boolean isHeroAlive(Team team) {
+        return team.getHeroes().get(0).getHealth() > 0;
     }
 }

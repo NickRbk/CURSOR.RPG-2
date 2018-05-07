@@ -48,7 +48,7 @@ public class Message implements MagicColors {
         for (int i = 0; i < races.length; i++) {
             races[i] = String.format("%s%d%s-%s", GREEN, i + 1, RESET, races[i]);
         }
-        printOptions(races);
+        printOptions(races, Delimiter.COMA);
     }
 
 
@@ -64,7 +64,7 @@ public class Message implements MagicColors {
         for (int i = 0; i < heroes.length; i++) {
             heroes[i] = String.format("%s%d%s-%s", GREEN, i + 1, RESET, heroes[i]);
         }
-        printOptions(heroes);
+        printOptions(heroes, Delimiter.COMA);
     }
 
 
@@ -78,7 +78,7 @@ public class Message implements MagicColors {
             characteristicsKey[i] = String.format("%s%d%s-%s", GREEN, i + 1, RESET, characteristicsKey[i]);
         }
         System.out.print("\n");
-        printOptions(characteristicsKey);
+        printOptions(characteristicsKey, Delimiter.COMA);
     }
 
 
@@ -87,9 +87,9 @@ public class Message implements MagicColors {
      *
      * @param options String[] of options
      */
-    private static void printOptions(String[] options) {
+    public static void printOptions(String[] options, String delimiter) {
         System.out.format("[%s] -> ",
-                String.join(", ", options));
+                String.join(delimiter, options));
     }
 
 

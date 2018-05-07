@@ -53,14 +53,16 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
 
         this.race = race;
         this.heroKind = heroKind;
-        this.charisma = charisma;
-        this.stamina = stamina;
-        this.intellect = intellect;
-        this.agility = agility;
-        this.concentration = concentration;
+
+        setCharisma(charisma);
+        setStamina(stamina);
+        setIntellect(intellect);
+        setAgility(agility);
+        setConcentration(concentration);
     }
 
     public void setLeader() {
+        this.heroName = getHeroName() + "*";
         this.isLeader = true;
         this.XPCoefficient = leaderXPCoefficient;
     }

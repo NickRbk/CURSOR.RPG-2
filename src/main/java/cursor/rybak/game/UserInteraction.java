@@ -12,7 +12,10 @@ import cursor.rybak.view.GeneralMessage;
 import cursor.rybak.view.MazeMessage;
 import cursor.rybak.view.Message;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public class UserInteraction {
@@ -271,13 +274,10 @@ public class UserInteraction {
      * @param points         upgrade points
      */
     private static void upgradeCharacteristic(String characteristic, AbstractRace hero, int points) {
-        Map<AbstractRace, Integer> arguments = new HashMap<>();
-        arguments.put(hero, points);
-
         DistributionSwitch.getInstance()
                 .getCharacteristicsSwitch()
                 .get(characteristic)
-                .accept(arguments);
+                .accept(hero, points);
     }
 
 

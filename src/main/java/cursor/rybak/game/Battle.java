@@ -74,25 +74,47 @@ public class Battle {
         List<CommonUnit> generalFightLine = generateSortedFightLine(enemies, team.getHeroes());
         List<AbstractRace> teamLine = BattleCtrl.createTeamLine(ListUtil.copy(team.getHeroes()));
 
+//        fight(generalFightLine, teamLine, enemies);
 
 //        generalFightLine.forEach(unit -> System.out.format("I - %d, Lvl - %d, XP - %.2f\n",
 //                unit.getInitiative(), unit.getLevel(), unit.getXp()));
-//
-//
-//        double totalXp = enemies.stream()
-//                .map(AbstractMonster::getXp)
-//                .reduce((xp1, xp2) -> xp1 + xp2)
-//                .orElse(0.0);
-//
-//        team.getHeroes()
-//                .forEach(hero -> {
-//                    BattleMessage.printGainedXP(hero, totalXp);
-//                    hero.gainXp(totalXp * hero.getXPCoefficient());
-//                });
-//
-//        System.out.println("\n");
-//        team.tryLevelUp(); // try to Lvl up
+
+
+        double totalXp = enemies.stream()
+                .map(AbstractMonster::getXp)
+                .reduce((xp1, xp2) -> xp1 + xp2)
+                .orElse(0.0);
+
+        team.getHeroes()
+                .forEach(hero -> {
+                    BattleMessage.printGainedXP(hero, totalXp);
+                    hero.gainXp(totalXp * hero.getXPCoefficient());
+                });
+
+        System.out.println("\n");
+        team.tryLevelUp(); // try to Lvl up
     }
+
+//    private static void fight(List<CommonUnit> generalFightLine,
+//                              List<AbstractRace> teamLine,
+//                              List<AbstractMonster> enemies) {
+//
+//        while (generalFightLine.size() > 1) {
+//            generalFightLine.forEach(unit -> {
+//
+//                if (unit instanceof AbstractRace) {
+//                    int enemyHP = enemies.get(0).getHealth();
+//                    enemies.get(0).setHealth(enemyHP - ((AbstractRace) unit).attack());
+//                }
+//
+//                if (unit instanceof AbstractMonster) {
+//                    double heroHP = teamLine.get(0).getHealth();
+//                    teamLine.get(0).setHealth(heroHP - ((AbstractMonster) unit).attack());
+//                }
+//
+//            });
+//        }
+//    }
 
     private static List<CommonUnit> generateSortedFightLine(List<AbstractMonster> enemies, List<AbstractRace> heroes) {
         List<CommonUnit> fightLine = new LinkedList<>();
@@ -105,7 +127,7 @@ public class Battle {
         return fightLine;
     }
 
-    private static boolean isHeroAlive(Team team) {
-        return team.getHeroes().get(0).getHealth() > 0;
-    }
+//    private static boolean isHeroAlive(Team team) {
+//        return team.getHeroes().get(0).getHealth() > 0;
+//    }
 }

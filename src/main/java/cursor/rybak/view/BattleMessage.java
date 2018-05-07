@@ -3,9 +3,7 @@ package cursor.rybak.view;
 import cursor.rybak.model.enemy.AbstractMonster;
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.team.Team;
-import cursor.rybak.util.ListUtil;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,11 +64,11 @@ public class BattleMessage implements MagicColors {
     }
 
     public static void printTeamLine(List<AbstractRace> teamLine) {
-       String line = teamLine.stream()
-               .map(AbstractRace::getHeroName)
-               .collect(Collectors.joining(GREEN + Delimiter.ARROW + RESET));
+        String line = teamLine.stream()
+                .map(AbstractRace::getHeroName)
+                .collect(Collectors.joining(GREEN + Delimiter.ARROW + RESET));
 
 
-       System.out.println("\n\t\t" + RED + "MONSTERS <== " + RESET + line);
+        System.out.println("\n\t\t" + RED + "MONSTERS <== " + RESET + line);
     }
 }

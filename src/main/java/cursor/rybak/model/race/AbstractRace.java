@@ -67,7 +67,7 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
         this.XPCoefficient = leaderXPCoefficient;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health < RaceInitValues.minValue ? RaceInitValues.minValue : health;
     }
 

@@ -5,6 +5,8 @@ import cursor.rybak.model.room.Room;
 import java.util.List;
 
 public class MazeMessage implements MagicColors {
+    private MazeMessage() {
+    }
 
     /**
      * ask about next move

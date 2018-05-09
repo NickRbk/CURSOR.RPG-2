@@ -1,6 +1,9 @@
 package cursor.rybak.view;
 
 public class GeneralMessage implements MagicColors {
+    private GeneralMessage() {
+    }
+
     /**
      * welcome message
      */

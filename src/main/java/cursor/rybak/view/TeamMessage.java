@@ -7,6 +7,9 @@ import cursor.rybak.model.team.Team;
 import java.util.List;
 
 public class TeamMessage implements MagicColors {
+    private TeamMessage() {
+    }
+
     /**
      * print info about Team
      *

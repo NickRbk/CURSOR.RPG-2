@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WarriorAbilitiesMap {
+    private WarriorAbilitiesMap() {
+    }
 
     /**
      * @return created special attack map

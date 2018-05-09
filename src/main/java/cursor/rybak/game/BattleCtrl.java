@@ -13,6 +13,9 @@ public class BattleCtrl {
     private static Scanner scanner = Scanner.getInstance();
     private static Validation validator = Validation.getInstance();
 
+    private BattleCtrl() {
+    }
+
     public static List<AbstractRace> createTeamLine(List<AbstractRace> teamMembers) {
         List<AbstractRace> battleLine = new LinkedList<>();
         BattleMessage.informAboutTeamLine();

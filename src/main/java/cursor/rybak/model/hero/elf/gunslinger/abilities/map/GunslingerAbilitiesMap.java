@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GunslingerAbilitiesMap {
+    private GunslingerAbilitiesMap() {
+    }
 
     /**
      * @return created special attack map

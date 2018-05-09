@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PriestAbilitiesMap {
+    private PriestAbilitiesMap() {
+    }
 
     /**
      * @return created special attack map

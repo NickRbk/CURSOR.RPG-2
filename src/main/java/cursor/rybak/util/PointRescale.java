@@ -3,6 +3,9 @@ package cursor.rybak.util;
 import cursor.rybak.model.race.CalcConst;
 
 public class PointRescale implements CalcConst {
+    private PointRescale() {
+    }
+
     public static double rescaleXPperCharisma(int charisma, double xp) {
 
         // 2% XP gain for every two charisma points

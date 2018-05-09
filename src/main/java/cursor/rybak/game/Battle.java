@@ -15,6 +15,9 @@ import java.util.List;
 public class Battle {
     private static final int COUNT = 3;
 
+    private Battle() {
+    }
+
     public static boolean blitzkrieg(Room currentRoom) {
         BattleMessage.printStartBattleInfo();
 

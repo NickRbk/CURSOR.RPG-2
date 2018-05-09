@@ -12,6 +12,9 @@ import java.util.Map;
 
 public class MagAbilitiesMap {
 
+    private MagAbilitiesMap() {
+    }
+
     /**
      * @return created special attack map
      * with key appropriate key:

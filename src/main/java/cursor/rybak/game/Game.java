@@ -8,6 +8,9 @@ import cursor.rybak.view.MazeMessage;
 import cursor.rybak.view.TeamMessage;
 
 public class Game {
+    private Game() {
+    }
+
     public static void start() {
         GeneralMessage.welcomeInfo();
 

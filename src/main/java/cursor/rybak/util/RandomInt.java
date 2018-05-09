@@ -5,6 +5,9 @@ import java.util.Random;
 public class RandomInt {
     private static Random random = new Random();
 
+    private RandomInt() {
+    }
+
     /**
      * get random integer in range [1:maxValue)
      *

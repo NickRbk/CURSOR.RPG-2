@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BattleMessage implements MagicColors {
+    private BattleMessage() {
+    }
+
     public static void printStartBattleInfo() {
         System.out.print(RED + "\t<===BATTLE PHASE===>\n" + RESET);
     }

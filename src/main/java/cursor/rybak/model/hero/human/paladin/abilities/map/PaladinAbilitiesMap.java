@@ -13,6 +13,9 @@ import java.util.Map;
 
 public class PaladinAbilitiesMap {
 
+    private PaladinAbilitiesMap() {
+    }
+
     /**
      * @return created special attack map
      * with key appropriate key:

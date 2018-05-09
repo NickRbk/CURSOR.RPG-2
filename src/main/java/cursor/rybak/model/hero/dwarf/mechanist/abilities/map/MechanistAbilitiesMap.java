@@ -7,12 +7,13 @@ import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.dwarf.DwarfAbility;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.Bombs;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.DroidArms;
-import cursor.rybak.model.race.kind.impl.Dwarf;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class MechanistAbilitiesMap {
+    private MechanistAbilitiesMap() {
+    }
 
     /**
      * @return created special attack map

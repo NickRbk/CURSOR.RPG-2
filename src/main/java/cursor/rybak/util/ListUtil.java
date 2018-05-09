@@ -7,6 +7,9 @@ import java.util.List;
  * Util class to clone List
  */
 public class ListUtil {
+    private ListUtil() {
+    }
+
     public static <T> List<T> copy(List<T> list) {
         List<T> result = new LinkedList<>();
         result.addAll(list);

@@ -22,6 +22,9 @@ public class UserInteraction {
     private static Scanner scanner = Scanner.getInstance();
     private static Validation validator = Validation.getInstance();
 
+    private UserInteraction() {
+    }
+
     public static boolean askYesNo() {
         final String YES = "y";
 

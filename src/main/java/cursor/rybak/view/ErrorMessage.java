@@ -1,6 +1,9 @@
 package cursor.rybak.view;
 
 public class ErrorMessage implements MagicColors {
+    private ErrorMessage() {
+    }
+
     /**
      * error info if user choose item not from list
      */

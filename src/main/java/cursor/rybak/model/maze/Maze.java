@@ -68,7 +68,7 @@ public class Maze implements MazeConst {
     }
 
     private boolean isTypeEquals(Room room, RoomTypes type) {
-        return room.getType().equals(type);
+        return room.getType() == type;
     }
     //==============================================================================================
 

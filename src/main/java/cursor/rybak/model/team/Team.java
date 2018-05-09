@@ -96,7 +96,7 @@ public class Team implements LevelUp {
             }
         });
 
-        if (heroesLevelUp.size() > 0) TeamMessage.printTeamInfo(this);
+        if (!heroesLevelUp.isEmpty()) TeamMessage.printTeamInfo(this);
     }
 
     private boolean isPossibleToLevelUp(AbstractRace hero, int levelUpPoints) {

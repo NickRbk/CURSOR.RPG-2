@@ -77,16 +77,18 @@ public class Maze implements MazeConst {
      * after maze path generated, set impasse rooms
      */
     private void setImpasse() {
-        getRooms().forEach(room -> {
-            while (this.helper.getIndexForRoom(room.getChainedTo()) != -1) {
-                Room impasseRoom = this.roomsSwitch.getRoomsSwitch()
-                        .get(RoomTypes.IMPASSE)
-                        .apply(this.helper.getRoomDescription());
+        getRooms().forEach(this::setImpasseToRoom);
+    }
 
-                getImpasseRooms().add(impasseRoom);
-                this.helper.setConnections(room, impasseRoom);
-            }
-        });
+    private void setImpasseToRoom(Room room) {
+        while (this.helper.getIndexForRoom(room.getChainedTo()) != -1) {
+            Room impasseRoom = this.roomsSwitch.getRoomsSwitch()
+                    .get(RoomTypes.IMPASSE)
+                    .apply(this.helper.getRoomDescription());
+
+            getImpasseRooms().add(impasseRoom);
+            this.helper.setConnections(room, impasseRoom);
+        }
     }
 
     private Room initStartPoint() {

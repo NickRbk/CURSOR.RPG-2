@@ -43,27 +43,28 @@ public class MazeMessage implements MagicColors {
      * @param chainedTo    chained room
      */
     private static void printChainedRoom(Room previousRoom, List<Room> chainedTo) {
-        chainedTo.forEach(chainedRoom -> {
-            int index = getRoomIndex(chainedTo, chainedRoom) + 1;
+        chainedTo.forEach(chainedRoom -> printRoomOptions(chainedTo, chainedRoom, previousRoom));
+    }
 
-            if (chainedRoom.equals(previousRoom)) {
-                System.out.format("\n\t\t%d -> %s(back)%s %s%s%s",
-                        index, RED, RESET, CYAN, chainedRoom.getLabel(), RESET);
-            } else {
-                checkRoom(chainedRoom, index);
-            }
-        });
+    private static void printRoomOptions(List<Room> chainedTo, Room chainedRoom, Room previousRoom) {
+        int index = getRoomIndex(chainedTo, chainedRoom) + 1;
+
+        if (chainedRoom.equals(previousRoom)) {
+            System.out.format("\n\t\t%d -> %s(back)%s %s%s%s",
+                    index, RED, RESET, CYAN, chainedRoom.getLabel(), RESET);
+        } else {
+            printNeighborRoom(chainedRoom, index);
+        }
     }
 
 
     /**
-     * mark visited room
      * (helper method for 'printChainedRoom')
      *
      * @param chainedRoom neighbor room
      * @param index       it's index
      */
-    private static void checkRoom(Room chainedRoom, int index) {
+    private static void printNeighborRoom(Room chainedRoom, int index) {
         System.out.format("\n\t\t%d -> %s%s%s",
                 index, CYAN, chainedRoom.getLabel(), RESET);
 

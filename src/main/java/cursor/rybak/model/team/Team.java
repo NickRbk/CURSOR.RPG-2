@@ -81,22 +81,24 @@ public class Team implements LevelUp {
     public void tryLevelUp() {
         List<AbstractRace> heroesLevelUp = new ArrayList<>();
 
-        this.heroes.forEach(hero -> {
-            int prevLevelPoints = hero.getPrevLevelPoints();
-
-            int levelUpPoints = hero.getLevel() == 1
-                    ? prevLevelPoints
-                    : levelUpPoints(this.getHeroes(), prevLevelPoints);
-
-            if (isPossibleToLevelUp(hero, levelUpPoints)) {
-                heroesLevelUp.add(hero);
-                BattleMessage.printUpgradeHero(hero);
-                levelUpHero(hero, levelUpPoints);
-                UserInteraction.distributePoints(hero);
-            }
-        });
+        this.heroes.forEach(hero -> checkAndTryLevelUp(heroesLevelUp, hero));
 
         if (!heroesLevelUp.isEmpty()) TeamMessage.printTeamInfo(this);
+    }
+
+    private void checkAndTryLevelUp(List<AbstractRace> heroesLevelUp,
+                                    AbstractRace hero) {
+
+        int levelUpPoints = hero.getLevel() == 1
+                ? hero.getPrevLevelPoints()
+                : levelUpPoints(this.getHeroes(), hero.getPrevLevelPoints());
+
+        if (isPossibleToLevelUp(hero, levelUpPoints)) {
+            heroesLevelUp.add(hero);
+            BattleMessage.printUpgradeHero(hero);
+            levelUpHero(hero, levelUpPoints);
+            UserInteraction.distributePoints(hero);
+        }
     }
 
     private boolean isPossibleToLevelUp(AbstractRace hero, int levelUpPoints) {

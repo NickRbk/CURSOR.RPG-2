@@ -23,7 +23,7 @@ public class BattleMessage implements MagicColors {
         enemies.forEach(enemy -> enemiesString.append(String.format("%s(%d HP, %.2f XP)  ",
                 enemy.getName(), enemy.getHealth(), enemy.getXp())));
 
-        System.out.println("\t\t" + enemiesString.toString());
+        System.out.println("\t\t" + enemiesString);
     }
 
     public static void printOfferToBack(int count) {

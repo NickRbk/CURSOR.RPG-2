@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.elf.gunslinger.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 
 public class RapidFire extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 6};
-
     public RapidFire() {
-        super("RapidFire", 30, DAMAGE_OPTIONS, 3);
+        super(ElfAbility.RAPID_FIRE.getName(), ElfAbility.RAPID_FIRE.getEnergyConsumption(),
+                ElfAbility.RAPID_FIRE.getDamage(), ElfAbility.RAPID_FIRE.getCoolDown());
     }
 
     @Override

@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.elf.gunslinger.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 
 public class Multishot extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 6};
-
     public Multishot() {
-        super("Multishot", 30, DAMAGE_OPTIONS, 2);
+        super(ElfAbility.MULTISHOT.getName(), ElfAbility.MULTISHOT.getEnergyConsumption(),
+                ElfAbility.MULTISHOT.getDamage(), ElfAbility.MULTISHOT.getCoolDown());
     }
 
     @Override

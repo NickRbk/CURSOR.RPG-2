@@ -1,7 +1,10 @@
 package cursor.rybak.model.hero.elf.mage.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 import cursor.rybak.model.hero.elf.mage.abilities.*;
 
 import java.util.HashMap;
@@ -26,7 +29,7 @@ public class MagAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
@@ -34,14 +37,11 @@ public class MagAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] damageOptions = {0, 6};
-        int[] improvementOptions = {-6, -1};
-
-        attackMap.put("Wizard Stuff", damageOptions);
-        attackMap.put("Imposition of an improvement", improvementOptions);
+        attackMap.put("Wizard Stuff", DamageOption.COUNT_1_DICE_6.getDamage());
+        attackMap.put("Imposition of an improvement", DamageOption.COUNT_1_DICE_6.getDamage());
 
         return attackMap;
     }
@@ -53,11 +53,11 @@ public class MagAbilitiesMap {
     private static Map<String, AbstractAbility> createSpellsMap() {
         Map<String, AbstractAbility> spellsMap = new HashMap<>();
 
-        spellsMap.put("Fireball", new Fireball());
-        spellsMap.put("Spell Shield", new SpellShield());
-        spellsMap.put("Frost Bolt", new FrostBolt());
-        spellsMap.put("Dispel", new Dispel());
-        spellsMap.put("Stone Gaze", new StoneGaze());
+        spellsMap.put(ElfAbility.FIREBALL.getName(), new Fireball());
+        spellsMap.put(ElfAbility.SPELL_SHIELD.getName(), new SpellShield());
+        spellsMap.put(ElfAbility.FROST_BOLT.getName(), new FrostBolt());
+        spellsMap.put(ElfAbility.DISPEL.getName(), new Dispel());
+        spellsMap.put(ElfAbility.STONE_GAZE.getName(), new StoneGaze());
 
         return spellsMap;
     }

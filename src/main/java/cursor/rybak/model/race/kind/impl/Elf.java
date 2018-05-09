@@ -1,5 +1,6 @@
 package cursor.rybak.model.race.kind.impl;
 
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.race.AbstractRace;
 import cursor.rybak.model.race.kind.Races;
@@ -29,7 +30,7 @@ public class Elf extends AbstractRace {
     }
 
     @Override
-    public Map<String, int[]> getAttacks() {
+    public Map<String, Damage> getAttacks() {
         return null;
     }
 }

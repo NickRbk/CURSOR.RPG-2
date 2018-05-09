@@ -1,11 +1,13 @@
 package cursor.rybak.model.hero.elf.mage.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 
 public class SpellShield extends AbstractAbility {
 
     public SpellShield() {
-        super("Spell Shield", 15, null, 2);
+        super(ElfAbility.SPELL_SHIELD.getName(), ElfAbility.SPELL_SHIELD.getEnergyConsumption(),
+                ElfAbility.SPELL_SHIELD.getDamage(), ElfAbility.SPELL_SHIELD.getCoolDown());
     }
 
     @Override

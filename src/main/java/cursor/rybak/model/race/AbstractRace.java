@@ -1,6 +1,7 @@
 package cursor.rybak.model.race;
 
 import cursor.rybak.model.common.CommonUnit;
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.util.PointRescale;
 import lombok.Getter;
@@ -83,7 +84,7 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
 
     public abstract Map<String, Map<String, AbstractAbility>> getSpecialAttacks();
 
-    public abstract Map<String, int[]> getAttacks();
+    public abstract Map<String, Damage> getAttacks();
 
     public void gainXp(double xp) {
         this.xp += xp + PointRescale.rescaleXPperCharisma(getCharisma(), xp);

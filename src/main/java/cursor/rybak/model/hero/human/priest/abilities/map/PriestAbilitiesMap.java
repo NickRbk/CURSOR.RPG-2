@@ -30,7 +30,7 @@ public class PriestAbilitiesMap {
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
     public static Map<String, Damage> getAttackMap() {
@@ -38,7 +38,7 @@ public class PriestAbilitiesMap {
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
     private static Map<String, Damage> createAttackMap() {

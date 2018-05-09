@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.elf.mage;
 
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.elf.ElfProfession;
 import cursor.rybak.model.hero.elf.mage.abilities.map.MagAbilitiesMap;
@@ -12,7 +13,7 @@ public class Mage extends Elf {
     @Getter
     Map<String, Map<String, AbstractAbility>> specialAttacks = MagAbilitiesMap.getSpecialAttackMap();
     @Getter
-    Map<String, int[]> attacks = MagAbilitiesMap.getAttackMap();
+    Map<String, Damage> attacks = MagAbilitiesMap.getAttackMap();
 
     public Mage() {
         super(ElfProfession.MAGE);

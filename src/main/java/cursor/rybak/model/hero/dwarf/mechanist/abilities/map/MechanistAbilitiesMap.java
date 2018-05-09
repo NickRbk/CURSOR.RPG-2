@@ -1,9 +1,13 @@
 package cursor.rybak.model.hero.dwarf.mechanist.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.dwarf.DwarfAbility;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.Bombs;
 import cursor.rybak.model.hero.dwarf.mechanist.abilities.DroidArms;
+import cursor.rybak.model.race.kind.impl.Dwarf;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,10 +28,10 @@ public class MechanistAbilitiesMap {
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
@@ -35,12 +39,10 @@ public class MechanistAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] gunDamageOptions = {2, 6};
-
-        attackMap.put("Attack with a gun", gunDamageOptions);
+        attackMap.put("Attack with a gun", DamageOption.COUNT_2_DICE_6.getDamage());
 
         return attackMap;
     }
@@ -52,8 +54,8 @@ public class MechanistAbilitiesMap {
     private static Map<String, AbstractAbility> createSkillsMap() {
         Map<String, AbstractAbility> skillsMap = new HashMap<>();
 
-        skillsMap.put("Bombs!", new Bombs());
-        skillsMap.put("Droid to arms", new DroidArms());
+        skillsMap.put(DwarfAbility.BOMBS.getName(), new Bombs());
+        skillsMap.put(DwarfAbility.DROID_ARMS.getName(), new DroidArms());
 
         return skillsMap;
     }

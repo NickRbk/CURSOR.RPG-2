@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.dwarf.mechanist.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.dwarf.DwarfAbility;
 
 public class DroidArms extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 6};
-
     public DroidArms() {
-        super("Droid to arms", 25, DAMAGE_OPTIONS, 5);
+        super(DwarfAbility.DROID_ARMS.getName(), DwarfAbility.DROID_ARMS.getEnergyConsumption(),
+                DwarfAbility.DROID_ARMS.getDamage(), DwarfAbility.DROID_ARMS.getCoolDown());
     }
 
     @Override

@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.dwarf.warrior.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.dwarf.DwarfAbility;
 
 public class WhirlingAxe extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 10};
-
     public WhirlingAxe() {
-        super("Whirling Axe", 30, DAMAGE_OPTIONS, 2);
+        super(DwarfAbility.WHIRLING_AXE.getName(), DwarfAbility.WHIRLING_AXE.getEnergyConsumption(),
+                DwarfAbility.WHIRLING_AXE.getDamage(), DwarfAbility.WHIRLING_AXE.getCoolDown());
     }
 
     @Override

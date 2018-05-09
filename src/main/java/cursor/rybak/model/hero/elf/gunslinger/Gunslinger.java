@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.elf.gunslinger;
 
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.elf.ElfProfession;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.map.GunslingerAbilitiesMap;
@@ -12,7 +13,7 @@ public class Gunslinger extends Elf {
     @Getter
     Map<String, Map<String, AbstractAbility>> specialAttacks = GunslingerAbilitiesMap.getSpecialAttackMap();
     @Getter
-    Map<String, int[]> attacks = GunslingerAbilitiesMap.getAttackMap();
+    Map<String, Damage> attacks = GunslingerAbilitiesMap.getAttackMap();
 
     public Gunslinger() {
         super(ElfProfession.GUNSLINGER);

@@ -1,7 +1,10 @@
 package cursor.rybak.model.hero.dwarf.warrior.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.dwarf.DwarfAbility;
 import cursor.rybak.model.hero.dwarf.warrior.abilities.StandGround;
 import cursor.rybak.model.hero.dwarf.warrior.abilities.WhirlingAxe;
 
@@ -24,23 +27,21 @@ public class WarriorAbilitiesMap {
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] axeDamageOptions = {2, 10};
-
-        attackMap.put("Attack with a sword", axeDamageOptions);
+        attackMap.put("Attack with a sword", DamageOption.COUNT_2_DICE_10.getDamage());
 
         return attackMap;
     }
@@ -52,8 +53,8 @@ public class WarriorAbilitiesMap {
     private static Map<String, AbstractAbility> createSkillsMap() {
         Map<String, AbstractAbility> skillsMap = new HashMap<>();
 
-        skillsMap.put("Whirling Axe", new WhirlingAxe());
-        skillsMap.put("Stand my ground", new StandGround());
+        skillsMap.put(DwarfAbility.WHIRLING_AXE.getName(), new WhirlingAxe());
+        skillsMap.put(DwarfAbility.STAND_GROUND.getName(), new StandGround());
 
         return skillsMap;
     }

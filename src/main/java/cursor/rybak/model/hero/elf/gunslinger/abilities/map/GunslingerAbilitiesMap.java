@@ -1,7 +1,10 @@
 package cursor.rybak.model.hero.elf.gunslinger.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.BullsEye;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.Multishot;
 import cursor.rybak.model.hero.elf.gunslinger.abilities.RapidFire;
@@ -25,25 +28,22 @@ public class GunslingerAbilitiesMap {
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
     /**
-     * @return Map <String, int[]>
+     * @return Map <String, Damage>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] shootDamageOptions = {2, 6};
-        int[] daggerDamageOptions = {0, 6};
-
-        attackMap.put("Shoot from the bow", shootDamageOptions);
-        attackMap.put("Attack with dagger", daggerDamageOptions);
+        attackMap.put("Shoot from the bow", DamageOption.COUNT_2_DICE_6.getDamage());
+        attackMap.put("Attack with dagger", DamageOption.COUNT_1_DICE_6.getDamage());
 
         return attackMap;
     }
@@ -55,9 +55,9 @@ public class GunslingerAbilitiesMap {
     private static Map<String, AbstractAbility> createSpellsMap() {
         Map<String, AbstractAbility> spellsMap = new HashMap<>();
 
-        spellsMap.put("Multishot", new Multishot());
-        spellsMap.put("RapidFire", new RapidFire());
-        spellsMap.put("BullsEye", new BullsEye());
+        spellsMap.put(ElfAbility.MULTISHOT.getName(), new Multishot());
+        spellsMap.put(ElfAbility.RAPID_FIRE.getName(), new RapidFire());
+        spellsMap.put(ElfAbility.BULLS_EYE.getName(), new BullsEye());
 
         return spellsMap;
     }

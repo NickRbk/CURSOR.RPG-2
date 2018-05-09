@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.elf.gunslinger.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 
 public class BullsEye extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {3, 10};
-
     public BullsEye() {
-        super("BullsEye", 40, DAMAGE_OPTIONS, 3);
+        super(ElfAbility.BULLS_EYE.getName(), ElfAbility.BULLS_EYE.getEnergyConsumption(),
+                ElfAbility.BULLS_EYE.getDamage(), ElfAbility.BULLS_EYE.getCoolDown());
     }
 
     @Override

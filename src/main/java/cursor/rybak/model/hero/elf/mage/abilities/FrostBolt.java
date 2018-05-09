@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.elf.mage.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.elf.ElfAbility;
 
 public class FrostBolt extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 6};
-
     public FrostBolt() {
-        super("Frost Bolt", 20, DAMAGE_OPTIONS, 1);
+        super(ElfAbility.FROST_BOLT.getName(), ElfAbility.FROST_BOLT.getEnergyConsumption(),
+                ElfAbility.FROST_BOLT.getDamage(), ElfAbility.FROST_BOLT.getCoolDown());
     }
 
     @Override

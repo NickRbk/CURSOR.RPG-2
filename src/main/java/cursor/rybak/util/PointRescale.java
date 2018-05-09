@@ -9,8 +9,8 @@ public class PointRescale implements CalcConst {
         int remainder = charisma % 2;
 
         return remainder == 0
-                ? ((increaseXPCoefficientPerCharisma * charisma / 2) * xp)
-                : ((increaseXPCoefficientPerCharisma * (charisma - remainder) / 2) * xp);
+                ? ((INCREASE_XP_COEFFICIENT_PER_CHARISMA * charisma / 2) * xp)
+                : ((INCREASE_XP_COEFFICIENT_PER_CHARISMA * (charisma - remainder) / 2) * xp);
     }
 
     public static int rescaleIPperCharisma(int charisma) {
@@ -24,34 +24,34 @@ public class PointRescale implements CalcConst {
     }
 
     public static double rescaleHPperStamina(int stamina) {
-        return increaseHPCoefficientPerStamina * stamina;
+        return INCREASE_HP_COEFFICIENT_PER_STAMINA * stamina;
     }
 
     public static double rescaleMPperIntellect(int intellect) {
-        return increaseMPCoefficientPerIntellect * intellect;
+        return INCREASE_MP_COEFFICIENT_PER_INTELLECT * intellect;
     }
 
     public static double rescaleRPperAgility(int agility) {
-        return increaseRPCoefficientPerAgility * agility;
+        return INCREASE_RP_COEFFICIENT_PER_AGILITY * agility;
     }
 
     public static double regenMPperIntellect(int totalIntellect) {
-        return regenMPCoefficientPerIntellect * totalIntellect;
+        return REGEN_MP_COEFFICIENT_PER_INTELLECT * totalIntellect;
     }
 
     public static double regenMPperConcentration(int totalConcentration) {
-        return regenMPCoefficientPerConcentration * totalConcentration;
+        return REGEN_MP_COEFFICIENT_PER_CONCENTRATION * totalConcentration;
     }
 
     public static double regenHPperStamina(int totalStamina) {
-        return regenHPCoefficientPerStamina * totalStamina;
+        return REGEN_HP_COEFFICIENT_PER_STAMINA * totalStamina;
     }
 
     public static double regenHPperConcentration(int totalConcentration) {
-        return regenHPCoefficientPerConcentration * totalConcentration;
+        return REGEN_HP_COEFFICIENT_PER_CONCENTRATION * totalConcentration;
     }
 
     public static double regenRPperConcentration(int totalConcentration) {
-        return regenRPCoefficientPerConcentration * totalConcentration;
+        return REGEN_RP_COEFFICIENT_PER_CONCENTRATION * totalConcentration;
     }
 }

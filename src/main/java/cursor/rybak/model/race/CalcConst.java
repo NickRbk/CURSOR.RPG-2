@@ -1,13 +1,14 @@
 package cursor.rybak.model.race;
 
 public interface CalcConst {
-    double increaseXPCoefficientPerCharisma = 0.02;
-    double increaseHPCoefficientPerStamina = 2;
-    double increaseMPCoefficientPerIntellect = 2;
-    double increaseRPCoefficientPerAgility = 4;
-    double regenHPCoefficientPerStamina = 0.25;
-    double regenMPCoefficientPerIntellect = 0.25;
-    double regenMPCoefficientPerConcentration = 1.5;
-    double regenHPCoefficientPerConcentration = 1;
-    double regenRPCoefficientPerConcentration = 1;
+    double INCREASE_XP_COEFFICIENT_PER_CHARISMA = 0.02;
+    double INCREASE_HP_COEFFICIENT_PER_STAMINA = 2;
+    double INCREASE_MP_COEFFICIENT_PER_INTELLECT = 2;
+    double INCREASE_RP_COEFFICIENT_PER_AGILITY = 4;
+
+    double REGEN_HP_COEFFICIENT_PER_STAMINA = 0.25;
+    double REGEN_MP_COEFFICIENT_PER_INTELLECT = 0.25;
+    double REGEN_MP_COEFFICIENT_PER_CONCENTRATION = 1.5;
+    double REGEN_HP_COEFFICIENT_PER_CONCENTRATION = 1;
+    double REGEN_RP_COEFFICIENT_PER_CONCENTRATION = 1;
 }

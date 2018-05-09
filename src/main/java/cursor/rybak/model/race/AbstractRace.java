@@ -11,7 +11,7 @@ import java.util.Map;
 @Getter
 public abstract class AbstractRace implements CommonUnit, RaceInitValues {
 
-    private double XPCoefficient = initXPCoefficient;
+    private double xpCoefficient = INIT_XP_COEFFICIENT;
 
     private String race;
     private String heroKind;
@@ -19,17 +19,17 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     @Setter
     private String heroName;
 
-    private double health = initValue; // health points (hp)
+    private double health = INIT_VALUE; // health points (hp)
     private boolean isLeader;
 
     @Setter
     private double xp;
 
     @Setter
-    private int sp = RaceInitValues.sp; // skill points (xp)
+    private int sp = RaceInitValues.SP; // skill points (xp)
 
-    private double mana = initValue; // manna point for spells (mp)
-    private double rage = initValue; // rage points (rp)
+    private double mana = INIT_VALUE; // manna point for spells (mp)
+    private double rage = INIT_VALUE; // rage points (rp)
     private int initiative;
     private int charisma;
     private int stamina;
@@ -38,10 +38,10 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     private int concentration;
 
     @Setter
-    private int level = RaceInitValues.level;
+    private int level = RaceInitValues.MIN_LEVEL;
 
     @Setter
-    private int prevLevelPoints = initLevelUpPoints;
+    private int prevLevelPoints = INIT_LEVEL_UP_POINTS;
 
     public AbstractRace(String race,
                         String heroKind,
@@ -64,19 +64,19 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     public void setLeader() {
         this.heroName = getHeroName() + "*";
         this.isLeader = true;
-        this.XPCoefficient = leaderXPCoefficient;
+        this.xpCoefficient = LEADER_XP_COEFFICIENT;
     }
 
     public void setHealth(double health) {
-        this.health = health < RaceInitValues.minValue ? RaceInitValues.minValue : health;
+        this.health = health < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : health;
     }
 
     public void setMana(int mana) {
-        this.mana = mana < RaceInitValues.minValue ? RaceInitValues.minValue : mana;
+        this.mana = mana < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : mana;
     }
 
     public void setRage(int rage) {
-        this.rage = rage < RaceInitValues.minValue ? RaceInitValues.minValue : rage;
+        this.rage = rage < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : rage;
     }
 
     public abstract int attack();

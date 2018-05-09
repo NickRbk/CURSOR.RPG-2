@@ -1,14 +1,14 @@
 package cursor.rybak.model.race;
 
 public interface RaceInitValues {
-    int initLevelUpPoints = 100;
-    double initXPCoefficient = 0.3;
-    double leaderXPCoefficient = 0.4;
-    int minValue = 0;
-    int initValue = 100;
-    int sp = 10;
-    int level = 1;
-    int maxLevel = 10;
+    int INIT_LEVEL_UP_POINTS = 100;
+    double INIT_XP_COEFFICIENT = 0.3;
+    double LEADER_XP_COEFFICIENT = 0.4;
+    int MIN_VALUE = 0;
+    int INIT_VALUE = 100;
+    int SP = 10;
+    int MIN_LEVEL = 1;
+    int MAX_LEVEL = 10;
 
     String[] keyToUpgrade = {Characteristics.CHARISMA, Characteristics.STAMINA, Characteristics.INTELLECT,
             Characteristics.AGILITY, Characteristics.CONCENTRATION, Characteristics.INFO};

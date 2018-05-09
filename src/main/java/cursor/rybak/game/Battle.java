@@ -88,7 +88,7 @@ public class Battle {
         team.getHeroes()
                 .forEach(hero -> {
                     BattleMessage.printGainedXP(hero, totalXp);
-                    hero.gainXp(totalXp * hero.getXPCoefficient());
+                    hero.gainXp(totalXp * hero.getXpCoefficient());
                 });
 
         System.out.println("\n");

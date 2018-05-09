@@ -38,7 +38,7 @@ public class BattleMessage implements MagicColors {
 
     public static void printGainedXP(AbstractRace hero, double totalXp) {
         System.out.format("\t\t\tHero %s gained %.2f XP\n",
-                hero.getHeroName(), totalXp * hero.getXPCoefficient());
+                hero.getHeroName(), totalXp * hero.getXpCoefficient());
     }
 
     public static void informAboutTeamLine() {

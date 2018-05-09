@@ -101,7 +101,7 @@ public class Team implements LevelUp {
 
     private boolean isPossibleToLevelUp(AbstractRace hero, int levelUpPoints) {
         return hero.getXp() >= levelUpPoints
-                && hero.getLevel() < RaceInitValues.maxLevel;
+                && hero.getLevel() < RaceInitValues.MAX_LEVEL;
     }
 
     private void levelUpHero(AbstractRace hero, int levelUpPoints) {
@@ -109,7 +109,7 @@ public class Team implements LevelUp {
         hero.setLevel(hero.getLevel() + 1);
         hero.setPrevLevelPoints(levelUpPoints);
 
-        hero.setSp(RaceInitValues.sp);
+        hero.setSp(RaceInitValues.SP);
     }
     //=====================================================================
 

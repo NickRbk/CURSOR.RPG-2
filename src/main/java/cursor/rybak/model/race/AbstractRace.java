@@ -27,7 +27,7 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     private double xp;
 
     @Setter
-    private int sp = RaceInitValues.SP; // skill points (xp)
+    private int sp = SP; // skill points (xp)
 
     private double mana = INIT_VALUE; // manna point for spells (mp)
     private double rage = INIT_VALUE; // rage points (rp)
@@ -39,7 +39,7 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     private int concentration;
 
     @Setter
-    private int level = RaceInitValues.MIN_LEVEL;
+    private int level = MIN_LEVEL;
 
     @Setter
     private int prevLevelPoints = INIT_LEVEL_UP_POINTS;
@@ -69,15 +69,15 @@ public abstract class AbstractRace implements CommonUnit, RaceInitValues {
     }
 
     public void setHealth(double health) {
-        this.health = health < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : health;
+        this.health = health < MIN_VALUE ? MIN_VALUE : health;
     }
 
     public void setMana(int mana) {
-        this.mana = mana < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : mana;
+        this.mana = mana < MIN_VALUE ? MIN_VALUE : mana;
     }
 
     public void setRage(int rage) {
-        this.rage = rage < RaceInitValues.MIN_VALUE ? RaceInitValues.MIN_VALUE : rage;
+        this.rage = rage < MIN_VALUE ? MIN_VALUE : rage;
     }
 
     public abstract int attack();

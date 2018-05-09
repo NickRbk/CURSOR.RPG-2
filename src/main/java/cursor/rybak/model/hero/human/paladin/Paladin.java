@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.human.paladin;
 
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.human.HumanProfession;
 import cursor.rybak.model.hero.human.paladin.abilities.map.PaladinAbilitiesMap;
@@ -12,7 +13,7 @@ public class Paladin extends Human {
     @Getter
     private Map<String, Map<String, AbstractAbility>> specialAttacks = PaladinAbilitiesMap.getSpecialAttackMap();
     @Getter
-    private Map<String, int[]> attacks = PaladinAbilitiesMap.getAttackMap();
+    private Map<String, Damage> attacks = PaladinAbilitiesMap.getAttackMap();
 
     public Paladin() {
         super(HumanProfession.PALADIN);

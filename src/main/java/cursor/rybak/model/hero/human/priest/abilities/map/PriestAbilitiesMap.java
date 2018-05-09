@@ -1,7 +1,10 @@
 package cursor.rybak.model.hero.human.priest.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 import cursor.rybak.model.hero.human.priest.abilities.BattleFury;
 import cursor.rybak.model.hero.human.priest.abilities.BattleTrance;
 import cursor.rybak.model.hero.human.priest.abilities.HandGod;
@@ -30,7 +33,7 @@ public class PriestAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
@@ -38,12 +41,10 @@ public class PriestAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] fistsDamageOptions = {0, 10};
-
-        attackMap.put("Attack with fists", fistsDamageOptions);
+        attackMap.put("Attack with fists", DamageOption.COUNT_1_DICE_10.getDamage());
 
         return attackMap;
     }
@@ -55,8 +56,8 @@ public class PriestAbilitiesMap {
     private static Map<String, AbstractAbility> createSpellsMap() {
         Map<String, AbstractAbility> spellsMap = new HashMap<>();
 
-        spellsMap.put("Hand of God", new HandGod());
-        spellsMap.put("Battle trance", new BattleTrance());
+        spellsMap.put(HumanAbility.HAND_OF_GOD.getName(), new HandGod());
+        spellsMap.put(HumanAbility.BATTLE_TRANCE.getName(), new BattleTrance());
 
         return spellsMap;
     }
@@ -68,8 +69,8 @@ public class PriestAbilitiesMap {
     private static Map<String, AbstractAbility> createSkillsMap() {
         Map<String, AbstractAbility> skillsMap = new HashMap<>();
 
-        skillsMap.put("Lay of Fists", new LayFists());
-        skillsMap.put("Battle Fury", new BattleFury());
+        skillsMap.put(HumanAbility.LAY_OF_FISTS.getName(), new LayFists());
+        skillsMap.put(HumanAbility.BATTLE_FURY.getName(), new BattleFury());
 
         return skillsMap;
     }

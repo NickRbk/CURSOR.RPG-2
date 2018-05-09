@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero;
 
+import cursor.rybak.model.common.Damage;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +8,7 @@ import lombok.Setter;
 public abstract class AbstractAbility {
     private String name;
     private int energyConsumption;
-    private int[] damageOptions;
+    private Damage damage;
 
     @Setter
     private int coolDown;
@@ -19,17 +20,17 @@ public abstract class AbstractAbility {
      *
      * @param name              name of spell
      * @param energyConsumption how much mana / rage needs (mp/rp)
-     * @param damageOptions     destruction options [min value, max value]
+     * @param damage            damage class (return current damage)
      * @param coolDown          pause for recovery (cd)
      */
     public AbstractAbility(String name,
                            int energyConsumption,
-                           int[] damageOptions,
+                           Damage damage,
                            int coolDown) {
 
         this.name = name;
         this.energyConsumption = energyConsumption;
-        this.damageOptions = damageOptions;
+        this.damage = damage;
         this.coolDown = coolDown;
     }
 

@@ -1,13 +1,12 @@
 package cursor.rybak.model.hero.human.priest.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 
 public class LayFists extends AbstractAbility {
-
-    private static final int[] DAMAGE_OPTIONS = {0, 10};
-
     public LayFists() {
-        super("Lay of Fists", 10, DAMAGE_OPTIONS, 3);
+        super(HumanAbility.LAY_OF_FISTS.getName(), HumanAbility.LAY_OF_FISTS.getEnergyConsumption(),
+                HumanAbility.LAY_OF_FISTS.getDamage(), HumanAbility.LAY_OF_FISTS.getCoolDown());
     }
 
     @Override

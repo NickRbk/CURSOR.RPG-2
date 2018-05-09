@@ -1,5 +1,6 @@
 package cursor.rybak.model.hero.human.priest;
 
+import cursor.rybak.model.common.Damage;
 import cursor.rybak.model.hero.AbstractAbility;
 import cursor.rybak.model.hero.human.HumanProfession;
 import cursor.rybak.model.hero.human.priest.abilities.map.PriestAbilitiesMap;
@@ -14,7 +15,7 @@ public class Priest extends Human {
     @Getter
     Map<String, Map<String, AbstractAbility>> specialAttacks = PriestAbilitiesMap.getSpecialAttackMap();
     @Getter
-    Map<String, int[]> attacks = PriestAbilitiesMap.getAttackMap();
+    Map<String, Damage> attacks = PriestAbilitiesMap.getAttackMap();
 
     public Priest() {
         super(HumanProfession.PRIEST);

@@ -1,7 +1,10 @@
 package cursor.rybak.model.hero.human.paladin.abilities.map;
 
+import cursor.rybak.model.common.Damage;
+import cursor.rybak.model.common.DamageOption;
 import cursor.rybak.model.hero.AbilityType;
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 import cursor.rybak.model.hero.human.paladin.abilities.Rush;
 import cursor.rybak.model.hero.human.paladin.abilities.Splash;
 
@@ -27,7 +30,7 @@ public class PaladinAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    public static Map<String, int[]> getAttackMap() {
+    public static Map<String, Damage> getAttackMap() {
         return createAttackMap();
     }
 
@@ -35,12 +38,10 @@ public class PaladinAbilitiesMap {
      * @return Map <String, int[]>
      * created map of regular attack
      */
-    private static Map<String, int[]> createAttackMap() {
-        Map<String, int[]> attackMap = new HashMap<>();
+    private static Map<String, Damage> createAttackMap() {
+        Map<String, Damage> attackMap = new HashMap<>();
 
-        int[] swordDamageOptions = {2, 10};
-
-        attackMap.put("Attack with a sword", swordDamageOptions);
+        attackMap.put("Attack with a sword", DamageOption.COUNT_2_DICE_10.getDamage());
 
         return attackMap;
     }
@@ -52,8 +53,8 @@ public class PaladinAbilitiesMap {
     private static Map<String, AbstractAbility> createSkillsMap() {
         Map<String, AbstractAbility> skillsMap = new HashMap<>();
 
-        skillsMap.put("Splash", new Splash());
-        skillsMap.put("Rush", new Rush());
+        skillsMap.put(HumanAbility.SPLASH.getName(), new Splash());
+        skillsMap.put(HumanAbility.RUSH.getName(), new Rush());
 
         return skillsMap;
     }

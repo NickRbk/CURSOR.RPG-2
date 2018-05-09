@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.human.paladin.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 
 public class Rush extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {2, 10};
-
     public Rush() {
-        super("Rush", 20, DAMAGE_OPTIONS, 0);
+        super(HumanAbility.RUSH.getName(), HumanAbility.RUSH.getEnergyConsumption(),
+                HumanAbility.RUSH.getDamage(), HumanAbility.RUSH.getCoolDown());
     }
 
     @Override

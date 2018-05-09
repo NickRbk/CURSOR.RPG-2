@@ -1,13 +1,13 @@
 package cursor.rybak.model.hero.human.priest.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 
 public class BattleFury extends AbstractAbility {
 
-    private static final int[] DAMAGE_OPTIONS = {0, 10};
-
     public BattleFury() {
-        super("Battle Fury", 30, DAMAGE_OPTIONS, 3);
+        super(HumanAbility.BATTLE_FURY.getName(), HumanAbility.BATTLE_FURY.getEnergyConsumption(),
+                HumanAbility.BATTLE_FURY.getDamage(), HumanAbility.BATTLE_FURY.getCoolDown());
     }
 
     @Override

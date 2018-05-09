@@ -1,11 +1,13 @@
 package cursor.rybak.model.hero.human.priest.abilities;
 
 import cursor.rybak.model.hero.AbstractAbility;
+import cursor.rybak.model.hero.human.HumanAbility;
 
 public class HandGod extends AbstractAbility {
 
     public HandGod() {
-        super("Hand God", 25, null, 2);
+        super(HumanAbility.HAND_OF_GOD.getName(), HumanAbility.HAND_OF_GOD.getEnergyConsumption(),
+                HumanAbility.HAND_OF_GOD.getDamage(), HumanAbility.HAND_OF_GOD.getCoolDown());
     }
 
     @Override

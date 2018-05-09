@@ -65,7 +65,7 @@ public class RoomSwitch {
         room.setChainedTo(Arrays.asList(new Room[roomType.getChainedRoom()]));
 
         // set monsters in rooms (besides START)
-        if (!roomType.equals(RoomTypes.START)) {
+        if (roomType != RoomTypes.START) {
             room.setMonsterPresent(random.nextInt(2));
         }
 

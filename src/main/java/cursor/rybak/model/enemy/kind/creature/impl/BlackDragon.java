@@ -8,9 +8,9 @@ public class BlackDragon extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {3, 10};
 
     public BlackDragon() {
-        super(MonsterKinds.CREATURE.getKind(), Creatures.BlackDragon.getName(),
-                Creatures.BlackDragon.getHealth(), Creatures.BlackDragon.getInitiative(),
-                Creatures.BlackDragon.getXp(), Creatures.BlackDragon.getLevel());
+        super(MonsterKinds.CREATURE.getKind(), Creatures.BLACK_DRAGON.getName(),
+                Creatures.BLACK_DRAGON.getHealth(), Creatures.BLACK_DRAGON.getInitiative(),
+                Creatures.BLACK_DRAGON.getXp(), Creatures.BLACK_DRAGON.getLevel());
 
         this.setSpellImmune(true);
     }

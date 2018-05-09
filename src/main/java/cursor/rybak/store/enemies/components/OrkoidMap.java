@@ -13,12 +13,12 @@ public class OrkoidMap {
     public Map<MinLevel, Supplier<AbstractMonster>> getOrkoidMonsters() {
         Map<MinLevel, Supplier<AbstractMonster>> monstersMap = new LinkedHashMap<>();
 
-        monstersMap.put(Orkoids.Goblin, this::createGoblin);
-        monstersMap.put(Orkoids.Ogre, this::createOgre);
-        monstersMap.put(Orkoids.Ork, this::createOrk);
-        monstersMap.put(Orkoids.OrkShaman, this::createOrkShaman);
-        monstersMap.put(Orkoids.OrkWarlord, this::createOrkWarlord);
-        monstersMap.put(Orkoids.UnstableAlchemist, this::createUnstableAlchemist);
+        monstersMap.put(Orkoids.GOBLIN, this::createGoblin);
+        monstersMap.put(Orkoids.OGRE, this::createOgre);
+        monstersMap.put(Orkoids.ORK, this::createOrk);
+        monstersMap.put(Orkoids.ORK_SHAMAN, this::createOrkShaman);
+        monstersMap.put(Orkoids.ORK_WARLORD, this::createOrkWarlord);
+        monstersMap.put(Orkoids.UNSTABLE_ALCHEMIST, this::createUnstableAlchemist);
 
         return monstersMap;
     }

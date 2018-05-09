@@ -8,9 +8,9 @@ public class Zombie extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public Zombie() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.Zombie.getName(),
-                Undeads.Zombie.getHealth(), Undeads.Zombie.getInitiative(),
-                Undeads.Zombie.getXp(), Undeads.Zombie.getLevel());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.ZOMBIE.getName(),
+                Undeads.ZOMBIE.getHealth(), Undeads.ZOMBIE.getInitiative(),
+                Undeads.ZOMBIE.getXp(), Undeads.ZOMBIE.getLevel());
     }
 
     @Override

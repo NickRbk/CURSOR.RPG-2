@@ -13,12 +13,12 @@ public class CreatureMap {
     public Map<MinLevel, Supplier<AbstractMonster>> getCreatureMonsters() {
         Map<MinLevel, Supplier<AbstractMonster>> monstersMap = new LinkedHashMap<>();
 
-        monstersMap.put(Creatures.BlackDragon, this::createBlackDragon);
-        monstersMap.put(Creatures.Doomguard, this::createDoomguard);
-        monstersMap.put(Creatures.DoomSpider, this::createDoomSpider);
-        monstersMap.put(Creatures.Imp, this::createImp);
-        monstersMap.put(Creatures.Minotaur, this::createMinotaur);
-        monstersMap.put(Creatures.Succubus, this::createSuccubus);
+        monstersMap.put(Creatures.BLACK_DRAGON, this::createBlackDragon);
+        monstersMap.put(Creatures.DOOMGUARD, this::createDoomguard);
+        monstersMap.put(Creatures.DOOM_SPIDER, this::createDoomSpider);
+        monstersMap.put(Creatures.IMP, this::createImp);
+        monstersMap.put(Creatures.MINOTAUR, this::createMinotaur);
+        monstersMap.put(Creatures.SUCCUBUS, this::createSuccubus);
 
         return monstersMap;
     }

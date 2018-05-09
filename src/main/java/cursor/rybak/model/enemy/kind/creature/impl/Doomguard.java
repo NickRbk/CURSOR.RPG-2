@@ -8,9 +8,9 @@ public class Doomguard extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public Doomguard() {
-        super(MonsterKinds.CREATURE.getKind(), Creatures.Doomguard.getName(),
-                Creatures.Doomguard.getHealth(), Creatures.Doomguard.getInitiative(),
-                Creatures.Doomguard.getXp(), Creatures.Doomguard.getLevel());
+        super(MonsterKinds.CREATURE.getKind(), Creatures.DOOMGUARD.getName(),
+                Creatures.DOOMGUARD.getHealth(), Creatures.DOOMGUARD.getInitiative(),
+                Creatures.DOOMGUARD.getXp(), Creatures.DOOMGUARD.getLevel());
     }
 
     @Override

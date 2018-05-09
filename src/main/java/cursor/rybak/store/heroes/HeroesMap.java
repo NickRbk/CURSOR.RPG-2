@@ -40,9 +40,9 @@ public class HeroesMap {
     private Map<String, Map<String, Supplier<AbstractRace>>> generateRaceMap() {
         Map<String, Map<String, Supplier<AbstractRace>>> races = new LinkedHashMap<>();
 
-        races.put(Races.Human.getName(), humanMap.getHumanHeroes());
-        races.put(Races.Elf.getName(), elfMap.getElfHeroes());
-        races.put(Races.Dwarf.getName(), dwarfMap.getDwarfHeroes());
+        races.put(Races.HUMAN.getName(), humanMap.getHumanHeroes());
+        races.put(Races.ELF.getName(), elfMap.getElfHeroes());
+        races.put(Races.DWARF.getName(), dwarfMap.getDwarfHeroes());
 
         return races;
     }

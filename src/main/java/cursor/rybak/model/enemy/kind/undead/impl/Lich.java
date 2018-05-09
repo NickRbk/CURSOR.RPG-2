@@ -8,9 +8,9 @@ public class Lich extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {2, 6};
 
     public Lich() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.Lich.getName(),
-                Undeads.Lich.getHealth(), Undeads.Lich.getInitiative(),
-                Undeads.Lich.getXp(), Undeads.Lich.getLevel());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.LICH.getName(),
+                Undeads.LICH.getHealth(), Undeads.LICH.getInitiative(),
+                Undeads.LICH.getXp(), Undeads.LICH.getLevel());
     }
 
     @Override

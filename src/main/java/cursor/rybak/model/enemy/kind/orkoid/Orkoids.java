@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @Getter
 public enum Orkoids implements MinLevel {
-    Ogre("Ogre", 300, 5, 100, 9),                          // L9-10
-    OrkWarlord("Ork Warlord", 150, 50, 40, 7),             // L7-8
-    OrkShaman("Ork Shaman", 80, 35, 22, 5),                // L5-6
-    Ork("Ork", 100, 30, 18, 3),                            // L3
-    UnstableAlchemist("Unstable Alchemist", 15, 25, 5, 1), // L1-2
-    Goblin("Goblin", 35, 20, 10, 1);                       // L1-2
+    OGRE("Ogre", 300, 5, 100, 9),                          // L9-10
+    ORK_WARLORD("Ork Warlord", 150, 50, 40, 7),             // L7-8
+    ORK_SHAMAN("Ork Shaman", 80, 35, 22, 5),                // L5-6
+    ORK("Ork", 100, 30, 18, 3),                            // L3
+    UNSTABLE_ALCHEMIST("Unstable Alchemist", 15, 25, 5, 1), // L1-2
+    GOBLIN("Goblin", 35, 20, 10, 1);                       // L1-2
 
     private String name;
     private int health;

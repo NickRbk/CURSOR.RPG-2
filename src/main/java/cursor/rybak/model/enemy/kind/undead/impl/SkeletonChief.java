@@ -8,9 +8,9 @@ public class SkeletonChief extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public SkeletonChief() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.SkeletonChief.getName(),
-                Undeads.SkeletonChief.getHealth(), Undeads.SkeletonChief.getInitiative(),
-                Undeads.SkeletonChief.getXp(), Undeads.SkeletonChief.getLevel());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.SKELETON_CHIEF.getName(),
+                Undeads.SKELETON_CHIEF.getHealth(), Undeads.SKELETON_CHIEF.getInitiative(),
+                Undeads.SKELETON_CHIEF.getXp(), Undeads.SKELETON_CHIEF.getLevel());
     }
 
     @Override

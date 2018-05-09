@@ -5,12 +5,12 @@ import lombok.Getter;
 
 @Getter
 public enum Creatures implements MinLevel {
-    BlackDragon("Black Dragon", 400, 50, 500, 9),   // L9-10
-    Minotaur("Minotaur", 150, 40, 40, 7),           // L7-8
-    Succubus("Succubus", 100, 35, 35, 4),           // L4-6
-    Doomguard("Doomguard", 60, 15, 15, 3),          // L3
-    Imp("Imp", 30, 15, 10, 1),                      // L1-2
-    DoomSpider("Doom Spider", 10, 5, 3, 1);         // L1-2
+    BLACK_DRAGON("Black Dragon", 400, 50, 500, 9),   // L9-10
+    MINOTAUR("Minotaur", 150, 40, 40, 7),           // L7-8
+    SUCCUBUS("Succubus", 100, 35, 35, 4),           // L4-6
+    DOOMGUARD("Doomguard", 60, 15, 15, 3),          // L3
+    IMP("Imp", 30, 15, 10, 1),                      // L1-2
+    DOOM_SPIDER("Doom Spider", 10, 5, 3, 1);         // L1-2
 
     private String name;
     private int health;

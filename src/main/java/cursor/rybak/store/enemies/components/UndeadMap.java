@@ -13,12 +13,12 @@ public class UndeadMap {
     public Map<MinLevel, Supplier<AbstractMonster>> getUndeadMonsters() {
         Map<MinLevel, Supplier<AbstractMonster>> monstersMap = new LinkedHashMap<>();
 
-        monstersMap.put(Undeads.Banshee, this::createBanshee);
-        monstersMap.put(Undeads.BoneDragon, this::createBoneDragon);
-        monstersMap.put(Undeads.Lich, this::createLich);
-        monstersMap.put(Undeads.Skeleton, this::createSkeleton);
-        monstersMap.put(Undeads.SkeletonChief, this::createSkeletonChief);
-        monstersMap.put(Undeads.Zombie, this::createZombie);
+        monstersMap.put(Undeads.BANSHEE, this::createBanshee);
+        monstersMap.put(Undeads.BONE_DRAGON, this::createBoneDragon);
+        monstersMap.put(Undeads.LICH, this::createLich);
+        monstersMap.put(Undeads.SKELETON, this::createSkeleton);
+        monstersMap.put(Undeads.SKELETON_CHIEF, this::createSkeletonChief);
+        monstersMap.put(Undeads.ZOMBIE, this::createZombie);
 
         return monstersMap;
     }

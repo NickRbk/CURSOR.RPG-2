@@ -8,9 +8,9 @@ public class Banshee extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 10};
 
     public Banshee() {
-        super(MonsterKinds.UNDEAD.getKind(), Undeads.Banshee.getName(),
-                Undeads.Banshee.getHealth(), Undeads.Banshee.getInitiative(),
-                Undeads.Banshee.getXp(), Undeads.Banshee.getLevel());
+        super(MonsterKinds.UNDEAD.getKind(), Undeads.BANSHEE.getName(),
+                Undeads.BANSHEE.getHealth(), Undeads.BANSHEE.getInitiative(),
+                Undeads.BANSHEE.getXp(), Undeads.BANSHEE.getLevel());
     }
 
     @Override

@@ -8,9 +8,9 @@ public class Goblin extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 6};
 
     public Goblin() {
-        super(MonsterKinds.ORKOID.getKind(), Orkoids.Goblin.getName(),
-                Orkoids.Goblin.getHealth(), Orkoids.Goblin.getInitiative(),
-                Orkoids.Goblin.getXp(), Orkoids.Goblin.getLevel());
+        super(MonsterKinds.ORKOID.getKind(), Orkoids.GOBLIN.getName(),
+                Orkoids.GOBLIN.getHealth(), Orkoids.GOBLIN.getInitiative(),
+                Orkoids.GOBLIN.getXp(), Orkoids.GOBLIN.getLevel());
     }
 
     @Override

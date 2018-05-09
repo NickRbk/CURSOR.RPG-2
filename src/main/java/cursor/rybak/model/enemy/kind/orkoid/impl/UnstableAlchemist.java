@@ -8,9 +8,9 @@ public class UnstableAlchemist extends AbstractMonster {
     private static final int[] DAMAGE_OPTIONS = {0, 100};
 
     public UnstableAlchemist() {
-        super(MonsterKinds.ORKOID.getKind(), Orkoids.UnstableAlchemist.getName(),
-                Orkoids.UnstableAlchemist.getHealth(), Orkoids.UnstableAlchemist.getInitiative(),
-                Orkoids.UnstableAlchemist.getXp(), Orkoids.UnstableAlchemist.getLevel());
+        super(MonsterKinds.ORKOID.getKind(), Orkoids.UNSTABLE_ALCHEMIST.getName(),
+                Orkoids.UNSTABLE_ALCHEMIST.getHealth(), Orkoids.UNSTABLE_ALCHEMIST.getInitiative(),
+                Orkoids.UNSTABLE_ALCHEMIST.getXp(), Orkoids.UNSTABLE_ALCHEMIST.getLevel());
     }
 
     @Override

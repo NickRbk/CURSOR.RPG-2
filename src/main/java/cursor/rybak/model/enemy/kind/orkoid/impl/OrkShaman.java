@@ -10,9 +10,9 @@ public class OrkShaman extends AbstractMonster {
     private int coolDown = 3;
 
     public OrkShaman() {
-        super(MonsterKinds.ORKOID.getKind(), Orkoids.OrkShaman.getName(),
-                Orkoids.OrkShaman.getHealth(), Orkoids.OrkShaman.getInitiative(),
-                Orkoids.OrkShaman.getXp(), Orkoids.OrkShaman.getLevel());
+        super(MonsterKinds.ORKOID.getKind(), Orkoids.ORK_SHAMAN.getName(),
+                Orkoids.ORK_SHAMAN.getHealth(), Orkoids.ORK_SHAMAN.getInitiative(),
+                Orkoids.ORK_SHAMAN.getXp(), Orkoids.ORK_SHAMAN.getLevel());
     }
 
     @Override

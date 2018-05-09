@@ -14,11 +14,11 @@ public interface MazeConst {
     int LINE_LENGTH_LEVEL_2 = 5;
     int LINE_LENGTH_LEVEL_3 = 6;
 
-    int[] LINE_LEVEL_LENGTH = new int[] {LINE_LENGTH_LEVEL_1, LINE_LENGTH_LEVEL_2, LINE_LENGTH_LEVEL_3};
+    int[] LINE_LEVEL_LENGTH = {LINE_LENGTH_LEVEL_1, LINE_LENGTH_LEVEL_2, LINE_LENGTH_LEVEL_3};
 
     int ROOM_TYPES_COUNT = RoomTypes.values().length;
 
-    String[] ROOM_TYPES_ON_LINE = new String[] {RoomTypes.CROSS.name(), RoomTypes.STRAIGHT.name()};
+    String[] ROOM_TYPES_ON_LINE = {RoomTypes.CROSS.name(), RoomTypes.STRAIGHT.name()};
 
     // subtract 2 because we **exclude** <START> and <END> descriptions
     // (they have special meaning)
